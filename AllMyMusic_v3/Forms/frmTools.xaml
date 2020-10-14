@@ -1,0 +1,186 @@
+﻿<Window x:Class="AllMyMusic_v3.frmTools"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vw="clr-namespace:AllMyMusic_v3.View"
+        xmlns:vm="clr-namespace:AllMyMusic_v3.ViewModel"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:ammControls="clr-namespace:AllMyMusic_v3.Controls"
+        xmlns:ignore="http://www.ignore.com"
+        mc:Ignorable="d" 
+        Title="{Binding Path=Title}"
+        MinWidth="350"
+        MinHeight="450"
+        Loaded="Window_Loaded"
+        Closing="Window_Closing"
+        Name="FormTools"
+        Icon="/AllMyMusic_v3;component/Resources/Icons/AllMyMusic.ico"
+        d:DesignHeight="1000" d:DesignWidth="1600" >
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../ResourceDictionaries/MainSkin.xaml" />
+                <ResourceDictionary Source="../ResourceDictionaries/MainGridSplitter.xaml" />
+                <ResourceDictionary Source="../Styles/ButtonStyle.xaml" />
+                <ResourceDictionary Source="../Styles/BorderStyle.xaml" />
+                <ResourceDictionary Source="../ControlTemplates/ExpanderTemplate.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        
+            <BooleanToVisibilityConverter x:Key="boolToVisibility" />
+            <vw:GridLengthValueConverter x:Key="gridLengthConverter1"/>
+            
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <DockPanel Background="{DynamicResource PagerBackground}">
+        <Border DockPanel.Dock="Top" Style="{StaticResource BorderStyle}">
+            <Label Name="infoArea"
+                   Content="{Binding Path=TitleTip}"
+                   FontSize="12"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Left" />
+        </Border>
+
+        <Border MinHeight="40" DockPanel.Dock="Bottom" Style="{StaticResource BorderStyle}">
+            <Grid>
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding Path=DataContext.TooltipsEnabled , ElementName=FormTools}"/> 
+                    <Label VerticalAlignment="Center">Tool Tips</Label>
+                </StackPanel>
+
+                <StackPanel Name="buttonArea"
+                        Orientation="Horizontal"  FlowDirection="RightToLeft">
+
+                    <Button Name="cmdApply"
+                         Style="{StaticResource ButtonStyle}"
+                        Content="Apply"
+                        Margin="5"
+                        MinWidth="60"
+                        Click="cmdApply_Click" 
+                        IsDefault="True" />
+                    
+                    <Button Name="cmdCancel"
+                        Style="{StaticResource ButtonStyle}"
+                        Content="Cancel"
+                        Margin="5"
+                        MinWidth="60"
+                        Click="cmdCancel_Click" 
+                        IsCancel="True" />
+
+                    <Button Name="cmdOK"
+                        Style="{StaticResource ButtonStyle}"
+                        Content="OK"
+                        Margin="5"
+                        MinWidth="60"
+                        Click="cmdOK_Click" 
+                        IsDefault="False" />
+                    
+                </StackPanel>
+            </Grid>
+            
+        </Border>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{Binding Path=PropertiesViewWidth, Mode=TwoWay, Converter={StaticResource gridLengthConverter1}}"/>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TabControl  Grid.Column="0" SelectedIndex="{Binding Path=TabSelectedIndex}">
+                <TabItem>
+                    <TabItem.Header>
+                        <Label Content="{Binding Path=PropertiesToolLabel}"/>
+                    </TabItem.Header>
+                    <vw:viewPropertiesEditor 
+                                     DataContext="{Binding Path=PropertiesToolVM}" 
+                                     ToolTipService.IsEnabled="{Binding Path=DataContext.TooltipsEnabled, ElementName=FormTools}">
+                        <vw:viewPropertiesEditor.ToolTip>
+                            <ToolTip>
+                                <Label Content="{Binding Path=PropertiesToolTip}"/>
+                            </ToolTip>
+                        </vw:viewPropertiesEditor.ToolTip>
+                    </vw:viewPropertiesEditor>
+                </TabItem>
+                
+                <TabItem>
+                    <TabItem.Header>
+                        <Label Content="{Binding Path=RenameToolLabel}"/>
+                    </TabItem.Header>
+                    <vw:viewRenameTool DataContext="{Binding Path=RenameToolVM}" />
+                </TabItem>
+
+                <TabItem>
+                    <TabItem.Header>
+                        <Label Content="{Binding Path=AutoTagToolLabel}"/>
+                    </TabItem.Header>
+                    <vw:viewAutoTagTool DataContext="{Binding Path=AutoTagToolVM}" />
+                </TabItem>
+            </TabControl>
+
+            <ToggleButton x:Name="ExpanderButton2" 
+                          Background="{StaticResource PagerBackground}"
+                          Margin="0,5,0,0"
+                          Grid.Column="0" 
+                          HorizontalAlignment="Right"
+                          VerticalAlignment="Top"
+                          OverridesDefaultStyle="True"
+                         Template="{StaticResource AnimatedExpanderButtonWidth}"
+                         IsChecked="{Binding Path=ViewColumnSelector}">
+            </ToggleButton>
+            
+
+            <GridSplitter Grid.Column="1"  
+                      Width="10"
+                      HorizontalAlignment="Stretch"
+                      ResizeDirection="Columns"
+                      Style="{DynamicResource GridSplitterStyle1}" />
+
+
+            <Grid Grid.Column="2">
+
+                <Expander Template="{StaticResource RevealExpanderWidth}"
+                          IsExpanded="{Binding Path=ViewColumnSelector}"
+                    OverridesDefaultStyle="True"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top" >
+                    
+                <vw:viewColumnsSelector  ItemsSource="{Binding Path=Columns, ElementName=dataGridTracks}"
+                                         Background="{StaticResource PagerBackground}"
+                                         ToolTipService.IsEnabled="{Binding Path=DataContext.TooltipsEnabled, ElementName=FormTools}"
+                                         Margin="0,0,10,0">
+                        <vw:viewColumnsSelector.ToolTip>
+                            <ToolTip>
+                                <Label  Content="{Binding Path=ColumnSelectorToolTip}"/>
+                            </ToolTip>
+                        </vw:viewColumnsSelector.ToolTip>
+                    </vw:viewColumnsSelector>
+                </Expander>
+                
+                
+            </Grid>
+
+
+            <vw:CustomDataGrid x:Name="dataGridTracks"  Grid.Column="4"
+                    
+                Visibility="{Binding Path=DataContext.PropertiesToolVM.MultipleSongs, ElementName=FormTools, Converter={StaticResource boolToVisibility}}"
+                DataContext="{Binding Path=SongsVM}" 
+                SelectedItemsList="{Binding SelectedSongs, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                ItemsSource="{Binding Path=Songs}" 
+                ToolTipService.IsEnabled="{Binding Path=DataContext.TooltipsEnabled, ElementName=FormTools}">
+                <vw:CustomDataGrid.ToolTip>
+                    <ToolTip>
+                        <Label Content="{Binding Path=DadaGridToolTip}"/>
+                    </ToolTip>
+                </vw:CustomDataGrid.ToolTip>
+            </vw:CustomDataGrid>
+               
+
+        </Grid>
+        
+    </DockPanel>
+
+</Window>

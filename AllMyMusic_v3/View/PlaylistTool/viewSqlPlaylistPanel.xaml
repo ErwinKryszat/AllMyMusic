@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="AllMyMusic_v3.View.viewSqlPlaylistPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:vw="clr-namespace:AllMyMusic_v3.View"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="1024">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../ResourceDictionaries/MainSkin.xaml" />
+                <ResourceDictionary Source="../../ControlTemplates/GroupBoxTemplatey.xaml" />
+                <ResourceDictionary Source="../../Styles/ButtonStyle.xaml" />
+                <ResourceDictionary Source="../../Styles/ComboBoxStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Background="{DynamicResource PagerBackground}">
+            <GroupBox Header="{Binding Path=GroupInsertField}" Margin="0,0,0,0" Template="{StaticResource GroupBoxTemplate }">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <vw:viewQueryFieldSelector DataContext="{Binding Path=QueryComposerViewModel}"/>
+                    <Button Command="{Binding Path=InsertQueryCommand}" Content="{Binding Path=CmdInsertQuery}" Style="{StaticResource ButtonStyle}">
+                        <Button.ToolTip>
+                            <Label>Insert your search condition to the current cursor position.</Label>
+                        </Button.ToolTip>
+                    </Button>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="{Binding Path=GroupOperator}" Margin="10,0,0,0" Template="{StaticResource GroupBoxTemplate }">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <ComboBox ItemsSource="{Binding Path=Operators}" SelectedItem="{Binding Path=SelectedOperator}" Width="100">
+                        <ComboBox.ToolTip>
+                            <Label>Use these operations if you want to search for multiple conditions.</Label>
+                        </ComboBox.ToolTip>
+                    </ComboBox>
+
+                    <Button Name="cmdAddOperator" Command="{Binding Path=InsertOperatorCommand}" Content="{Binding Path=CmdInsertOperator}" Style="{StaticResource ButtonStyle}">
+                        <Button.ToolTip>
+                            <Label>Insert your logical condition to the current cursor position.</Label>
+                        </Button.ToolTip>
+                    </Button>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="{Binding Path=GroupTest}" Margin="10,0,0,0" Template="{StaticResource GroupBoxTemplate }">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button Width="80" Command="{Binding Path=TestQueryCommand}" Content="{Binding Path=CmdTest}" Style="{StaticResource ButtonStyle}">
+                        <Button.ToolTip>
+                            <Label>Test your query. This test verifies that the Syntax is correct.</Label>
+                        </Button.ToolTip>
+                    </Button>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="{Binding Path=GroupExample}" Margin="10,0,0,0" Template="{StaticResource GroupBoxTemplate }">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button Width="80" Command="{Binding Path=ShowExampleCommand}" Content="{Binding Path=CmdExample}" Style="{StaticResource ButtonStyle}">
+                        <Button.ToolTip>
+                            <Label>Use this button to generate a few random examples. Press this button again to see another example.</Label>
+                        </Button.ToolTip>
+                    </Button>
+                </StackPanel>
+            </GroupBox>
+
+        </StackPanel>
+
+        <TextBox x:Name="sqlQueryTexBox1" Grid.Row="1" Margin="0,10,0,0" TextWrapping="Wrap" MinLines ="5" AcceptsReturn="True" Text="{Binding Path=SqlPlaylistQuery}" 
+                 SelectionChanged="TextBox_SelectionChanged" 
+                 TextChanged="sqlQueryTexBox1_TextChanged" />
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,126 @@
+﻿<UserControl x:Class="AllMyMusic_v3.View.viewCommands"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vw="clr-namespace:AllMyMusic_v3.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="600" DataContext="{Binding AlbumCommands}">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../ResourceDictionaries/MainSkin.xaml" />
+                <ResourceDictionary Source="../DataTemplates/AlbumCommandButtonImages.xaml" />
+                <ResourceDictionary Source="../Styles/ButtonStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <BooleanToVisibilityConverter x:Key="messageBoxVisibleConverter1"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <vw:viewMessageBoxOkCancel Grid.Row="0" 
+                                   DataContext="{Binding Path=MessageBoxViewModel}"
+                                   Visibility="{Binding Path=MessageBoxVisible, Converter={StaticResource messageBoxVisibleConverter1}}"/>
+
+        <Grid Height="30" Background="{DynamicResource PagerBackground}" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="0" HorizontalAlignment="Left" MinWidth="140">
+                <Button Content="{StaticResource editImage}" 
+                    Margin="2" 
+                    Command="{Binding Path=ToolsCommand}"
+                    Style="{StaticResource ButtonStyle}">
+                    <Button.ToolTip>
+                        <Label Content="{Binding Path=Cmd_Properties_ToolTip}"/>
+                    </Button.ToolTip>
+                </Button>
+
+                <Button  
+                    Margin="2" 
+                    Command="{Binding Path=ManageImagesCommand}"
+                    Style="{StaticResource ButtonStyle}">
+                    <Button.Content>
+                        <Image Source="/AllMyMusic_v3;component/Resources/images/CD_32.png">
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter Property="Opacity" Value="0.5" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button.Content>
+                    <Button.ToolTip>
+                        <Label Content="{Binding Path=Cmd_CoverImages_ToolTip}"/>
+                    </Button.ToolTip>
+                </Button>
+                
+                <Button  Content="{StaticResource deleteImage}" 
+                    Margin="2" 
+                    Command="{Binding Path=DeleteCommand}"
+                    Style="{StaticResource ButtonStyle}">
+                    <Button.ToolTip>
+                        <Label Content="{Binding Path=Cmd_Delete_ToolTip}"/>
+                    </Button.ToolTip>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right"  MinWidth="140" FlowDirection="RightToLeft">
+                <Button  Content="{StaticResource wikipediaImage}" 
+                    Margin="2" 
+                    Command="{Binding Path=WikipediaCommand}"
+                    Style="{StaticResource ButtonStyle}">
+                    <Button.ToolTip>
+                        <Label Content="{Binding Path=Cmd_Wikipedia_ToolTip}"/>
+                    </Button.ToolTip>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center" MinWidth="140">
+
+                <Button  Content="{StaticResource playNowImage}" 
+                    Margin="2" 
+                    Command="{Binding Path=PlayNowCommand}"
+                    Style="{StaticResource ButtonStyle}">
+                    <Button.ToolTip>
+                        <Label Content="{Binding Path=Cmd_PlayNow_ToolTip}"/>
+                    </Button.ToolTip>
+                </Button>
+
+                <Button  Content="{StaticResource playNextImage}" 
+                    Margin="2" 
+                    Command="{Binding Path=PlayNextCommand}"
+                    Style="{StaticResource ButtonStyle}">
+                    <Button.ToolTip>
+                        <Label Content="{Binding Path=Cmd_PlayNext_ToolTip}"/>
+                    </Button.ToolTip>
+                </Button>
+
+                <Button Content="{StaticResource playLastImage}" 
+                    Margin="2" 
+                    Command="{Binding Path=PlayLastCommand}"
+                    Style="{StaticResource ButtonStyle}">
+                    <Button.ToolTip>
+                        <Label Content="{Binding Path=Cmd_PlayLast_ToolTip}"/>
+                    </Button.ToolTip>
+                </Button>
+
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+
+    
+</UserControl>

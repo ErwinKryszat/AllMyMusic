@@ -1,0 +1,168 @@
+﻿<Window x:Class="AllMyMusic_v3.frmPartyButtonDesigner"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vw="clr-namespace:AllMyMusic_v3.View"
+        xmlns:vm="clr-namespace:AllMyMusic_v3.ViewModel"
+        Title="{Binding Path=FormTitle}" Height="600" Width="800"
+        Icon="/AllMyMusic_v3;component/Resources/Icons/AllMyMusic.ico"
+        MinWidth="1024"
+        MinHeight="786"
+        Loaded="Window_Loaded"
+        Closing="Window_Closing">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../ResourceDictionaries/MainSkin.xaml" />
+                <ResourceDictionary Source="../ControlTemplates/GroupBoxTemplatey.xaml" />
+                <ResourceDictionary Source="../Styles/BorderStyle.xaml" />
+                <ResourceDictionary Source="../Styles/ButtonStyle.xaml" />
+                <ResourceDictionary Source="../Styles/ComboBoxStyle.xaml" />
+                <ResourceDictionary Source="../Styles/ToolbarButtonStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type vm:AlbumPlaylistViewModel}">
+                <vw:viewAlbumPlaylistPanel />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:SongPlaylistViewModel}">
+                <vw:viewSongsPlaylistPanel />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:SqlPlaylistViewModel}">
+                <vw:viewSqlPlaylistPanel />
+            </DataTemplate>
+
+
+        </ResourceDictionary>
+
+    </Window.Resources>
+
+    <DockPanel Background="{DynamicResource PagerBackground}">
+        <Border Style="{StaticResource BorderStyle}" DockPanel.Dock="Top">
+            <Label Content="{Binding Path=FormPuropose}"
+                   FontSize="12"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center" />
+        </Border>
+
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ToolBar Grid.Row="0" Background="{DynamicResource HeadlineBackground}">
+                <Button  Margin="3" Style="{StaticResource ToolbarButtonStyle}" Command="{Binding Path=DeleteSelectedButtonCommand}">
+                    <Label Content="{Binding Path=DeleteSelectedCommandLabel}" FontWeight="Bold"></Label>
+                </Button>
+                <Button  Margin="3"  Style="{StaticResource ToolbarButtonStyle}" Command="{Binding Path=AddButtonCommand}">
+                    <Label Content="{Binding Path=AddNewCommandLabel}" FontWeight="Bold"></Label>
+                </Button>
+            </ToolBar>
+
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+
+                <GroupBox Header="{Binding Path=GroupSelectPlaylist}"  Margin="10,10,0,0" Template="{StaticResource GroupBoxTemplate }">
+                    <ListBox Width="200"
+                             ItemsSource="{Binding Path=PlaylistConfigurations}"
+                             SelectedItem="{Binding Path=SelectedPlaylistConfiguration}" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding ButtonLabel}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </GroupBox>
+
+                <GroupBox Header="{Binding Path=GroupDesignPlaylist}" Margin="10,10,0,0" Template="{StaticResource GroupBoxTemplate }" >
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Name="labelButtonText"   Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right">Playlist Text</Label>
+                        <Label Name="labelButtonType"   Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right">Playlist Type</Label>
+                        <Label Name="labelPlayRandom"   Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right">PlayRandom</Label>
+                        <Label Name="labelButtonImage"  Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right">Playlist Image</Label>
+                        <Label Name="labelToolTipImage" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right">Tooltip Image</Label>
+                        <Label Name="labelToolTipText"  Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right">Tooltip Text</Label>
+
+                        <TextBox  Grid.Row="0" Grid.Column="1" Margin="10,0,10,0" Text="{Binding Path=ButtonLabel}" Height="26" VerticalAlignment="Top" />
+                        <ComboBox Grid.Row="1" Grid.Column="1" Margin="10,0,10,0" ItemsSource="{Binding Path=PlaylistTypes}" SelectedItem="{Binding Path=SelectedPlaylistType}" />
+                        <CheckBox Grid.Row="2" Grid.Column="1" Margin="10,0,10,0" VerticalAlignment="Center"  IsChecked="{Binding Path=RandomPlaylist}" />
+                        <Button   Grid.Row="3" Grid.Column="1" Margin="10,0,10,0" Content="Browse"  Command="{Binding Path=SelectButtonImageCommand}" Style="{StaticResource ButtonStyle}" />
+                        <Button   Grid.Row="4" Grid.Column="1" Margin="10,0,10,0" Content="Browse"  Command="{Binding Path=SelectTooltipImageCommand}" Style="{StaticResource ButtonStyle}" />
+                        <TextBox  Grid.Row="5" Grid.Column="1" Margin="10,0,10,0" Width="150" Height="40"  TextWrapping="WrapWithOverflow" AcceptsReturn="True" Text="{Binding Path=ToolTipText}"/>
+
+                    </Grid>
+                </GroupBox>
+
+                <GroupBox Header="{Binding Path=GroupPreviewPlaylist}" Margin="10,10,0,0" Template="{StaticResource GroupBoxTemplate }">
+                    <StackPanel Orientation="Vertical" Margin="10">
+                        <Button Height="64" Width="64">
+                            <Image Source="{Binding Path=SampleButtonImage}" />
+                            <Button.ToolTip>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="{Binding Path=ToolTipImage}"/>
+                                    <Label Content="{Binding Path=ToolTipText}"/>
+                                </StackPanel>
+                            </Button.ToolTip>
+                        </Button>
+                        <Label Content="{Binding Path=SampleButtonLabel}" />
+                    </StackPanel>
+                </GroupBox>
+
+            </StackPanel>
+
+
+            <DockPanel Margin="10" Visibility="Visible" Grid.Row="2">
+                <ContentPresenter Content="{Binding Path=CurrentViewModel}" />
+                <!--<vw:viewSqlPlaylistPanel DataContext="{Binding Path=SqlPlaylistViewModel}"/>-->
+                <!--<vw:viewAlbumPlaylistPanel DataContext="{Binding Path=AlbumPlaylistViewModel}"/>-->
+                <!--<vw:viewSongsPlaylistPanel DataContext="{Binding Path=SongPlaylistViewModel}"/>-->
+            </DockPanel>
+
+
+
+            <Border Style="{StaticResource BorderStyle}" MinHeight="40" Grid.Row="3">
+
+                <StackPanel Name="buttonArea"
+                        Orientation="Horizontal"  FlowDirection="RightToLeft">
+
+                    <Button Name="cmdCancel"
+                        Content="Cancel"
+                        Margin="5"
+                        MinWidth="60"
+                        Style="{StaticResource ButtonStyle}"
+                        Click="cmdCancel_Click" IsCancel="True" />
+
+                    <Button Name="cmdOK"
+                        Content="OK"
+                        Margin="5"
+                        IsDefault="True"
+                        MinWidth="60"
+                        Style="{StaticResource ButtonStyle}"
+                        Click="cmdOK_Click" />
+
+                </StackPanel>
+            </Border>
+
+        </Grid>
+
+    </DockPanel>
+
+</Window>

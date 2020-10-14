@@ -1,0 +1,101 @@
+﻿<UserControl x:Class="AllMyMusic_v3.Controls.KnobControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="400" 
+             d:DataContext="{d:DesignData Source=../DesignTimeData/KnobDesignData.xaml}"
+             x:Name="knobControl"
+             Loaded="UserControl_Loaded">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../ResourceDictionaries/MainSkin.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Color x:Key="ColorLightSteelBlue" A="255" R="176" G="196" B="222"/>
+            <Color x:Key="ColorLightSteelBlueDark" A="255" R="146" G="166" B="192"/>
+            <Color x:Key="ColorLightSteelBlueLight" A="255" R="196" G="216" B="232"/>
+
+        </ResourceDictionary>
+        
+
+    </UserControl.Resources>
+
+
+    <Grid Background="{DynamicResource PagerBackground}">
+        <!--Outside Circle-->
+        <Ellipse >
+            <Ellipse.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                    <GradientStop Color="{StaticResource ColorLightSteelBlueDark}" Offset="0.2"/>
+                    <GradientStop Color="{StaticResource ColorLightSteelBlueLight}" Offset=".5"/>
+                </LinearGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+
+        <!--Scaling Strokes-->
+        <ItemsControl HorizontalAlignment="Center" VerticalAlignment="Top" ItemsSource="{Binding ElementName=knobControl, Path=Scaling}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Line X1="0" Y1="0" X2="0" Y2="{Binding ElementName=knobControl, Path=BorderWidth}" Stroke="WhiteSmoke" StrokeThickness="2">
+                        <Line.RenderTransform>
+                            <RotateTransform CenterX="0" CenterY="{Binding ElementName=knobControl, Path=StrokeCenterY}" Angle="{Binding}"/>
+                        </Line.RenderTransform>
+                    </Line>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        
+        <Grid x:Name="mainGrid" Margin="{Binding ElementName=knobControl, Path=BorderWidth}">
+
+            <!--Big Backgroun circle-->
+            <Ellipse MouseMove="My_MouseMove" 
+                     MouseLeftButtonDown="My_PreviewMouseLeftButtonDown" 
+                     MouseLeftButtonUp="My_PreviewMouseLeftButtonUp"
+                     Stroke="Black"
+                     >
+                <Ellipse.Fill>
+                    <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1" >
+                        <GradientStop Color="{StaticResource ColorLightSteelBlueLight}" Offset="0"/>
+                        <GradientStop Color="{StaticResource ColorLightSteelBlue}" Offset="0.5"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+
+            <Grid>
+                <Grid.RenderTransform>
+                    <RotateTransform CenterX="{Binding ElementName=knobControl, Path=CenterX}" CenterY="{Binding ElementName=knobControl, Path=CenterY}" Angle="{Binding ElementName=knobControl, Path=Angle}"/>
+                </Grid.RenderTransform>
+                <Ellipse Width="{Binding ElementName=knobControl, Path=DialSize}" Height="{Binding ElementName=knobControl, Path=DialSize}" VerticalAlignment="Top" Margin="{Binding ElementName=knobControl, Path=DialMargin}" 
+                     MouseLeftButtonDown="My_PreviewMouseLeftButtonDown" 
+                     MouseLeftButtonUp="My_PreviewMouseLeftButtonUp" Stroke="Gray">
+
+
+                    <Ellipse.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="{StaticResource ColorLightSteelBlue}" Offset="0"/>
+                            <GradientStop Color="{StaticResource ColorLightSteelBlueDark}" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+
+                    <Ellipse.RenderTransform>
+                        <RotateTransform CenterX="{Binding ElementName=knobControl, Path=DialCenterX}" CenterY="{Binding ElementName=knobControl, Path=DialCenterY}" Angle="{Binding ElementName=knobControl, Path=AngleThumb}"/>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+            </Grid>
+        </Grid>
+
+    </Grid>
+    
+    
+
+</UserControl>

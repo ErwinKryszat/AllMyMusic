@@ -1,0 +1,72 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vw="clr-namespace:AllMyMusic_v3.View">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../ResourceDictionaries/MainSkin.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter1"/>
+
+
+
+
+    <DataTemplate x:Key="AlbumItemTemplate">
+
+        <Border x:Name="ItemBackground">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=IsSelected}" Value="True">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                        <GradientStop Color="#FFF3F3F3" Offset="1"/>
+                                        <GradientStop Color="LawnGreen" Offset="0.307"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+
+            <Grid Background="{StaticResource AlbumItemBackground}" Margin="10">
+                <Border BorderBrush="#49FFFFFF" BorderThickness="2,2,0,0"/>
+                <Border BorderBrush="#49000000" BorderThickness="0,0,2,2"/>
+
+                <StackPanel>
+
+
+                    <Image x:Name="albumCover"
+                               Source="{Binding Path=StampImage}"
+                               Margin="5"
+                               Height="{Binding Path=DataContext.StampImageSize, RelativeSource={RelativeSource AncestorType={x:Type vw:viewAlbumList}}}" 
+                               Width="{Binding Path=DataContext.StampImageSize, RelativeSource={RelativeSource AncestorType={x:Type vw:viewAlbumList}}}"/>
+
+                    <TextBlock Text="{Binding Path=BandName}" 
+                           TextWrapping="Wrap" Foreground="{StaticResource TextBrush}" 
+                           Margin="5,0,0,0" 
+                           FontWeight="Normal" 
+                           FontSize="16"
+                           Width="{Binding ElementName=albumCover, Path=ActualWidth}"
+                           Visibility="{Binding Path=DataContext.BandNameVisbility, Converter={StaticResource booleanToVisibilityConverter1}, RelativeSource={RelativeSource AncestorType={x:Type vw:viewAlbumList}}}" />
+
+
+                    <TextBlock Text="{Binding Path=YearAndTitle}" 
+                           TextWrapping="Wrap" Foreground="{StaticResource TextBrush}" 
+                           FontWeight="Normal" 
+                           FontSize="16"
+                           Margin="5,0,0,0" Width="{Binding ElementName=albumCover, Path=ActualWidth}"/>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+        
+    </DataTemplate>
+
+</ResourceDictionary>
+

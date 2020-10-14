@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="AllMyMusic_v3.View.viewAlbumPlaylistPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vw="clr-namespace:AllMyMusic_v3.View"
+             Name="albumPlaylistPanel"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1024">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../ResourceDictionaries/MainSkin.xaml" />
+                <ResourceDictionary Source="../../ControlTemplates/GroupBoxTemplatey.xaml" />
+                <ResourceDictionary Source="../../ResourceDictionaries/MainGridSplitter.xaml" />
+                <ResourceDictionary Source="../../Styles/ButtonStyle.xaml" />
+                <ResourceDictionary Source="../../Styles/ComboBoxStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <vw:GridLengthValueConverter x:Key="gridLengthConverter1"/>
+            <BooleanToVisibilityConverter x:Key="boolToVisibilityConverter1"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Background="{DynamicResource PagerBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="Insert a Field" Margin="0,0,0,0" Grid.Row="0" Template="{StaticResource GroupBoxTemplate }">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <vw:viewQueryFieldSelector DataContext="{Binding Path=QueryComposerViewModel}" />
+                <Button  Content="Search" Command="{Binding Path=SearchAlbumsCommand}" Style="{StaticResource ButtonStyle}"/>
+            </StackPanel>
+        </GroupBox>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="{Binding Path=AlbumListLeft.AlbumListViewWidth, Mode=TwoWay, Converter={StaticResource gridLengthConverter1}}" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+
+            <vw:viewAlbumList DataContext="{Binding Path=AlbumListLeft}"
+                              Grid.Column="0" 
+                              Margin="0,10,10,0"/>
+
+            <GridSplitter Grid.Column="1"  
+                      Width="10"
+                      HorizontalAlignment="Stretch"
+                      ResizeDirection="Columns"
+                      ResizeBehavior="PreviousAndCurrent"
+                      Style="{DynamicResource GridSplitterStyle1}" />
+
+            <StackPanel Orientation="Vertical" Grid.Column="2" Margin="0,60,0,0">
+                <Button Name="cmdAddAllAlbums" Content="&gt;&gt;" Command="{Binding Path=AddAllAlbumsCommand}" Style="{StaticResource ButtonStyle}"/>
+                <Button Name="cmdAddSelectedAlbums" Content="&gt;" Command="{Binding Path=AddSelectedAlbumsCommand}" Margin="0,10,0,0" Style="{StaticResource ButtonStyle}"/>
+                <Button Name="cmdRemoveSelectedAlbums" Content="&lt;" Command="{Binding Path=RemoveSelectedAlbumsCommand}" Margin="0,10,0,0" Style="{StaticResource ButtonStyle}"/>
+                <Button Name="cmdRemoveAllAlbums" Content="&lt;&lt;" Command="{Binding Path=RemoveAllAlbumsCommand}" Margin="0,10,0,0" Style="{StaticResource ButtonStyle}"/>
+            </StackPanel>
+
+
+            <Grid Grid.Column="3" Margin="10,10,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <vw:viewAlbumList DataContext="{Binding Path=AlbumListRight}" Grid.Row="0" />
+
+                <ProgressBar Grid.Row="1" Height="4"  
+                     Value="{Binding Path=ProgressValue}" 
+                     Visibility="{Binding Path=ProgressBarVisible, Converter={StaticResource boolToVisibilityConverter1}}"/>
+                
+            </Grid>
+            
+           
+
+            <StackPanel Orientation="Horizontal" Grid.Column="4" Margin="0,60,0,0" VerticalAlignment="Center">
+                <Button Name="cmdMoveAlbumsUp" Command="{Binding Path=MoveAlbumsUpCommand}" Width="16" Margin="3,0,0,0" Style="{StaticResource ButtonStyle}">
+                    <Button.Content>
+                        <Image Source="/AllMyMusic_v3;component/Resources/Images/Arrow_Up.png"/>
+                    </Button.Content>
+                </Button>
+                <Button Name="cmdMoveAlbumsDown"  Command="{Binding Path=MoveAlbumsDownCommand}" Width="16" Margin="3,0,0,0" Style="{StaticResource ButtonStyle}">
+                    <Button.Content>
+                        <Image Source="/AllMyMusic_v3;component/Resources/Images/Arrow_Down.png"/>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+            
+        </Grid>
+    </Grid>
+</UserControl>

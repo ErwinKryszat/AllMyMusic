@@ -1,0 +1,185 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <SolidColorBrush x:Key="buttonImageBrush" Color="Black"/>
+    <SolidColorBrush x:Key="buttonImagePen" Color="Black"/>
+
+
+    <Grid x:Key="firstPageImage">
+        <Image Margin="5">
+            <Image.Source>
+                <DrawingImage>
+                    <DrawingImage.Drawing>
+                        <GeometryDrawing Brush="{StaticResource buttonImageBrush}">
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="{StaticResource buttonImagePen}" Thickness="2" />
+                            </GeometryDrawing.Pen>
+                            <GeometryDrawing.Geometry>
+                                <GeometryGroup>
+                                    <RectangleGeometry Rect="0,0,10,100" />
+                                    <PathGeometry>
+                                        <PathFigure StartPoint="10,50" IsClosed="True">
+                                            <LineSegment Point="100,0"/>
+                                            <LineSegment Point="100,100"/>
+                                        </PathFigure>
+                                    </PathGeometry>
+                                </GeometryGroup>
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingImage.Drawing>
+                </DrawingImage>
+            </Image.Source>
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Style.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.5" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+    </Grid>
+
+
+    <Grid  x:Key="prevPageImage">
+        <Image Margin="5">
+            <Image.Source>
+                <DrawingImage>
+                    <DrawingImage.Drawing>
+                        <GeometryDrawing Brush="{StaticResource buttonImageBrush}">
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="{StaticResource buttonImagePen}" Thickness="2" />
+                            </GeometryDrawing.Pen>
+                            <GeometryDrawing.Geometry>
+                                <PathGeometry>
+                                    <PathFigure StartPoint="0,50" IsClosed="True">
+                                        <LineSegment Point="100,0"/>
+                                        <LineSegment Point="100,100"/>
+                                    </PathFigure>
+                                </PathGeometry>
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingImage.Drawing>
+                </DrawingImage>
+            </Image.Source>
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Style.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.5" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+    </Grid>
+
+
+    <Grid x:Key="nextPageImage">
+        <Image Margin="5">
+            <Image.Source>
+                <DrawingImage>
+                    <DrawingImage.Drawing>
+                        <GeometryDrawing Brush="{StaticResource buttonImageBrush}">
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="{StaticResource buttonImagePen}" Thickness="2" />
+                            </GeometryDrawing.Pen>
+                            <GeometryDrawing.Geometry>
+                                <PathGeometry>
+                                    <PathFigure StartPoint="0,0" IsClosed="True">
+                                        <LineSegment Point="90,50"/>
+                                        <LineSegment Point="0,100"/>
+                                    </PathFigure>
+                                </PathGeometry>
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingImage.Drawing>
+                </DrawingImage>
+            </Image.Source>
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Style.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.5" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+    </Grid>
+
+
+    <Grid x:Key="lastPageImage">
+        <Image Margin="5">
+            <Image.Source>
+                <DrawingImage>
+                    <DrawingImage.Drawing>
+                        <GeometryDrawing Brush="{StaticResource buttonImageBrush}">
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="{StaticResource buttonImagePen}" Thickness="2" />
+                            </GeometryDrawing.Pen>
+                            <GeometryDrawing.Geometry>
+                                <GeometryGroup>
+                                    <PathGeometry>
+                                        <PathFigure StartPoint="0,0" IsClosed="True">
+                                            <LineSegment Point="90,50"/>
+                                            <LineSegment Point="0,100"/>
+                                        </PathFigure>
+                                    </PathGeometry>
+                                    <RectangleGeometry Rect="90,0,10,100" />
+                                </GeometryGroup>
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingImage.Drawing>
+                </DrawingImage>
+            </Image.Source>
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Style.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.5" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+    </Grid>
+
+
+    <Grid x:Key="showAllImage">
+        <Image Margin="5">
+            <Image.Source>
+                <DrawingImage>
+                    <DrawingImage.Drawing>
+                        <GeometryDrawing Brush="{StaticResource buttonImageBrush}">
+                            <GeometryDrawing.Pen>
+                                <Pen Brush="{StaticResource buttonImagePen}" Thickness="2" />
+                            </GeometryDrawing.Pen>
+                            <GeometryDrawing.Geometry>
+                                <GeometryGroup>                                   
+                                    <RectangleGeometry Rect="10,10,30,30" />
+                                    <RectangleGeometry Rect="60,10,30,30" />
+                                    <RectangleGeometry Rect="10,60,30,30" />
+                                    <RectangleGeometry Rect="60,60,30,30" />
+                                </GeometryGroup>
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingImage.Drawing>
+                </DrawingImage>
+            </Image.Source>
+            <Image.Style>
+                <Style TargetType="Image">
+                    <Style.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.5" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+    </Grid>
+
+
+</ResourceDictionary>		

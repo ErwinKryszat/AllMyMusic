@@ -1,0 +1,19 @@
+﻿<m:SongItem
+    xmlns:m="clr-namespace:AllMyMusic_v3"
+    BandName="Iron Maiden" 
+    AlbumName ="Killers"
+    Year="1981"
+    Genre="Heavy Metal"
+    Track="1"
+    Duration="04:53"
+    SongTitle="We will rock you"
+    SampleRate="41100"
+    Bitrate="192000"
+    Rating="204"
+    CountryId="1"
+    SongPath="D:\Music\AllMyMusic\Hardrock\Iron Maiden\1981 Killers\"
+    StampImageFileName="Iron Maiden - Killers - Stamp.jpg">
+</m:SongItem>
+
+
+    

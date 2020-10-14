@@ -1,0 +1,94 @@
+﻿<Window x:Class="AllMyMusic_v3.frmCountryImageSelector"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vw="clr-namespace:AllMyMusic_v3.View"
+        vw:DialogCloser.DialogResult="{Binding Path=DialogResult}"
+        Title="Country Image Selector" Height="220" Width="420">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../ResourceDictionaries/MainSkin.xaml" />
+                <ResourceDictionary Source="../Styles/ButtonStyle.xaml" />
+                <ResourceDictionary Source="../Styles/BorderStyle.xaml" />
+                <ResourceDictionary Source="../Styles/ComboBoxStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            
+            <vw:CountryImageConverter x:Key="countryImageConverter1"/>
+            
+        </ResourceDictionary>
+        
+    </Window.Resources>
+    
+ 
+    <Grid Background="{DynamicResource PagerBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="10">
+            <StackPanel Margin="0,0,10,0">
+                <Label Content="{Binding Path=LabelInternationalCountryName}" />
+                <ComboBox ItemsSource="{Binding Path=CountryItems}" 
+                    DisplayMemberPath="Country" 
+                    IsSynchronizedWithCurrentItem="True"
+                    SelectedItem="{Binding Path=SelectedCountry, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    MinHeight="23"
+                    MinWidth="200"/>
+            </StackPanel>
+            <StackPanel Margin="10,0,10,0">
+                <Label Content="{Binding Path=LabelCountryAbbreviation}" />
+                <Label Content="{Binding Path=Abbreviation}" />
+            </StackPanel>
+        </StackPanel>
+
+
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10">
+            <Button Content="{Binding Path=Cmd_Harddisk}" 
+                    Style="{StaticResource ButtonStyle}"
+                    Command="{Binding Path=SearchHarddiskCommand}" 
+                    MinWidth="80" Margin="10,0,10,0"/>
+
+            <Button Content="{Binding Path=Cmd_Internet}" 
+                    Style="{StaticResource ButtonStyle}"
+                    Command="{Binding Path=SearchInternetCommand}" 
+                    MinWidth="80" Margin="10,0,10,0"/>
+
+            <Border BorderThickness="1" BorderBrush="Black">
+                <Image  DataContext="{Binding Path=SelectedCountry}"
+                        Source="{Binding Path=FlagPath, Converter={StaticResource countryImageConverter1}}"
+                        Height="40" 
+                        Width="74" />
+            </Border>
+        </StackPanel>
+
+
+        <Border MinHeight="40" Grid.Row="2">
+
+            <StackPanel Name="buttonArea"
+                    Orientation="Horizontal"  FlowDirection="RightToLeft">
+
+                <Button Name="cmdCancel"
+                    Style="{StaticResource ButtonStyle}"
+                    Content="Cancel"
+                        Command="{Binding Path=CancelCommand}"
+                    Margin="5"
+                    MinWidth="60"
+                    IsCancel="True" />
+
+                <Button Name="cmdOK"
+                    Style="{StaticResource ButtonStyle}"
+                    Content="OK"
+                    Command="{Binding Path=OKCommand}"
+                    Margin="5"
+                    MinWidth="60"
+                    IsDefault="True" />
+            </StackPanel>
+        </Border>
+            
+    </Grid>
+          
+</Window>

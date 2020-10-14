@@ -1,0 +1,14 @@
+﻿<model:AlbumItem
+    xmlns:model="clr-namespace:AllMyMusic_v3"
+    BandName="Iron Maiden" 
+    AlbumName ="Killers"
+    Year="1981"
+    Genre="Heavy Metal"
+    AlbumGenre="Hardrock"
+    AlbumPath="D:\Music\AllMyMusic\Hardrock\Iron Maiden\1985 Live After Death CD1\"
+    FrontImageFullpath ="D:\Music\AllMyMusic\Hardrock\Iron Maiden\1985 Live After Death CD1\Iron Maiden - Live After Death CD1 - Frontal.jpg"
+    SongCount="12">
+</model:AlbumItem>
+
+
+    

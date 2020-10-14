@@ -1,0 +1,150 @@
+﻿<UserControl x:Class="AllMyMusic_v3.View.viewPlayerSongItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vw="clr-namespace:AllMyMusic_v3.View"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignData Source=../../DesignTimeData/SongItemDesignData.xaml}"
+             d:DesignHeight="200" d:DesignWidth="600">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../ResourceDictionaries/MainSkin.xaml" />
+                <ResourceDictionary Source="../../ControlTemplates/RatingSliderTemplate.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <vw:PlaytimeConverter x:Key="playtimeConverter1" />
+            
+            <Style x:Key="descriptionLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="12" />
+            </Style>
+
+            <Style x:Key="bandLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Style>
+
+            <Style x:Key="albumLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Style>
+
+            <Style x:Key="songLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Style>
+            
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Background="{DynamicResource PagerBackground}">
+
+        <!-- (Band, Album, Song)  (Rating, Country)  (all details) -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Bandname, Albumname, Song Title-->
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="{Binding Path=BandLabel}" Style="{StaticResource descriptionLabelStyle}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <Label Grid.Row="1" Grid.Column="0" Content="{Binding Path=AlbumLabel}" Style="{StaticResource descriptionLabelStyle}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <Label Grid.Row="2" Grid.Column="0" Content="{Binding Path=SongTitleLabel}" Style="{StaticResource descriptionLabelStyle}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+
+            <Label Grid.Row="0" Grid.Column="1" Content="{Binding Path=Song.BandName}" Style="{StaticResource bandLabelStyle}" />
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding Path=Song.AlbumName}" Style="{StaticResource albumLabelStyle}" />
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding Path=Song.SongTitle}" Style="{StaticResource songLabelStyle}" />
+        </Grid>
+
+   
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+
+            <Label Content="{Binding Path=RatingLabel}" Style="{StaticResource descriptionLabelStyle}" />
+
+            <vw:RatingSlider 
+                x:Name="ratingSlider"
+                Template="{StaticResource RatingSliderTemplate}" 
+                Height="21" 
+                TagValue="{Binding Path=Rating}"
+                ForegroundRectColor="{DynamicResource PagerBackground}"
+                PreviewMouseLeftButtonUp="RatingSlider_PreviewMouseLeftButtonUp"/>
+
+            
+            <vw:viewCountry  
+                Margin="10,0,0,0"
+                Height="21"
+                MinHeight="20"
+                MinWidth="40"
+                DataContext="{Binding Path=Country}"
+                d:DataContext="{d:DesignData Source=../../DesignTimeData/CountryItemDesignData.xaml}"/>
+
+        </StackPanel>
+
+
+
+        <!-- all Song details -->
+        <StackPanel Orientation="Horizontal"  Grid.Row="2">
+            
+            <StackPanel Orientation="Horizontal">
+                <Label Content="{Binding Path=CurrentTime}" Style="{StaticResource descriptionLabelStyle}" />
+                <Label Content="/"/>
+                <Label Content="{Binding Path=Song.Duration}" Style="{StaticResource descriptionLabelStyle}" />
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <Label Content="{Binding Path=TrackLabel}" Style="{StaticResource descriptionLabelStyle}" />
+                <Label Content="{Binding Path=Song.Track}"  Padding="0,5,5,5" Style="{StaticResource descriptionLabelStyle}" />
+            </StackPanel>           
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="{Binding Path=Song.Bitrate}" Style="{StaticResource descriptionLabelStyle}" >
+                    <Label.ToolTip>
+                        <Label Content="Bitrate"/>
+                    </Label.ToolTip>
+                </Label>
+                <Label Content="kBps" Padding="0,5,5,5" Style="{StaticResource descriptionLabelStyle}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                <Label  Content="{Binding  Path=Song.SampleRate}" Style="{StaticResource descriptionLabelStyle}">
+                    <Label.ToolTip>
+                        <Label Content="Samplerate"/>
+                    </Label.ToolTip>
+                </Label>
+                <Label Content="kHz"  Padding="0,5,5,5" Style="{StaticResource descriptionLabelStyle}" />
+            </StackPanel>
+
+            <Label Margin="10,0,0,0" Content="{Binding Path=Song.Genre}" Style="{StaticResource descriptionLabelStyle}">
+                <Label.ToolTip>
+                    <Label Content="{Binding Path=GenreLabel}"/>
+                </Label.ToolTip>
+            </Label>
+
+            <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                <Label Content="{Binding Path=YearLabel}"  Style="{StaticResource descriptionLabelStyle}" />
+                <Label Content="{Binding Path=Song.Year}" Padding="0,5,5,5" Style="{StaticResource descriptionLabelStyle}" >
+                    <Label.ToolTip>
+                        <Label Content="{Binding Path=YearLabel}"/>
+                    </Label.ToolTip>
+                </Label>
+            </StackPanel>
+            
+            
+        </StackPanel>
+
+    </Grid>
+</UserControl>

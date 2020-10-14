@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="AllMyMusic_v3.View.viewQueryFieldSelector"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="600">
+
+    <StackPanel Orientation="Horizontal">
+        <ComboBox  Width="140" Margin="0,0,10,0" ItemsSource="{Binding Path=FieldNames}" SelectedItem="{Binding Path=SelectedFieldName}">
+            <ComboBox.ToolTip>
+                <Label Content="{Binding Path=Tooltip_Fieldname}"></Label>
+            </ComboBox.ToolTip>
+        </ComboBox>
+
+        <ComboBox Width="100" Margin="0,0,10,0" ItemsSource="{Binding Path=CompareOperators}" SelectedItem="{Binding Path=SelectedCompareOperator}">
+            <ComboBox.ToolTip>
+                <Label Content="{Binding Path=Tooltip_CompareOperators}"></Label>
+            </ComboBox.ToolTip>
+        </ComboBox>
+
+        <ComboBox Width="40" Margin="0,0,10,0" IsEditable="True" ItemsSource="{Binding Path=Alphabet}" SelectedItem="{Binding Path=SelectedAlphabet}">
+            <ComboBox.ToolTip>
+                <Label Content="{Binding Path=Tooltip_Alphabet}"></Label>
+            </ComboBox.ToolTip>
+        </ComboBox>
+
+        <ComboBox Width="160" Margin="0,0,10,0" IsEditable="True" ItemsSource="{Binding Path=FieldValues}" SelectedItem="{Binding Path=SelectedFieldValue}">
+            <ComboBox.ToolTip>
+                <Label Content="{Binding Path=Tooltip_FieldValues}"></Label>
+            </ComboBox.ToolTip>
+        </ComboBox>       
+    </StackPanel>
+
+</UserControl>

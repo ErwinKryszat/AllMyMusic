@@ -1,0 +1,15 @@
+﻿<local:KnobControlDesignData
+    xmlns:local="clr-namespace:AllMyMusic_v3"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    Angle="0"
+    BorderWidth="10"
+    DialSize="15"
+    CenterX="200"
+    CenterY="200"
+    Value="45"
+    >
+   
+
+</local:KnobControlDesignData>
+
+    

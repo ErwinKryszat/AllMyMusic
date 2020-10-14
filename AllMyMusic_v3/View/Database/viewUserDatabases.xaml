@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="AllMyMusic_v3.View.viewUserDatabases"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="80" d:DesignWidth="200">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../ResourceDictionaries/MainSkin.xaml" />
+                <ResourceDictionary Source="../../Styles/ButtonStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Background="{DynamicResource PagerBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="150"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+
+
+        <ListView  
+            Grid.Column="0" 
+            Grid.RowSpan="3"
+            Name="lbUserDatabases"
+            ItemsSource="{Binding Path=UserDatabaseNames}" 
+            SelectedItem="{Binding Path=SelectedDatabase}">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+            <ListBox.ToolTip>
+                <Label Content="{Binding Path=Listbox_DatabaseNames_ToolTip}"/>
+            </ListBox.ToolTip>
+
+        </ListView>
+
+
+        <Button  Grid.Column="1" Grid.Row="0"  Margin="5,0,5,0"
+                 Command="{Binding Path=ConnectDatabaseCommand}"
+                 CommandParameter="{Binding Path=SelectedDatabase}"
+                 Style="{StaticResource ButtonStyle}">
+            <Button.Content>
+                <Image Source="/AllMyMusic_v3;component/Resources/images/connect_32.png">
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Style.Triggers>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Opacity" Value="0.5" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Button.Content>
+            <Button.ToolTip>
+                <Label Content="{Binding Path=Cmd_ConnectDatabase_ToolTip}"/>
+            </Button.ToolTip>
+        </Button>
+
+        <Button  Grid.Column="1" Grid.Row="1"  Margin="5,0,5,0"
+                 Command="{Binding Path=PurgeDatabaseCommand}"
+                 CommandParameter="{Binding Path=SelectedDatabase}"
+                 Style="{StaticResource ButtonStyle}">
+            <Button.Content>
+                <Image Source="/AllMyMusic_v3;component/Resources/images/purge_32.png">
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Style.Triggers>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Opacity" Value="0.5" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Button.Content>
+            <Button.ToolTip>
+                <Label Content="{Binding Path=Cmd_PurgeDatabase_ToolTip}"/>
+            </Button.ToolTip>
+        </Button>
+
+        <Button  Grid.Column="1" Grid.Row="2"  Margin="5,0,5,0"
+                 Command="{Binding Path=DeleteDatabaseCommand}"
+                 CommandParameter="{Binding Path=SelectedDatabase}"
+                 Style="{StaticResource ButtonStyle}">
+            <Button.Content>
+                <Image Source="/AllMyMusic_v3;component/Resources/images/delete_database_32.png">
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Style.Triggers>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Opacity" Value="0.5" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Button.Content>
+            <Button.ToolTip>
+                <Label Content="{Binding Path=Cmd_DeleteDatabase_ToolTip}"/>
+            </Button.ToolTip>
+        </Button>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,155 @@
+﻿<UserControl x:Class="AllMyMusic_v3.View.viewPropertiesEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vw="clr-namespace:AllMyMusic_v3.View"
+             xmlns:vm="clr-namespace:AllMyMusic_v3.ViewModel"
+             xmlns:ammControls="clr-namespace:AllMyMusic_v3.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800" d:DataContext="{d:DesignInstance IsDesignTimeCreatable=True, Type=vm:PropertiesToolViewModel}">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../ResourceDictionaries/MainSkin.xaml" />
+                <ResourceDictionary Source="../../ResourceDictionaries/MainGridSplitter.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <BooleanToVisibilityConverter x:Key="boolToVisibility" />
+            <vw:LongToFileSizeConverter  x:Key="longToFilesizeConverter1" />
+            <vw:FrequencyFormatter x:Key="frequencyFormatter1" />
+
+
+            <Style x:Key="headlineStyle" TargetType="{x:Type Label}">
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+
+            <Style x:Key="formTextBoxStyle" TargetType="{x:Type ammControls:FormTextBox}">
+                <Setter Property="Margin" Value="0,3,0,0" />
+                <Setter Property="LabelWidth" Value="120" />
+                <Setter Property="LabelPadding" Value="15,0,0,0" />
+                <Setter Property="LabelHorizontalContentAlignment" Value="Left" />
+                <Setter Property="TextBoxMargin" Value="0,0,15,0" />
+            </Style>
+
+            <Style x:Key="formLabelStyle" TargetType="{x:Type ammControls:FormLabel}">
+                <Setter Property="Margin" Value="0,3,0,0" />
+                <Setter Property="LabelWidth" Value="120" />
+                <Setter Property="LabelPadding" Value="15,0,0,0" />
+                <Setter Property="LabelHorizontalContentAlignment" Value="Left" />
+            </Style>
+
+            <Style x:Key="formLabelUOMStyle" TargetType="{x:Type ammControls:FormLabelUOM}">
+                <Setter Property="Margin" Value="0,3,0,0" />
+                <Setter Property="LabelWidth" Value="120" />
+                <Setter Property="LabelPadding" Value="15,0,0,0" />
+                <Setter Property="LabelHorizontalContentAlignment" Value="Left" />
+            </Style>
+
+            <Style x:Key="formComboBoxStyle" TargetType="{x:Type ammControls:FormComboBox}">
+                <Setter Property="Margin" Value="0,3,0,0" />
+                <Setter Property="LabelWidth" Value="120" />
+                <Setter Property="LabelPadding" Value="15,0,0,0" />
+                <Setter Property="LabelHorizontalContentAlignment" Value="Left" />
+                <Setter Property="ComboBoxWidth" Value="100" />
+            </Style>
+
+            <Style x:Key="formRatingStyle" TargetType="{x:Type ammControls:FormRating}">
+                <Setter Property="Margin" Value="0,3,0,0" />
+                <Setter Property="LabelWidth" Value="120" />
+                <Setter Property="LabelPadding" Value="15,0,0,0" />
+                <Setter Property="LabelHorizontalContentAlignment" Value="Left" />
+            </Style>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+
+
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto">
+
+        <StackPanel Orientation="Vertical" Background="WhiteSmoke">
+                <Label Name="lableContributors" Style="{StaticResource headlineStyle}" Content="{Binding Path=ContributorsLabel}" Margin="0,10,0,0" FontWeight="Bold" />
+
+                <ammControls:FormTextBox x:Name="leadPerformer" Label="{Binding Path=LeadPerformerLabel}" Text="{Binding Path=Song.LeadPerformer, Mode=TwoWay}" Style="{StaticResource formTextBoxStyle}"/>
+                <ammControls:FormTextBox x:Name="bandName" Label="{Binding Path=BandLabel}" Text="{Binding Path=Song.BandName, Mode=TwoWay}" Style="{StaticResource formTextBoxStyle}"/>
+                <ammControls:FormTextBox x:Name="bandSortName" Label="{Binding Path=BandSortLabel}" Text="{Binding Path=Song.BandSortName, Mode=TwoWay}" Style="{StaticResource formTextBoxStyle}" PreviewMouseLeftButtonDown="bandSortName_PreviewMouseLeftButtonDown"/>
+                <ammControls:FormTextBox x:Name="composerName" Label="{Binding Path=ComposerLabel}" Text="{Binding Path=Song.ComposerName, Mode=TwoWay}" Style="{StaticResource formTextBoxStyle}"/>
+                <ammControls:FormTextBox x:Name="conductorName" Label="{Binding Path=ConductorLabel}" Text="{Binding Path=Song.ConductorName, Mode=TwoWay}" Style="{StaticResource formTextBoxStyle}"/>
+
+                <Label Name="lableAlbumInformation" Style="{StaticResource headlineStyle}" Content="{Binding Path=Album_InfoLabel}" Margin="0,10,0,0" FontWeight="Bold" />
+
+                <ammControls:FormTextBox x:Name="album" Label="{Binding Path=AlbumLabel}" Text="{Binding Path=Song.AlbumName, Mode=TwoWay}" Style="{StaticResource formTextBoxStyle}"/>
+                <ammControls:FormLabel x:Name="path" Label="{Binding Path=PathLabel}" Text="{Binding Path=Song.SongPath}" Style="{StaticResource formLabelStyle}"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <ammControls:FormComboBox x:Name="cbLanguage" Label="{Binding Path=LanguageLabel}" ItemList="{Binding Path=Languages}" SelectedItem="{Binding Path=Song.Language, Mode=TwoWay}" Style="{StaticResource formComboBoxStyle}"/>
+                    <ammControls:FormComboBox x:Name="cbCountry" Label="{Binding Path=CountryLabel}" ItemList="{Binding Path=Countries}"  SelectedItem="{Binding Path=Song.Country, Mode=TwoWay}" Style="{StaticResource formComboBoxStyle}"/>
+                    <vw:viewCountry  
+                            Margin="20,0,0,0"
+                            Height="21"
+                            DataContext="{Binding Path=Country}"
+                            d:DataContext="{d:DesignData Source=../../DesignTimeData/CountryItemDesignData.xaml}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <ammControls:FormLabel x:Name="albumGenre" Label="{Binding Path=AlbumGenreLabel}" Text="{Binding Path=Song.AlbumGenre}" Style="{StaticResource formLabelStyle}" ContentWidth="100"/>
+                    <ammControls:FormTextBox x:Name="year" Label="{Binding Path=YearLabel}" Text="{Binding Path=Song.Year, Mode=TwoWay}" Style="{StaticResource formTextBoxStyle}" TextBoxWidth="50"/>
+                </StackPanel>
+                <ammControls:FormLabel x:Name="variousArtists" Label="{Binding Path=ArtistTypeLabel}" Text="{Binding Path=Song.ArtistType}" Style="{StaticResource formLabelStyle}"/>
+
+
+                <Label Name="lableSongInformation" Style="{StaticResource headlineStyle}" Content="{Binding Path=Song_InfoLabel}" Margin="0,10,0,0" FontWeight="Bold" />
+
+                <ammControls:FormTextBox x:Name="songTitle" Label="{Binding Path=SongTitleLabel}" Text="{Binding Path=Song.SongTitle, Mode=TwoWay}" Style="{StaticResource formTextBoxStyle}" 
+                                             Visibility="{Binding Path=SingleSong, Converter={StaticResource boolToVisibility}}"/>
+                <ammControls:FormLabel x:Name="filename" Label="{Binding Path=FilenameLabel}" Text="{Binding Path=Song.SongFilename}" Style="{StaticResource formLabelStyle}"
+                                            Visibility="{Binding Path=SingleSong, Converter={StaticResource boolToVisibility}}"/>
+
+                <StackPanel Orientation="Horizontal" Background="WhiteSmoke">
+                    <ammControls:FormComboBox x:Name="cbGenre" Label="{Binding Path=GenreLabel}" ItemList="{Binding Path=Genres}" SelectedItem="{Binding Path=Song.Genre, Mode=TwoWay}" Style="{StaticResource formComboBoxStyle}"/>
+                    <ammControls:FormRating x:Name="ratingSlider" Label="{Binding Path=RatingLabel}" Rating="{Binding Path=Song.Rating, Mode=TwoWay}" Style="{StaticResource formRatingStyle}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <ammControls:FormLabel x:Name="length" Label="{Binding Path=LengthLabel}" Text="{Binding Path=Song.Duration}" Style="{StaticResource formLabelStyle}" ContentWidth="100"
+                                               Visibility="{Binding Path=SingleSong, Converter={StaticResource boolToVisibility}}"/>
+                    <ammControls:FormTextBox x:Name="track" Label="{Binding Path=TrackLabel}" Text="{Binding Path=Song.Track, Mode=TwoWay}" Style="{StaticResource formTextBoxStyle}" TextBoxWidth="50" 
+                                               Visibility="{Binding Path=SingleSong, Converter={StaticResource boolToVisibility}}"/>
+                </StackPanel>
+
+                <ammControls:FormTextBox x:Name="songComment" Label="{Binding Path=CommentLabel}" Text="{Binding Path=Song.Comment, Mode=TwoWay}" Style="{StaticResource formTextBoxStyle}" Height="60" />
+
+
+                <Label Name="lableTechnicalInformation" Style="{StaticResource headlineStyle}" Content="{Binding Path=Technical_InfoLabel}" Width="Auto" Margin="0,10,0,0" FontWeight="Bold" />
+
+                <ammControls:FormLabelUOM x:Name="samplingRate" Label="{Binding Path=SampleRateLabel}" Text="{Binding Path=Song.SampleRate, Converter={StaticResource frequencyFormatter1},ConverterParameter='##.#'}" UOM="kHz" Style="{StaticResource formLabelUOMStyle}"/>
+                <ammControls:FormLabelUOM x:Name="bitrate" Label="{Binding Path=BitrateLabel}" Text="{Binding Path=Song.Bitrate, Converter={StaticResource frequencyFormatter1},ConverterParameter='###'}" UOM="kBps" Style="{StaticResource formLabelUOMStyle}" />
+                <ammControls:FormLabel x:Name="bitrateType" Label="{Binding Path=BitrateTypeLabel}" Text="{Binding Path=Song.BitrateType}" Style="{StaticResource formLabelStyle}">
+                    <ammControls:FormLabel.ToolTip>
+                        <StackPanel Orientation="Vertical">
+                            <Label>CBR = Constant Bitrate</Label>
+                            <Label>VBR = Variable Bitrate</Label>
+                        </StackPanel>
+                    </ammControls:FormLabel.ToolTip>
+                </ammControls:FormLabel>
+
+
+                <ammControls:FormLabel x:Name="channels" Label="{Binding Path=ChannelsLabel}" Text="{Binding Path=Song.ChannelMode}" Style="{StaticResource formLabelStyle}" ContentWidth="100"
+                                           Visibility="{Binding Path=SingleSong, Converter={StaticResource boolToVisibility}}"/>
+                <ammControls:FormLabel x:Name="filesize" Label="{Binding Path=FileSizeLabel}" Text="{Binding Path=Song.FileSize, Converter={StaticResource longToFilesizeConverter1}}" Style="{StaticResource formLabelStyle}" ContentWidth="100"
+                                           Visibility="{Binding Path=SingleSong, Converter={StaticResource boolToVisibility}}"/>
+
+                <Label Name="lableWebsiteInformation" Style="{StaticResource headlineStyle}" Content="{Binding Path=Website_InfoLabel}" Width="Auto" Margin="0,10,0,0" FontWeight="Bold" />
+                <ammControls:FormTextBox x:Name="websiteUser" Label="{Binding Path=Website_UserLabel}" Text="{Binding Path=Song.WebsiteUser, Mode=TwoWay}" Style="{StaticResource formTextBoxStyle}" />
+                <ammControls:FormTextBox x:Name="websiteArtist" Label="{Binding Path=Website_ArtistLabel}" Text="{Binding Path=Song.WebsiteArtist, Mode=TwoWay}" Style="{StaticResource formTextBoxStyle}" />
+
+
+            </StackPanel>
+        </ScrollViewer>
+
+</UserControl>

@@ -1,0 +1,49 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../ResourceDictionaries/MainSkin.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <DataTemplate x:Key="AlbumGenreItemTemplate">
+
+        <Grid Background="{DynamicResource AlbnumGenreItemBackground}" Margin="10">
+            <Border BorderBrush="#49FFFFFF" BorderThickness="2,2,0,0"/>
+            <Border BorderBrush="#49000000" BorderThickness="0,0,2,2"/>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Width="150" >
+                    <TextBlock Text="{Binding Path=Name}" TextWrapping="Wrap" Foreground="{StaticResource TextBrush}">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=HasMultipleAlbums}" Value="True">
+                                        <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Label>
+
+                <Label Width="30" HorizontalAlignment="Right" HorizontalContentAlignment="Right" >
+                    <TextBlock Text="{Binding Path=AlbumCount}" Foreground="{StaticResource TextBrush}">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=HasMultipleAlbums}" Value="True">
+                                        <Setter Property="FontWeight" Value="Bold"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Label>
+            </StackPanel>
+             
+        </Grid>
+
+    </DataTemplate>
+
+</ResourceDictionary>		

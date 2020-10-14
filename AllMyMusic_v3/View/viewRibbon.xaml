@@ -1,0 +1,234 @@
+﻿<UserControl x:Class="AllMyMusic_v3.View.viewRibbon"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:r="clr-namespace:System.Windows.Controls.Ribbon;assembly=System.Windows.Controls.Ribbon"
+             
+             xmlns:vw="clr-namespace:AllMyMusic_v3.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="1024">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../ResourceDictionaries/MainSkin.xaml" />
+                <ResourceDictionary Source="../ControlTemplates/SearchTextBox.xaml" />
+                <ResourceDictionary Source="../Styles/NoChromeButtonStyle.xaml" />
+                <ResourceDictionary Source="../Styles/ComboBoxStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <vw:StringNullOrEmptyToVisibilityConverter x:Key="stringNullOrEmptyToVisibilityConverter1"/>
+            
+        </ResourceDictionary>
+
+    </UserControl.Resources>
+
+    <r:Ribbon  x:Name="mainRibbon" 
+               SelectedIndex="{Binding Path=TabIndex}" 
+               DockPanel.Dock="Top" 
+               Background="LightSteelBlue">
+
+
+        <r:Ribbon.ApplicationMenu>
+            <r:RibbonApplicationMenu Visibility="Collapsed" >
+            </r:RibbonApplicationMenu>
+        </r:Ribbon.ApplicationMenu>
+        
+        <!-- Ribbon Tab Collection -->
+        <r:RibbonTab  x:Name="ribbonTab_Collection" Header="{Binding Path=Tab_Collection}">
+            <r:RibbonGroup  x:Name="grp_AddSongs">
+                <Button Command="{Binding Path=AddSongsCommand}"
+                         Style="{StaticResource NoChromeButtonStyle}">
+                    <Button.Content>
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Image Source="..\Resources\images\music_note_plus_64.png" Grid.Row="0"/>
+                            <TextBlock Text="{Binding Path=Cmd_AddSongs}" Grid.Row="1"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+            </r:RibbonGroup>
+
+            <r:RibbonGroup  Name="grp_Database"  Header="{Binding Path=Grp_SelectDatabase}" >
+                <ItemsControl x:Name="UserList" 
+                              DataContext="{Binding Path=DatabasesViewModel}"
+                              ItemsSource="{Binding Path=DatabaseConnections}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <ToggleButton Margin="20,0,0,0"
+                                    Command="{Binding Path=SelectDatabaseCommand}"
+                                    IsChecked="{Binding Path=IsSelected}"
+                                    Style="{StaticResource NoChromeToggleButtonStyle}">
+                                <ToggleButton.Content>
+                                    <Grid  >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="40"/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Image Source="..\Resources\images\database_64.png" Grid.Row="0"/>
+                                        <TextBlock Text="{Binding Path=DatabaseName}" Grid.Row="1"/>
+                                    </Grid>
+                                </ToggleButton.Content>
+                            </ToggleButton>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </r:RibbonGroup>
+        </r:RibbonTab>
+
+        <!-- Ribbon Tab Database -->
+        <r:RibbonTab  x:Name="ribbonTab_Database" Header="{Binding Path=Tab_Database}">
+
+            <r:RibbonGroup  x:Name="grp_Server" Header="{Binding Path=Grp_Server}">
+                <r:RibbonButton Label="Connect Server" 
+                                DataContext="{Binding Path=DatabasesViewModel}"
+                                LargeImageSource="..\Resources\images\database_tools_64.png" 
+                                SmallImageSource="..\Resources\images\database_tools_32.png"
+                                Command="{Binding Path=ConnectServerCommand}" >
+                    <r:RibbonButton.ToolTip>
+                        <Label Content="Connect to a database server on your Computer or in the network."/>
+                    </r:RibbonButton.ToolTip>
+                </r:RibbonButton>
+            </r:RibbonGroup>
+
+            <!-- Group Existing Database -->
+            <r:RibbonGroup  x:Name="grp_SetupDB" Header="{Binding Path=Grp_ExistingDatabases}">
+                <vw:viewUserDatabases DataContext="{Binding Path=DatabasesViewModel}" />
+            </r:RibbonGroup>
+
+            <!-- Group Create New Database -->
+            <r:RibbonGroup  Header="{Binding Path=Grp_NewDatabase}">
+                <vw:viewNewDatabase DataContext="{Binding Path=DatabasesViewModel}" />
+            </r:RibbonGroup>
+
+            <!-- Group Database Connections-->
+            <r:RibbonGroup  x:Name="grp_Connections" Header="{Binding Path=Grp_DatabaseConnections}">
+                <vw:viewDatabaseConnections DataContext="{Binding Path=DatabasesViewModel}" />
+            </r:RibbonGroup>
+
+        </r:RibbonTab>
+
+        <!-- Ribbon Tab Tools -->
+        <r:RibbonTab  x:Name="ribbonTab_Tools" Header="{Binding Path=Tab_Tools}" >
+            <r:RibbonGroup  x:Name="grp_CoverImages"  Header="{Binding Path=Grp_CoverImages}">
+                <r:RibbonButton Label="Cover Images" Command="{Binding Path=ManageImagesCommand}"
+                           LargeImageSource="..\Resources\images\CD_64.png" 
+                           SmallImageSource="..\Resources\images\CD_32.png" >
+                    <r:RibbonButton.ToolTip>
+                        <Label Content="{Binding Path=cmd_Rename_ToolTip}"/>
+                    </r:RibbonButton.ToolTip>
+                </r:RibbonButton>
+            </r:RibbonGroup>
+
+            <r:RibbonGroup x:Name="grp_Language" Header="{Binding Path=Grp_Language}" Background="{DynamicResource PagerBackground}">
+                <Grid Background="{DynamicResource PagerBackground}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MinWidth="150"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ComboBox Grid.Row="0" Margin="5"
+                      IsEditable="False"
+                      ItemsSource="{Binding Path=GuiLanguages}"
+                      SelectedValue="{Binding Path=SelectedGuiLanguage}"/>
+                    
+                </Grid>
+              
+            </r:RibbonGroup>
+
+            <r:RibbonGroup x:Name="grp_Wikipedia" Header="{Binding Path=Grp_Wikipedia}" Background="{DynamicResource PagerBackground}">
+                <Grid Background="{DynamicResource PagerBackground}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MinWidth="150"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ComboBox Grid.Row="0" Margin="5"
+                      IsEditable="False"
+                      ItemsSource="{Binding Path=WikipediaLanguages}"
+                      SelectedValue="{Binding Path=SelectedWikipediaLanguage}"/>
+
+                </Grid>
+
+            </r:RibbonGroup>
+
+        </r:RibbonTab>
+
+        <!-- Ribbon Tab Party -->
+        <r:RibbonTab  x:Name="ribbonTab_Party" Header="{Binding Path=Tab_Party}" >
+
+            <r:RibbonGroup  Name="grp_PartyButtonTool" >
+                <Button Command="{Binding Path=PartyButtonDesignerCommand}"
+                         Style="{StaticResource NoChromeButtonStyle}">
+                    <Button.Content>
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Image Source="..\Resources\images\tools_64.png" Grid.Row="0"/>
+                            <TextBlock Text="{Binding Path=Cmd_PartyButtonTool}" Grid.Row="1"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+            </r:RibbonGroup>
+
+            <r:RibbonGroup  Name="grp_PartyButton"  Header="{Binding Path=Grp_PartyButton}">
+
+                <ItemsControl ItemsSource="{Binding Path=PlaylistConfigurations}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <ToggleButton Margin="20,0,0,0"
+                                    Command="{Binding Path=PlayPlaylistCommand}"
+                                    IsChecked="{Binding Path=IsSelected}"
+                                    Style="{StaticResource NoChromeToggleButtonStyle}">
+                                <ToggleButton.Content>
+                                    <Grid >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="40"/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Image Source="{Binding Path=LargeButtonImage}" Grid.Row="0"/>
+                                        <TextBlock Text="{Binding Path=ButtonLabel}" Grid.Row="1"/>
+                                    </Grid>
+                                </ToggleButton.Content>
+                                <ToggleButton.ToolTip>
+                                    <ToolTip Visibility="{Binding Path=ToolTipText, Converter={StaticResource stringNullOrEmptyToVisibilityConverter1}}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="{Binding Path=TooltipImage}"/>
+                                            <Label Content="{Binding Path=ToolTipText}"/>
+                                        </StackPanel>
+                                    </ToolTip>
+                                </ToggleButton.ToolTip>
+                            </ToggleButton>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                
+            </r:RibbonGroup>
+        </r:RibbonTab>
+    </r:Ribbon>
+
+
+
+</UserControl>

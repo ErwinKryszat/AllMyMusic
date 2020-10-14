@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<Countries>
+  <Country Name="Afghanistan" Abbreviation="AF" FlagPath="" />
+  <Country Name="Åland Islands" Abbreviation="AX" FlagPath="" />
+  <Country Name="Albania" Abbreviation="AL" FlagPath="" />
+  <Country Name="Algeria" Abbreviation="DZ" FlagPath="" />
+  <Country Name="America" Abbreviation="US" FlagPath="" />
+  <Country Name="American Samoa" Abbreviation="AS" FlagPath="" />
+  <Country Name="Andorra" Abbreviation="AD" FlagPath="" />
+  <Country Name="Angola" Abbreviation="AO" FlagPath="" />
+  <Country Name="Anguilla" Abbreviation="AI" FlagPath="" />
+  <Country Name="Antarctica" Abbreviation="AQ" FlagPath="" />
+  <Country Name="Antigua &amp; Barbuda" Abbreviation="AG" FlagPath="" />
+  <Country Name="Argentina" Abbreviation="AR" FlagPath="" />
+  <Country Name="Armenia" Abbreviation="AM" FlagPath="" />
+  <Country Name="Aruba" Abbreviation="AW" FlagPath="" />
+  <Country Name="Australia" Abbreviation="AU" FlagPath="" />
+  <Country Name="Austria" Abbreviation="AT" FlagPath="" />
+  <Country Name="Azerbaijan" Abbreviation="AZ" FlagPath="" />
+  <Country Name="Bahamas" Abbreviation="BS" FlagPath="" />
+  <Country Name="Bahrain" Abbreviation="BH" FlagPath="" />
+  <Country Name="Bangladesh" Abbreviation="BD" FlagPath="" />
+  <Country Name="Barbados" Abbreviation="BB" FlagPath="" />
+  <Country Name="Belarus" Abbreviation="BY" FlagPath="" />
+  <Country Name="Belgium" Abbreviation="BE" FlagPath="" />
+  <Country Name="Belize" Abbreviation="BZ" FlagPath="" />
+  <Country Name="Benin" Abbreviation="BJ" FlagPath="" />
+  <Country Name="Bermuda" Abbreviation="BM" FlagPath="" />
+  <Country Name="Bhutan" Abbreviation="BT" FlagPath="" />
+  <Country Name="Bolivia" Abbreviation="BO" FlagPath="" />
+  <Country Name="Bosnia &amp; Herzegovina" Abbreviation="BA" FlagPath="" />
+  <Country Name="Botswana" Abbreviation="BW" FlagPath="" />
+  <Country Name="Bouvet Island" Abbreviation="BV" FlagPath="" />
+  <Country Name="Brazil" Abbreviation="BR" FlagPath="" />
+  <Country Name="British Indian Ocean Territory" Abbreviation="IO" FlagPath="" />
+  <Country Name="British Virgin Islands" Abbreviation="VG" FlagPath="" />
+  <Country Name="Brunei" Abbreviation="BN" FlagPath="" />
+  <Country Name="Bulgaria" Abbreviation="BG" FlagPath="" />
+  <Country Name="Burkina Faso" Abbreviation="BF" FlagPath="" />
+  <Country Name="Burma (Myanmar)" Abbreviation="MM" FlagPath="" />
+  <Country Name="Burundi" Abbreviation="BI" FlagPath="" />
+  <Country Name="Cambodia" Abbreviation="KH" FlagPath="" />
+  <Country Name="Cameroon" Abbreviation="CM" FlagPath="" />
+  <Country Name="Canada" Abbreviation="CA" FlagPath="" />
+  <Country Name="Cape Verde Islands" Abbreviation="CV" FlagPath="" />
+  <Country Name="Cayman Islands" Abbreviation="KY" FlagPath="" />
+  <Country Name="Central African Republic" Abbreviation="CF" FlagPath="" />
+  <Country Name="Chad" Abbreviation="TD" FlagPath="" />
+  <Country Name="Chile" Abbreviation="CL" FlagPath="" />
+  <Country Name="China" Abbreviation="CN" FlagPath="" />
+  <Country Name="Christmas Island" Abbreviation="CX" FlagPath="" />
+  <Country Name="Cocos (Keeling) Islands" Abbreviation="CC" FlagPath="" />
+  <Country Name="Colombia" Abbreviation="CO" FlagPath="" />
+  <Country Name="Comoros" Abbreviation="KM" FlagPath="" />
+  <Country Name="Congo (Brazzaville)" Abbreviation="CG" FlagPath="" />
+  <Country Name="Congo, Democratic Republic" Abbreviation="CD" FlagPath="" />
+  <Country Name="Cook Islands" Abbreviation="CK" FlagPath="" />
+  <Country Name="Costa Rica" Abbreviation="CR" FlagPath="" />
+  <Country Name="Côte d'Ivoire" Abbreviation="CI" FlagPath="" />
+  <Country Name="Croatia" Abbreviation="HR" FlagPath="" />
+  <Country Name="Cuba" Abbreviation="CU" FlagPath="" />
+  <Country Name="Cyprus" Abbreviation="CY" FlagPath="" />
+  <Country Name="Czech Republic" Abbreviation="CZ" FlagPath="" />
+  <Country Name="Denmark" Abbreviation="DK" FlagPath="" />
+  <Country Name="Djibouti" Abbreviation="DJ" FlagPath="" />
+  <Country Name="Dominica" Abbreviation="DM" FlagPath="" />
+  <Country Name="Dominican Republic" Abbreviation="DO" FlagPath="" />
+  <Country Name="East Timor" Abbreviation="TL" FlagPath="" />
+  <Country Name="Ecuador" Abbreviation="EC" FlagPath="" />
+  <Country Name="Egypt" Abbreviation="EG" FlagPath="" />
+  <Country Name="El Salvador" Abbreviation="SV" FlagPath="" />
+  <Country Name="England" Abbreviation="GB" FlagPath="" />
+  <Country Name="Equatorial Guinea" Abbreviation="GQ" FlagPath="" />
+  <Country Name="Eritrea" Abbreviation="ER" FlagPath="" />
+  <Country Name="Estonia" Abbreviation="EE" FlagPath="" />
+  <Country Name="Ethiopia" Abbreviation="ET" FlagPath="" />
+  <Country Name="Falkland Islands" Abbreviation="FK" FlagPath="" />
+  <Country Name="Faroe Islands" Abbreviation="FO" FlagPath="" />
+  <Country Name="Fiji" Abbreviation="FJ" FlagPath="" />
+  <Country Name="Finland" Abbreviation="FI" FlagPath="" />
+  <Country Name="France" Abbreviation="FR" FlagPath="" />
+  <Country Name="French Guiana" Abbreviation="GF" FlagPath="" />
+  <Country Name="French Polynesia" Abbreviation="PF" FlagPath="" />
+  <Country Name="French Southern Territorie" Abbreviation="TF" FlagPath="" />
+  <Country Name="Gabon" Abbreviation="GA" FlagPath="" />
+  <Country Name="Gambia" Abbreviation="GM" FlagPath="" />
+  <Country Name="Georgia" Abbreviation="GE" FlagPath="" />
+  <Country Name="Germany" Abbreviation="DE" FlagPath="" />
+  <Country Name="Ghana" Abbreviation="GH" FlagPath="" />
+  <Country Name="Gibraltar" Abbreviation="GI" FlagPath="" />
+  <Country Name="Great Britain" Abbreviation="GB" FlagPath="" />
+  <Country Name="Greece" Abbreviation="GR" FlagPath="" />
+  <Country Name="Greenland" Abbreviation="GL" FlagPath="" />
+  <Country Name="Grenada" Abbreviation="GD" FlagPath="" />
+  <Country Name="Guadeloupe" Abbreviation="GP" FlagPath="" />
+  <Country Name="Guam" Abbreviation="GU" FlagPath="" />
+  <Country Name="Guatemala" Abbreviation="GT" FlagPath="" />
+  <Country Name="Guernsey" Abbreviation="GG" FlagPath="" />
+  <Country Name="Guinea" Abbreviation="GN" FlagPath="" />
+  <Country Name="Guinea-Bissau" Abbreviation="GW" FlagPath="" />
+  <Country Name="Guyana" Abbreviation="GY" FlagPath="" />
+  <Country Name="Haiti" Abbreviation="HT" FlagPath="" />
+  <Country Name="Hawaii" Abbreviation="HI" FlagPath="" />
+  <Country Name="Heard and McDonalds Islands" Abbreviation="HM" FlagPath="" />
+  <Country Name="Holland" Abbreviation="NL" FlagPath="" />
+  <Country Name="Honduras" Abbreviation="HN" FlagPath="" />
+  <Country Name="Hong Kong" Abbreviation="HK" FlagPath="" />
+  <Country Name="Hungary" Abbreviation="HU" FlagPath="" />
+  <Country Name="Iceland" Abbreviation="IS" FlagPath="" />
+  <Country Name="India" Abbreviation="IN" FlagPath="" />
+  <Country Name="Indonesia" Abbreviation="ID" FlagPath="" />
+  <Country Name="Iran" Abbreviation="IR" FlagPath="" />
+  <Country Name="Iraq" Abbreviation="IQ" FlagPath="" />
+  <Country Name="Ireland" Abbreviation="IE" FlagPath="" />
+  <Country Name="Isle of Man" Abbreviation="IM" FlagPath="" />
+  <Country Name="Israel" Abbreviation="IL" FlagPath="" />
+  <Country Name="Italy" Abbreviation="IT" FlagPath="" />
+  <Country Name="Ivory Coast / Côte d'Ivoire" Abbreviation="CI" FlagPath="" />
+  <Country Name="Jamaica" Abbreviation="JM" FlagPath="" />
+  <Country Name="Japan" Abbreviation="JP" FlagPath="" />
+  <Country Name="Jersey" Abbreviation="JE" FlagPath="" />
+  <Country Name="Jordan" Abbreviation="JO" FlagPath="" />
+  <Country Name="Kazakhstan" Abbreviation="KZ" FlagPath="" />
+  <Country Name="Kenya" Abbreviation="KE" FlagPath="" />
+  <Country Name="Kiribati" Abbreviation="KI" FlagPath="" />
+  <Country Name="Korea, Democratic People's Republic / North Korea" Abbreviation="KP" FlagPath="" />
+  <Country Name="Korea, Republic of / South Korea" Abbreviation="KR" FlagPath="" />
+  <Country Name="Kuwait" Abbreviation="KW" FlagPath="" />
+  <Country Name="Kyrgyzstan" Abbreviation="KG" FlagPath="" />
+  <Country Name="Laos" Abbreviation="LA" FlagPath="" />
+  <Country Name="Latvia" Abbreviation="LV" FlagPath="" />
+  <Country Name="Lebanon" Abbreviation="LB" FlagPath="" />
+  <Country Name="Lesotho" Abbreviation="LS" FlagPath="" />
+  <Country Name="Liberia" Abbreviation="LR" FlagPath="" />
+  <Country Name="Libya" Abbreviation="LY" FlagPath="" />
+  <Country Name="Liechtenstein" Abbreviation="LI" FlagPath="" />
+  <Country Name="Lithuania" Abbreviation="LT" FlagPath="" />
+  <Country Name="Luxembourg" Abbreviation="LU" FlagPath="" />
+  <Country Name="Macao" Abbreviation="MO" FlagPath="" />
+  <Country Name="Macedonia" Abbreviation="MK" FlagPath="" />
+  <Country Name="Madagascar" Abbreviation="MG" FlagPath="" />
+  <Country Name="Malawi" Abbreviation="MW" FlagPath="" />
+  <Country Name="Malaysia" Abbreviation="MY" FlagPath="" />
+  <Country Name="Maldives" Abbreviation="MV" FlagPath="" />
+  <Country Name="Mali" Abbreviation="ML" FlagPath="" />
+  <Country Name="Malta" Abbreviation="MT" FlagPath="" />
+  <Country Name="Marshall Islands" Abbreviation="MH" FlagPath="" />
+  <Country Name="Martinique" Abbreviation="MQ" FlagPath="" />
+  <Country Name="Mauritania" Abbreviation="MR" FlagPath="" />
+  <Country Name="Mauritius" Abbreviation="MU" FlagPath="" />
+  <Country Name="Mayotte" Abbreviation="YT" FlagPath="" />
+  <Country Name="Mexico" Abbreviation="MX" FlagPath="" />
+  <Country Name="Micronesia" Abbreviation="FM" FlagPath="" />
+  <Country Name="Moldova" Abbreviation="MD" FlagPath="" />
+  <Country Name="Monaco" Abbreviation="MC" FlagPath="" />
+  <Country Name="Mongolia" Abbreviation="MN" FlagPath="" />
+  <Country Name="Montenegro" Abbreviation="ME" FlagPath="" />
+  <Country Name="Montserrat" Abbreviation="MS" FlagPath="" />
+  <Country Name="Morocco" Abbreviation="MA" FlagPath="" />
+  <Country Name="Mozambique" Abbreviation="MZ" FlagPath="" />
+  <Country Name="Myanmar (Burma)" Abbreviation="MM" FlagPath="" />
+  <Country Name="Namibia" Abbreviation="NA" FlagPath="" />
+  <Country Name="Nauru" Abbreviation="NR" FlagPath="" />
+  <Country Name="Nepal" Abbreviation="NP" FlagPath="" />
+  <Country Name="Netherlands" Abbreviation="NL" FlagPath="" />
+  <Country Name="Netherlands Antilles" Abbreviation="AN" FlagPath="" />
+  <Country Name="New Caledonia" Abbreviation="NC" FlagPath="" />
+  <Country Name="New Zealand" Abbreviation="NZ" FlagPath="" />
+  <Country Name="Nicaragua" Abbreviation="NI" FlagPath="" />
+  <Country Name="Niger" Abbreviation="NE" FlagPath="" />
+  <Country Name="Nigeria" Abbreviation="NG" FlagPath="" />
+  <Country Name="Niue" Abbreviation="NU" FlagPath="" />
+  <Country Name="Norfolk Island" Abbreviation="NF" FlagPath="" />
+  <Country Name="Northern Marianas Islands" Abbreviation="MP" FlagPath="" />
+  <Country Name="North Korea" Abbreviation="KP" FlagPath="" />
+  <Country Name="Norway" Abbreviation="NO" FlagPath="" />
+  <Country Name="Oman" Abbreviation="OM" FlagPath="" />
+  <Country Name="Pakistan" Abbreviation="PK" FlagPath="" />
+  <Country Name="Palau" Abbreviation="PW" FlagPath="" />
+  <Country Name="Palestinian Authority" Abbreviation="PS" FlagPath="" />
+  <Country Name="Panama" Abbreviation="PA" FlagPath="" />
+  <Country Name="Papua New Guinea" Abbreviation="PG" FlagPath="" />
+  <Country Name="Paraguay" Abbreviation="PY" FlagPath="" />
+  <Country Name="Peru" Abbreviation="PE" FlagPath="" />
+  <Country Name="Philippines" Abbreviation="PH" FlagPath="" />
+  <Country Name="Pitcairn Island" Abbreviation="PN" FlagPath="" />
+  <Country Name="Poland" Abbreviation="PL" FlagPath="" />
+  <Country Name="Portugal" Abbreviation="PT" FlagPath="" />
+  <Country Name="Puerto Rico" Abbreviation="PR" FlagPath="" />
+  <Country Name="Qatar" Abbreviation="QA" FlagPath="" />
+  <Country Name="Reunion" Abbreviation="RE" FlagPath="" />
+  <Country Name="Romania" Abbreviation="RO" FlagPath="" />
+  <Country Name="Russia" Abbreviation="RU" FlagPath="" />
+  <Country Name="Rwanda" Abbreviation="RW" FlagPath="" />
+  <Country Name="Samoa" Abbreviation="WS" FlagPath="" />
+  <Country Name="San Marino" Abbreviation="SM" FlagPath="" />
+  <Country Name="Sao Tome &amp; Principe" Abbreviation="ST" FlagPath="" />
+  <Country Name="Saudi Arabia" Abbreviation="SA" FlagPath="" />
+  <Country Name="Scotland" Abbreviation="TL" FlagPath="" />
+  <Country Name="Senegal" Abbreviation="SN" FlagPath="" />
+  <Country Name="Serbia" Abbreviation="RS" FlagPath="" />
+  <Country Name="Seychelles" Abbreviation="SC" FlagPath="" />
+  <Country Name="Sierra Leone" Abbreviation="SL" FlagPath="" />
+  <Country Name="Singapore" Abbreviation="SG" FlagPath="" />
+  <Country Name="Slovakia" Abbreviation="SK" FlagPath="" />
+  <Country Name="Slovenia" Abbreviation="SI" FlagPath="" />
+  <Country Name="Solomon Islands" Abbreviation="SB" FlagPath="" />
+  <Country Name="Somalia" Abbreviation="SO" FlagPath="" />
+  <Country Name="South Africa" Abbreviation="ZA" FlagPath="" />
+  <Country Name="South Georgia and the South Sandwich Islands" Abbreviation="GS" FlagPath="" />
+  <Country Name="South Korea" Abbreviation="KR" FlagPath="" />
+  <Country Name="Spain" Abbreviation="ES" FlagPath="" />
+  <Country Name="Sri Lanka" Abbreviation="LK" FlagPath="" />
+  <Country Name="St-Barthélemy" Abbreviation="BL" FlagPath="" />
+  <Country Name="St. Helena" Abbreviation="SH" FlagPath="" />
+  <Country Name="St. Kitts &amp; Nevis" Abbreviation="KN" FlagPath="" />
+  <Country Name="St. Lucia" Abbreviation="LC" FlagPath="" />
+  <Country Name="St-Martin" Abbreviation="MF" FlagPath="" />
+  <Country Name="St. Pierre et Miquelon" Abbreviation="PM" FlagPath="" />
+  <Country Name="St. Vincent &amp; the Grenadines" Abbreviation="VC" FlagPath="" />
+  <Country Name="Sudan" Abbreviation="SD" FlagPath="" />
+  <Country Name="Suriname" Abbreviation="SR" FlagPath="" />
+  <Country Name="Svalbard &amp; Jan Mayen Islands" Abbreviation="SJ" FlagPath="" />
+  <Country Name="Swaziland" Abbreviation="SZ" FlagPath="" />
+  <Country Name="Sweden" Abbreviation="SE" FlagPath="" />
+  <Country Name="Switzerland" Abbreviation="CH" FlagPath="" />
+  <Country Name="Syria" Abbreviation="SY" FlagPath="" />
+  <Country Name="Taiwan" Abbreviation="TW" FlagPath="" />
+  <Country Name="Tajikistan" Abbreviation="TJ" FlagPath="" />
+  <Country Name="Tanzania" Abbreviation="TZ" FlagPath="" />
+  <Country Name="Thailand" Abbreviation="TH" FlagPath="" />
+  <Country Name="Timor Leste" Abbreviation="TL" FlagPath="" />
+  <Country Name="Togo" Abbreviation="TG" FlagPath="" />
+  <Country Name="Tokelau" Abbreviation="TK" FlagPath="" />
+  <Country Name="Tonga" Abbreviation="TO" FlagPath="" />
+  <Country Name="Trinidad &amp; Tobago" Abbreviation="TT" FlagPath="" />
+  <Country Name="Tunisia" Abbreviation="TN" FlagPath="" />
+  <Country Name="Turkey" Abbreviation="TR" FlagPath="" />
+  <Country Name="Turkmenistan" Abbreviation="TM" FlagPath="" />
+  <Country Name="Turks &amp; Caicos Islands" Abbreviation="TC" FlagPath="" />
+  <Country Name="Tuvalu" Abbreviation="TV" FlagPath="" />
+  <Country Name="Uganda" Abbreviation="UG" FlagPath="" />
+  <Country Name="Ukraine" Abbreviation="UA" FlagPath="" />
+  <Country Name="United Arab Emirates" Abbreviation="AE" FlagPath="" />
+  <Country Name="United Kingdom" Abbreviation="GB" FlagPath="" />
+  <Country Name="United States of America" Abbreviation="US" FlagPath="" />
+  <Country Name="United States - minor outlying island" Abbreviation="UM" FlagPath="" />
+  <Country Name="US Virgin Islands" Abbreviation="VI" FlagPath="" />
+  <Country Name="Uruguay" Abbreviation="UY" FlagPath="" />
+  <Country Name="Uzbekistan" Abbreviation="UZ" FlagPath="" />
+  <Country Name="Vanuatu" Abbreviation="VU" FlagPath="" />
+  <Country Name="Vatican City State" Abbreviation="VA" FlagPath="" />
+  <Country Name="Venezuela" Abbreviation="VE" FlagPath="" />
+  <Country Name="Vietnam" Abbreviation="VN" FlagPath="" />
+  <Country Name="Virgin Islands (Britsh)" Abbreviation="VG" FlagPath="" />
+  <Country Name="Virgin Islands (U.S.)" Abbreviation="VI" FlagPath="" />
+  <Country Name="Wallis &amp; Futuna Islands" Abbreviation="WF" FlagPath="" />
+  <Country Name="Western Sahara" Abbreviation="EH" FlagPath="" />
+  <Country Name="Yemen" Abbreviation="YE" FlagPath="" />
+  <Country Name="Zambia" Abbreviation="ZM" FlagPath="" />
+  <Country Name="Zimbabwe" Abbreviation="ZW" FlagPath="" />
+ </Countries>

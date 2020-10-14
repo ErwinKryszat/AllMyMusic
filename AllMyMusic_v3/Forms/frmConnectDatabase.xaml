@@ -1,0 +1,57 @@
+﻿<Window x:Class="AllMyMusic_v3.frmConnectServer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:AllMyMusic_v3.ViewModel"
+        xmlns:vw="clr-namespace:AllMyMusic_v3.View"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ignore="http://www.ignore.com"
+        mc:Ignorable="d" 
+        Title="{Binding Path=Title}"  
+        Icon="/AllMyMusic_v3;component/Resources/Icons/AllMyMusic.ico"
+        d:DesignHeight="700" d:DesignWidth="600" d:DataContext="{d:DesignInstance IsDesignTimeCreatable=True, Type=vm:DesignTimeDatabasesViewModel}" 
+        Closing="Window_Closing" 
+        Loaded="Window_Loaded" >
+    
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../ResourceDictionaries/MainSkin.xaml" />
+                <ResourceDictionary Source="../ControlTemplates/GroupBoxTemplatey.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <DockPanel Background="{DynamicResource PagerBackground}">
+        <Border DockPanel.Dock="Top">
+            <Label Name="infoArea"
+                   Content="{Binding Path=TitleTip}"
+                   FontSize="12"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Left" />
+        </Border>
+
+        <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                          VerticalScrollBarVisibility="Auto">
+
+            <StackPanel  Background="{DynamicResource PagerBackground}">
+                <GroupBox Header="{Binding Path=GrpDatabaseServer}" Margin="12,12,12,0" Template="{StaticResource GroupBoxTemplate }">
+                    <vw:viewDatabaseServer />
+                </GroupBox>
+
+                <GroupBox Header="{Binding Path=GrpDatabaseList}" Margin="12,12,12,0" Template="{StaticResource GroupBoxTemplate }">
+                    <vw:viewUserDatabases />
+                </GroupBox>
+
+                <GroupBox Header="{Binding Path=GrpCreateDatabase}" Margin="12,12,12,12" Template="{StaticResource GroupBoxTemplate }">
+                    <vw:viewNewDatabase />
+                </GroupBox>
+            </StackPanel>
+
+        </ScrollViewer>
+
+    </DockPanel>
+
+    
+   
+</Window>

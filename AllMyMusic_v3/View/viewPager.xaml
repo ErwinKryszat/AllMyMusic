@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="AllMyMusic_v3.View.viewPager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="800">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../ResourceDictionaries/MainSkin.xaml" />
+                <ResourceDictionary Source="../Styles/PagerButtonImages.xaml" />
+                <ResourceDictionary Source="../Styles/ButtonStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <BooleanToVisibilityConverter x:Key="pageNumberVisibility"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Height="30" Background="{DynamicResource PagerBackground}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Background="WhiteSmoke" 
+                BorderThickness="1" 
+                BorderBrush="Black"
+                CornerRadius="15" 
+                Grid.Column="0" 
+                MinWidth="130"
+                HorizontalAlignment="Left"
+                Visibility="{Binding Path=ShowPageNumber, Converter={StaticResource pageNumberVisibility}}">
+            <TextBlock Text="{Binding Path=LabelPages}" HorizontalAlignment="Center" />
+            
+        </Border>
+
+        <Border Background="WhiteSmoke" 
+                BorderThickness="1" 
+                BorderBrush="Black"
+                CornerRadius="15" 
+                Grid.Column="2" 
+                MinWidth="130"
+                HorizontalAlignment="Right">
+            <TextBlock Text="{Binding Path=LabelItems}" HorizontalAlignment="Center"/>
+        </Border>
+
+        <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center" MinWidth="140">
+            <Button x:Name="cmdFirstPage" 
+                    Content="{StaticResource firstPageImage}" 
+                    Margin="2" 
+                    Command="{Binding Path=FirstPageCommand}"
+                    Style="{StaticResource ButtonStyle}">
+            </Button>
+
+            <Button x:Name="cmdPreviousPage" 
+                    Content="{StaticResource prevPageImage}" 
+                    Margin="2" 
+                    Command="{Binding Path=PrevPageCommand}"
+                    Style="{StaticResource ButtonStyle}">
+            </Button>
+
+            <Button x:Name="cmdNextPage" 
+                    Content="{StaticResource nextPageImage}" 
+                    Margin="2" 
+                    Command="{Binding Path=NextPageCommand}"
+                    Style="{StaticResource ButtonStyle}">
+            </Button>
+
+            <Button x:Name="cmdLastPage" 
+                    Content="{StaticResource lastPageImage}" 
+                    Margin="2" 
+                    Command="{Binding Path=LastPageCommand}"
+                    Style="{StaticResource ButtonStyle}">
+            </Button>
+
+            <ToggleButton x:Name="cmdShowAll" 
+                    Content="{StaticResource showAllImage}"
+                    Margin="2" 
+                    Command="{Binding Path=ShowAllCommand}"
+                    Style="{StaticResource ToggleButtonStyle}">
+            </ToggleButton>
+        </StackPanel>
+
+        
+    </Grid>
+</UserControl>

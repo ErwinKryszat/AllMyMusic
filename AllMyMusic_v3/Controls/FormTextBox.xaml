@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="AllMyMusic_v3.Controls.FormTextBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             Name="formTextBox"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="300">
+    
+   
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding Path=LabelWidth, ElementName=formTextBox}"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Label Name="label" 
+               Content="{Binding Path=Label, ElementName=formTextBox}" 
+               Width="{Binding Path=LabelWidth, ElementName=formTextBox}" 
+               Padding="{Binding Path=LabelPadding, ElementName=formTextBox}" 
+               VerticalAlignment="Center"
+               HorizontalContentAlignment="{Binding Path=LabelHorizontalContentAlignment, ElementName=formTextBox}"
+               Grid.Column="0"/>
+        
+        <TextBox Name="textbox" 
+                 Text="{Binding Path=Text, ElementName=formTextBox, UpdateSourceTrigger=PropertyChanged}" 
+                 VerticalAlignment="Center"
+
+                 Padding="0"
+                 Width="{Binding Path=TextBoxWidth, ElementName=formTextBox}"
+                 Height="{Binding Path=Height, ElementName=formTextBox}"
+                 Margin="{Binding Path=TextBoxMargin, ElementName=formTextBox}"
+                 Grid.Column="1" 
+                 PreviewMouseLeftButtonUp="textbox_PreviewMouseLeftButtonUp" />
+        
+    </Grid>
+</UserControl>

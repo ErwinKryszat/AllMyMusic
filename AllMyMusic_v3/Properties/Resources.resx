@@ -1,0 +1,1287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Collation_Cyrillic" xml:space="preserve">
+    <value>Cyrillic</value>
+  </data>
+  <data name="Collation_Latin" xml:space="preserve">
+    <value>Latin</value>
+  </data>
+  <data name="Col_Album" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="Col_AlbumGenre" xml:space="preserve">
+    <value>Album Genre</value>
+  </data>
+  <data name="Col_AlbumSort" xml:space="preserve">
+    <value>Album Sortorder</value>
+  </data>
+  <data name="Col_Band" xml:space="preserve">
+    <value>Band/Artist</value>
+  </data>
+  <data name="Col_BandSort" xml:space="preserve">
+    <value>Band/Artist Sortorder</value>
+  </data>
+  <data name="Col_Bitrate" xml:space="preserve">
+    <value>Bitrate</value>
+  </data>
+  <data name="Col_Composer" xml:space="preserve">
+    <value>Composer</value>
+  </data>
+  <data name="Col_Conductor" xml:space="preserve">
+    <value>Conductor</value>
+  </data>
+  <data name="Col_Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="Col_Disambiguation" xml:space="preserve">
+    <value>Disambiguation</value>
+  </data>
+  <data name="Col_Filename" xml:space="preserve">
+    <value>Filename</value>
+  </data>
+  <data name="Col_Format" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="Col_Genre" xml:space="preserve">
+    <value>Genre</value>
+  </data>
+  <data name="Col_Label" xml:space="preserve">
+    <value>Label</value>
+  </data>
+  <data name="Col_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Col_LeadPerformer" xml:space="preserve">
+    <value>Lead Performer</value>
+  </data>
+  <data name="Col_Length" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="Col_Length_Seconds" xml:space="preserve">
+    <value>Length(s)</value>
+  </data>
+  <data name="Col_NewFilename" xml:space="preserve">
+    <value>New Filename</value>
+  </data>
+  <data name="Col_Number" xml:space="preserve">
+    <value>#</value>
+  </data>
+  <data name="Col_OriginalFilename" xml:space="preserve">
+    <value>Original Filename</value>
+  </data>
+  <data name="Col_Path" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="Col_RatingValue" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="Col_SampleRate" xml:space="preserve">
+    <value>Samplerate</value>
+  </data>
+  <data name="Col_SongCount" xml:space="preserve">
+    <value>Songs</value>
+  </data>
+  <data name="Col_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Col_Summary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="Col_Title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Col_Track" xml:space="preserve">
+    <value>Track</value>
+  </data>
+  <data name="Col_Trackinfo" xml:space="preserve">
+    <value>Trackinfo</value>
+  </data>
+  <data name="Col_Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Col_URL" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="Col_VA" xml:space="preserve">
+    <value>VA</value>
+  </data>
+  <data name="Col_Year" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="Common_Abort" xml:space="preserve">
+    <value>Abort</value>
+  </data>
+  <data name="Common_Apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="Common_Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Common_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Common_ClearCache" xml:space="preserve">
+    <value>ClearCache</value>
+  </data>
+  <data name="Common_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Common_Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Common_Error" xml:space="preserve">
+    <value>At {0:HH:mm:ss} an Exception has occured in {1}.{2}. \nPlease send this information to info@winisoft.ch\n\n{3}</value>
+  </data>
+  <data name="Common_Error1" xml:space="preserve">
+    <value>At {0:HH:mm:ss} an Exception has occured in {1}.{2}. \nPlease send this information to info@winisoft.ch\n\n{3}</value>
+  </data>
+  <data name="Common_Error2" xml:space="preserve">
+    <value>At {0:HH:mm:ss} an Exception has occured in {1}.{2}. \nPlease send this information to info@winisoft.ch\n{3}\n\n{4}</value>
+  </data>
+  <data name="Common_Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Common_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Common_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Common_Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Common_Warning" xml:space="preserve">
+    <value>{0:HH:mm:ss} AllMyMusic Warning \n\n{1}</value>
+  </data>
+  <data name="Common_Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="frmAbout_Title" xml:space="preserve">
+    <value>About AllMyMusic MP3 Presenter</value>
+  </data>
+  <data name="frmAllMyMusic_CD_Bitrate" xml:space="preserve">
+    <value>Bit Rate:</value>
+  </data>
+  <data name="frmAllMyMusic_CD_Country" xml:space="preserve">
+    <value>Country:</value>
+  </data>
+  <data name="frmAllMyMusic_CD_Flip" xml:space="preserve">
+    <value>Flip CD</value>
+  </data>
+  <data name="frmAllMyMusic_CD_Genre" xml:space="preserve">
+    <value>Genre:</value>
+  </data>
+  <data name="frmAllMyMusic_CD_Language" xml:space="preserve">
+    <value>Language:</value>
+  </data>
+  <data name="frmAllMyMusic_CD_Lenght" xml:space="preserve">
+    <value>Total Lenght:</value>
+  </data>
+  <data name="frmAllMyMusic_CD_SampleRate" xml:space="preserve">
+    <value>Sampling Rate:</value>
+  </data>
+  <data name="frmAllMyMusic_CD_Year" xml:space="preserve">
+    <value>Year:</value>
+  </data>
+  <data name="frmAllMyMusic_CM_AddPlaylist" xml:space="preserve">
+    <value>Add to Playlist</value>
+  </data>
+  <data name="frmAllMyMusic_CM_AddSongs" xml:space="preserve">
+    <value>Add Songs</value>
+  </data>
+  <data name="frmAllMyMusic_CM_AutoTag" xml:space="preserve">
+    <value>Auto Tag from Filename</value>
+  </data>
+  <data name="frmAllMyMusic_CM_AutoTagWWW" xml:space="preserve">
+    <value>Auto Tag from WWW</value>
+  </data>
+  <data name="frmAllMyMusic_CM_BookmarkSet" xml:space="preserve">
+    <value>Set Bookmark</value>
+  </data>
+  <data name="frmAllMyMusic_CM_Copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="frmAllMyMusic_CM_CoverImage" xml:space="preserve">
+    <value>Get Cover Sleeve</value>
+  </data>
+  <data name="frmAllMyMusic_CM_DbCompare" xml:space="preserve">
+    <value>Database Comparison</value>
+  </data>
+  <data name="frmAllMyMusic_CM_Delete" xml:space="preserve">
+    <value>Delete from Database</value>
+  </data>
+  <data name="frmAllMyMusic_CM_ExportPlaylist" xml:space="preserve">
+    <value>Export Playlist</value>
+  </data>
+  <data name="frmAllMyMusic_CM_ImportPlaylist" xml:space="preserve">
+    <value>Import Playlist</value>
+  </data>
+  <data name="frmAllMyMusic_CM_InfoExchange" xml:space="preserve">
+    <value>Information Exchange</value>
+  </data>
+  <data name="frmAllMyMusic_CM_ListPlayNow" xml:space="preserve">
+    <value>Play List Now</value>
+  </data>
+  <data name="frmAllMyMusic_CM_NewPlaylist" xml:space="preserve">
+    <value>New Playlist</value>
+  </data>
+  <data name="frmAllMyMusic_CM_OpenPlaylist" xml:space="preserve">
+    <value>Open Playlist</value>
+  </data>
+  <data name="frmAllMyMusic_CM_PlayNow" xml:space="preserve">
+    <value>Play Now</value>
+  </data>
+  <data name="frmAllMyMusic_CM_Properties" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="frmAllMyMusic_CM_RenameTool" xml:space="preserve">
+    <value>Rename MP3 Files</value>
+  </data>
+  <data name="frmAllMyMusic_CM_SelectPlaylist" xml:space="preserve">
+    <value>Select Playlist</value>
+  </data>
+  <data name="frmAllMyMusic_CM_ShowAlbum" xml:space="preserve">
+    <value>Show Album</value>
+  </data>
+  <data name="frmAllMyMusic_CM_ShowBand" xml:space="preserve">
+    <value>Show Band</value>
+  </data>
+  <data name="frmAllMyMusic_Database" xml:space="preserve">
+    <value>Database</value>
+  </data>
+  <data name="frmAllMyMusic_Find" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="frmAllMyMusic_Find_Albums" xml:space="preserve">
+    <value>Albums</value>
+  </data>
+  <data name="frmAllMyMusic_Find_Bands" xml:space="preserve">
+    <value>Bands</value>
+  </data>
+  <data name="frmAllMyMusic_Find_SearchText" xml:space="preserve">
+    <value>Search Text</value>
+  </data>
+  <data name="frmAllMyMusic_Find_Songs" xml:space="preserve">
+    <value>Songs</value>
+  </data>
+  <data name="frmAllMyMusic_Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="frmAllMyMusic_Help_About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="frmAllMyMusic_Help_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="frmAllMyMusic_Help_License" xml:space="preserve">
+    <value>License</value>
+  </data>
+  <data name="frmAllMyMusic_LinkSongTable" xml:space="preserve">
+    <value>Link song table to album view</value>
+  </data>
+  <data name="frmAllMyMusic_OpenPlaylist" xml:space="preserve">
+    <value>Open a playlist</value>
+  </data>
+  <data name="frmAllMyMusic_Title" xml:space="preserve">
+    <value>AllMyMusic MP3 Collection presenter</value>
+  </data>
+  <data name="frmAllMyMusic_Tools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="frmAllMyMusic_Tools_AddNewSongs" xml:space="preserve">
+    <value>Add New/Changed Songs</value>
+  </data>
+  <data name="frmAllMyMusic_Tools_AddSongs" xml:space="preserve">
+    <value>Add Songs</value>
+  </data>
+  <data name="frmAllMyMusic_Tools_Countries" xml:space="preserve">
+    <value>Manage Countries</value>
+  </data>
+  <data name="frmAllMyMusic_Tools_CoverImages" xml:space="preserve">
+    <value>Manage Cover Images</value>
+  </data>
+  <data name="frmAllMyMusic_Tools_Database" xml:space="preserve">
+    <value>Setup</value>
+  </data>
+  <data name="frmAllMyMusic_Tools_ExcelImport" xml:space="preserve">
+    <value>Excel Import</value>
+  </data>
+  <data name="frmAllMyMusic_Tools_Options" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="frmAllMyMusic_Tools_Purge_Database" xml:space="preserve">
+    <value>Purge</value>
+  </data>
+  <data name="frmAllMyMusic_Tools_SongTable" xml:space="preserve">
+    <value>Songtable Properties</value>
+  </data>
+  <data name="frmAllMyMusic_Tools_Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="frmAllMyMusic_ToolTip_Album" xml:space="preserve">
+    <value>Search in the "Albums" table</value>
+  </data>
+  <data name="frmAllMyMusic_ToolTip_Band" xml:space="preserve">
+    <value>Search in the "Bands" table</value>
+  </data>
+  <data name="frmAllMyMusic_ToolTip_dbAlias" xml:space="preserve">
+    <value>Activate this Database</value>
+  </data>
+  <data name="frmAllMyMusic_ToolTip_Find" xml:space="preserve">
+    <value>Find songs in the specified tables</value>
+  </data>
+  <data name="frmAllMyMusic_ToolTip_NT" xml:space="preserve">
+    <value>Not Tagged Files</value>
+  </data>
+  <data name="frmAllMyMusic_ToolTip_Song" xml:space="preserve">
+    <value>Search in the "Songs" table</value>
+  </data>
+  <data name="frmAllMyMusic_ToolTip_VA" xml:space="preserve">
+    <value>Show Various Artist albums</value>
+  </data>
+  <data name="frmAllMyMusic_ToolTip_ViewSongtable" xml:space="preserve">
+    <value>View/Hide Songtable</value>
+  </data>
+  <data name="frmAllMyMusic_ToolTip_ViewTree" xml:space="preserve">
+    <value>View/Hide Tree</value>
+  </data>
+  <data name="frmAllMyMusic_ToolTip_ViewVA" xml:space="preserve">
+    <value>View/Hide Various Artist</value>
+  </data>
+  <data name="frmAllMyMusic_ToolTip_View_CDPanel" xml:space="preserve">
+    <value>View/Hide CD Cover</value>
+  </data>
+  <data name="frmAllMyMusic_ToolTip_View_TreeAndTabele" xml:space="preserve">
+    <value>View/Hide Songtable and Tree</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_AlbumGenres" xml:space="preserve">
+    <value>Album Genres</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_Albums" xml:space="preserve">
+    <value>Albums</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_Bands" xml:space="preserve">
+    <value>Band/Artist</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_Bookmarks" xml:space="preserve">
+    <value>Bookmarks</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_Composer" xml:space="preserve">
+    <value>Composer</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_Computer" xml:space="preserve">
+    <value>My Computer</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_Conductor" xml:space="preserve">
+    <value>Conductor</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_Countries" xml:space="preserve">
+    <value>Countries</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_Genres" xml:space="preserve">
+    <value>Genres</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_Languages" xml:space="preserve">
+    <value>Languages</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_LeadPerformer" xml:space="preserve">
+    <value>Lead Performers</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_Library" xml:space="preserve">
+    <value>Library</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_Locations" xml:space="preserve">
+    <value>Locations</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_NowPlaying" xml:space="preserve">
+    <value>Now Playing</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_Playlists" xml:space="preserve">
+    <value>Playlists</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_Ratings" xml:space="preserve">
+    <value>Ratings</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_Songs" xml:space="preserve">
+    <value>Songs</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_Years" xml:space="preserve">
+    <value>Years</value>
+  </data>
+  <data name="frmAllMyMusic_View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="frmAllMyMusic_ViewVA" xml:space="preserve">
+    <value>View VA</value>
+  </data>
+  <data name="frmAllMyMusic_View_CD_Panel" xml:space="preserve">
+    <value>CD Panel</value>
+  </data>
+  <data name="frmAllMyMusic_View_Database_Panel" xml:space="preserve">
+    <value>Database Panel</value>
+  </data>
+  <data name="frmAllMyMusic_View_Tree" xml:space="preserve">
+    <value>Tree</value>
+  </data>
+  <data name="frmAutoTag_Label1" xml:space="preserve">
+    <value>Update the ID3 Tags based on the filename.</value>
+  </data>
+  <data name="frmAutoTag_Label2" xml:space="preserve">
+    <value>- Select a pattern from the ComboBox below</value>
+  </data>
+  <data name="frmAutoTag_Label3" xml:space="preserve">
+    <value>- Edit the pattern if you want to</value>
+  </data>
+  <data name="frmAutoTag_ReplaceUnderscores" xml:space="preserve">
+    <value>Replace underscores '_' with spaces '  '</value>
+  </data>
+  <data name="frmAutoTag_Title" xml:space="preserve">
+    <value>Auto Tag from Filename</value>
+  </data>
+  <data name="frmAutoTag_ToLowerCase" xml:space="preserve">
+    <value>Undo uppercase. "TEXT" -&gt; "Text"</value>
+  </data>
+  <data name="frmCountries_BrowseFlag" xml:space="preserve">
+    <value>Browse for the flag image</value>
+  </data>
+  <data name="frmCountries_labelFlagHeight" xml:space="preserve">
+    <value>Flag Height</value>
+  </data>
+  <data name="frmCountries_labelFlagHeightPlayer" xml:space="preserve">
+    <value>Flag Height Player</value>
+  </data>
+  <data name="frmCountries_Title" xml:space="preserve">
+    <value>Countries Manager</value>
+  </data>
+  <data name="frmCountrySelector_cmdFlagHarddisk" xml:space="preserve">
+    <value>Harddisk</value>
+  </data>
+  <data name="frmCountrySelector_cmdFlagInternet" xml:space="preserve">
+    <value>Internet</value>
+  </data>
+  <data name="frmCountrySelector_groupBox1" xml:space="preserve">
+    <value>Get Flag Image from:</value>
+  </data>
+  <data name="frmCountrySelector_Label1" xml:space="preserve">
+    <value>International Country Name</value>
+  </data>
+  <data name="frmCountrySelector_Label2" xml:space="preserve">
+    <value>Abbreviation</value>
+  </data>
+  <data name="frmCountrySelector_Title" xml:space="preserve">
+    <value>Country Selector</value>
+  </data>
+  <data name="frmCoverImage_cbCreateStamps" xml:space="preserve">
+    <value>Create miniatur sleeve from front sleeve</value>
+  </data>
+  <data name="frmCoverImage_cbRenameImages" xml:space="preserve">
+    <value>Rename image files</value>
+  </data>
+  <data name="frmCoverImage_gpEmbeddedImages" xml:space="preserve">
+    <value>Embedded Cover Images</value>
+  </data>
+  <data name="frmCoverImage_gpFileRename" xml:space="preserve">
+    <value>File Rename Options</value>
+  </data>
+  <data name="frmCoverImage_gpMiniaturSleeves" xml:space="preserve">
+    <value>Miniatur sleeves</value>
+  </data>
+  <data name="frmCoverImage_lbStampSize" xml:space="preserve">
+    <value>Size of miniatur sleeve</value>
+  </data>
+  <data name="frmCoverImage_rbInsertFrontImage" xml:space="preserve">
+    <value>Insert front image</value>
+  </data>
+  <data name="frmCoverImage_rbInsertStampImage" xml:space="preserve">
+    <value>Insert stamp image</value>
+  </data>
+  <data name="frmCoverImage_rbNoActionAPIC" xml:space="preserve">
+    <value>No Action</value>
+  </data>
+  <data name="frmCoverImage_rbRemoveImages" xml:space="preserve">
+    <value>Remove all images</value>
+  </data>
+  <data name="frmCoverImage_rbSaveToDisk" xml:space="preserve">
+    <value>Save image to disk</value>
+  </data>
+  <data name="frmCoverImage_Title" xml:space="preserve">
+    <value>CD Cover Sleeves</value>
+  </data>
+  <data name="frmDatabaseCompare_CM_Copy" xml:space="preserve">
+    <value>Copy selected albums</value>
+  </data>
+  <data name="frmDatabaseCompare_CM_Delete" xml:space="preserve">
+    <value>Delete album from disk</value>
+  </data>
+  <data name="frmDatabaseCompare_CM_Move" xml:space="preserve">
+    <value>Move selected albums</value>
+  </data>
+  <data name="frmDatabaseCompare_CreateBandFolder" xml:space="preserve">
+    <value>Create a folder for the band/artist</value>
+  </data>
+  <data name="frmDatabaseCompare_DeleteOnTarget" xml:space="preserve">
+    <value>Delete files from target folder if isn't empty</value>
+  </data>
+  <data name="frmDatabaseCompare_DublicateAlbums" xml:space="preserve">
+    <value>Dublicate Albums</value>
+  </data>
+  <data name="frmDatabaseCompare_gpCopyOptions" xml:space="preserve">
+    <value>File Copy / Move Options</value>
+  </data>
+  <data name="frmDatabaseCompare_OverwriteExistings" xml:space="preserve">
+    <value>Overwrite existing files</value>
+  </data>
+  <data name="frmDatabaseCompare_ResetWidth" xml:space="preserve">
+    <value>Reset Width</value>
+  </data>
+  <data name="frmDatabaseCompare_SameBands" xml:space="preserve">
+    <value>Same Bands</value>
+  </data>
+  <data name="frmDatabaseCompare_ShowAllAlbums" xml:space="preserve">
+    <value>Show all albums</value>
+  </data>
+  <data name="frmDatabaseCompare_Title" xml:space="preserve">
+    <value>Database Compare</value>
+  </data>
+  <data name="frmDatabaseCompare_UniqueLeft" xml:space="preserve">
+    <value>Unique Albums</value>
+  </data>
+  <data name="frmDbSetup_cmdCreateDatabase" xml:space="preserve">
+    <value>Create Database</value>
+  </data>
+  <data name="frmDbSetup_CM_Connect" xml:space="preserve">
+    <value>Connect this Database</value>
+  </data>
+  <data name="frmDbSetup_CM_Delete" xml:space="preserve">
+    <value>Delete this Database</value>
+  </data>
+  <data name="frmDbSetup_grpCreateDatabase" xml:space="preserve">
+    <value>Create New Database</value>
+  </data>
+  <data name="frmDbSetup_grpDatabases" xml:space="preserve">
+    <value>Databases in the selected server</value>
+  </data>
+  <data name="frmDbSetup_Tooltip1" xml:space="preserve">
+    <value>Select the type of database server you are using. </value>
+  </data>
+  <data name="frmDbSetup_Tooltip2" xml:space="preserve">
+    <value>Select the name of the database server. The server can be installed on his computer or on another computer in your network. Also an IP address is acceptable.</value>
+  </data>
+  <data name="frmDbSetup_Tooltip3" xml:space="preserve">
+    <value>Enter the MySQL user name </value>
+  </data>
+  <data name="frmDbSetup_Tooltip4" xml:space="preserve">
+    <value>Enter the MySQL password</value>
+  </data>
+  <data name="frmDbSetup_Label5" xml:space="preserve">
+    <value>Enter a name for the new database</value>
+  </data>
+  <data name="frmDbSetup_Label6" xml:space="preserve">
+    <value>Select the alphabet</value>
+  </data>
+  <data name="frmDbSetup_Label7" xml:space="preserve">
+    <value>Right click a database to open the context menu.</value>
+  </data>
+  <data name="frmDBsetup_Title" xml:space="preserve">
+    <value>Database Setup</value>
+  </data>
+  <data name="frmCoverImage_cbSonos" xml:space="preserve">
+    <value>Copy Frontcover as folder.jpg</value>
+  </data>
+  <data name="frmFolderSelction_Title2" xml:space="preserve">
+    <value>Manage your Cover Imgages</value>
+  </data>
+  <data name="frmFolderSelction_Title3" xml:space="preserve">
+    <value>Read all ID3 tags from the MP3 files</value>
+  </data>
+  <data name="frmFolderSelction_Title4" xml:space="preserve">
+    <value>Update selected MP3 files</value>
+  </data>
+  <data name="frmFolderSelction_Title5" xml:space="preserve">
+    <value>Add new music files to the database</value>
+  </data>
+  <data name="frmID3Tags_ClearTable" xml:space="preserve">
+    <value>Clear Table</value>
+  </data>
+  <data name="frmID3Tags_CM_DeleteSelectedTags" xml:space="preserve">
+    <value>Delete selected tags</value>
+  </data>
+  <data name="frmID3Tags_CM_DeleteTagType" xml:space="preserve">
+    <value>Delete all tags of this type</value>
+  </data>
+  <data name="frmID3Tags_CM_DeleteTagValue" xml:space="preserve">
+    <value>Delete all tags with this value</value>
+  </data>
+  <data name="frmID3Tags_FilterConditions" xml:space="preserve">
+    <value>Filter Conditions</value>
+  </data>
+  <data name="frmID3Tags_NoStandardTags" xml:space="preserve">
+    <value>Don't show standard tags</value>
+  </data>
+  <data name="frmID3Tags_OnlyType" xml:space="preserve">
+    <value>Only this type</value>
+  </data>
+  <data name="frmID3Tags_OnlyVersion" xml:space="preserve">
+    <value>Only ID3 Version</value>
+  </data>
+  <data name="frmID3Tags_Scan" xml:space="preserve">
+    <value>Scan ID3 Tags</value>
+  </data>
+  <data name="frmID3Tags_Title" xml:space="preserve">
+    <value>ID3 Tag Cleaner</value>
+  </data>
+  <data name="frmID3Tags_Top10000" xml:space="preserve">
+    <value>Top 10000 Tags</value>
+  </data>
+  <data name="frmInfoExchange_cmdSelectDirectories" xml:space="preserve">
+    <value>Select Directories</value>
+  </data>
+  <data name="frmInfoExchange_gpBandInformation" xml:space="preserve">
+    <value>Band Information</value>
+  </data>
+  <data name="frmInfoExchange_labelDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="frmInfoExchange_labelDestination" xml:space="preserve">
+    <value>Destination</value>
+  </data>
+  <data name="frmInfoExchange_labelInformation" xml:space="preserve">
+    <value>Information such as the country, language or website are read from the source database and written to the destination files.</value>
+  </data>
+  <data name="frmInfoExchange_labelSource" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="frmInfoExchange_Title" xml:space="preserve">
+    <value>Information Exchange</value>
+  </data>
+  <data name="frmListPlayer_rbGraphicView" xml:space="preserve">
+    <value>Graphic View</value>
+  </data>
+  <data name="frmListPlayer_rbTableView" xml:space="preserve">
+    <value>Table View</value>
+  </data>
+  <data name="frmListPlayer_Track" xml:space="preserve">
+    <value>Track</value>
+  </data>
+  <data name="frmOptions_Appearance" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="frmOptions_CheckUpdates" xml:space="preserve">
+    <value>Check for Updates at Winisoft</value>
+  </data>
+  <data name="frmOptions_cmdBackcolor" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="frmOptions_cmdForecolor" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="frmOptions_Label1" xml:space="preserve">
+    <value>Background</value>
+  </data>
+  <data name="frmOptions_Label2" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="frmOptions_Label3" xml:space="preserve">
+    <value>Listplayer sleeve</value>
+  </data>
+  <data name="frmOptions_Label4" xml:space="preserve">
+    <value>Size of normal sleeve</value>
+  </data>
+  <data name="frmOptions_labelClientName" xml:space="preserve">
+    <value>Client Name</value>
+  </data>
+  <data name="frmOptions_labelHostName" xml:space="preserve">
+    <value>Host Name</value>
+  </data>
+  <data name="frmOptions_labelRegular" xml:space="preserve">
+    <value>Regular Text</value>
+  </data>
+  <data name="frmOptions_labelSiteName" xml:space="preserve">
+    <value>Site Name</value>
+  </data>
+  <data name="frmOptions_labelTableHeader" xml:space="preserve">
+    <value>Table Header</value>
+  </data>
+  <data name="frmOptions_labelTableText" xml:space="preserve">
+    <value>Table Text</value>
+  </data>
+  <data name="frmOptions_labelUserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="frmOptions_M3UExtended" xml:space="preserve">
+    <value>M3U Extended Format</value>
+  </data>
+  <data name="frmOptions_M3USimple" xml:space="preserve">
+    <value>M3U Simple Format</value>
+  </data>
+  <data name="frmOptions_Misc" xml:space="preserve">
+    <value>Miscelanous</value>
+  </data>
+  <data name="frmOptions_PlaylistAutoPlay" xml:space="preserve">
+    <value>Auto Play Active Playlist</value>
+  </data>
+  <data name="frmOptions_Playlists" xml:space="preserve">
+    <value>Playlists</value>
+  </data>
+  <data name="frmOptions_Title" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="frmPlayer_Album" xml:space="preserve">
+    <value>Album</value>
+  </data>
+  <data name="frmPlayer_AlwaysOnTopOff" xml:space="preserve">
+    <value>Always-on-top is Off</value>
+  </data>
+  <data name="frmPlayer_AlwaysOnTopOn" xml:space="preserve">
+    <value>Always-on-top is On</value>
+  </data>
+  <data name="frmPlayer_Band" xml:space="preserve">
+    <value>Band</value>
+  </data>
+  <data name="frmPlayer_LoopOff" xml:space="preserve">
+    <value>Loop playing is Off</value>
+  </data>
+  <data name="frmPlayer_LoopOn" xml:space="preserve">
+    <value>Loop playing is On</value>
+  </data>
+  <data name="frmPlayer_RandomOff" xml:space="preserve">
+    <value>Random is Off</value>
+  </data>
+  <data name="frmPlayer_RandomOn" xml:space="preserve">
+    <value>Random is On</value>
+  </data>
+  <data name="frmPlayer_Rating" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="frmPlayer_Song" xml:space="preserve">
+    <value>Song</value>
+  </data>
+  <data name="frmPlayer_Track" xml:space="preserve">
+    <value>Track</value>
+  </data>
+  <data name="frmPlayer_Year" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="frmPlaylists_Title" xml:space="preserve">
+    <value>Playlists Manager</value>
+  </data>
+  <data name="Col_BitrateType" xml:space="preserve">
+    <value>Bit Rate Type</value>
+  </data>
+  <data name="frmProperties_Websites" xml:space="preserve">
+    <value>Websites</value>
+  </data>
+  <data name="frmProperties_Title" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="frmRename_Label1" xml:space="preserve">
+    <value>Rename MP3 files  based on ID3 Tags</value>
+  </data>
+  <data name="frmRename_Label2" xml:space="preserve">
+    <value>- Select a pattern from the ComboBox below</value>
+  </data>
+  <data name="frmRename_Label3" xml:space="preserve">
+    <value>- Edit the pattern if you want to</value>
+  </data>
+  <data name="frmRename_Title" xml:space="preserve">
+    <value>Rename MP3 Files</value>
+  </data>
+  <data name="frmSongTable_Title" xml:space="preserve">
+    <value>SongTable Properties</value>
+  </data>
+  <data name="frmUpdate_AvailableVersion" xml:space="preserve">
+    <value>Available Version</value>
+  </data>
+  <data name="frmUpdate_dlgFolderBrowser" xml:space="preserve">
+    <value>Select the download path</value>
+  </data>
+  <data name="frmUpdate_InstalledVersion" xml:space="preserve">
+    <value>Installed Version</value>
+  </data>
+  <data name="frmUpdate_rtbHeadline" xml:space="preserve">
+    <value>Your AllMyMusic Software is up to date</value>
+  </data>
+  <data name="frmUpdate_Title" xml:space="preserve">
+    <value>Update Information</value>
+  </data>
+  <data name="frmWebTagger_Title" xml:space="preserve">
+    <value>Web Tagger</value>
+  </data>
+  <data name="Image_Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Image_Frontal" xml:space="preserve">
+    <value>Frontal</value>
+  </data>
+  <data name="Processing_Album" xml:space="preserve">
+    <value>Processing album:</value>
+  </data>
+  <data name="Processing_File" xml:space="preserve">
+    <value>Processing file:</value>
+  </data>
+  <data name="frmDbSetup_cmdConnectDatabase" xml:space="preserve">
+    <value>Connect Database</value>
+  </data>
+  <data name="frmDbSetup_grpDatabaseList" xml:space="preserve">
+    <value>Existing Databases</value>
+  </data>
+  <data name="frmDbSetup_grpDatabaseServer" xml:space="preserve">
+    <value>Database Server</value>
+  </data>
+  <data name="frmDbSetup_Label1" xml:space="preserve">
+    <value>Server Type</value>
+  </data>
+  <data name="frmDbSetup_Label2" xml:space="preserve">
+    <value>Hostname </value>
+  </data>
+  <data name="frmDbSetup_Label3" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="frmDbSetup_Label4" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="frmPlayer_Title" xml:space="preserve">
+    <value>AllMyMusic Player</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_DateAdded" xml:space="preserve">
+    <value>Date Added</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_DatePlayed" xml:space="preserve">
+    <value>Date Played</value>
+  </data>
+  <data name="frmAllMyMusic_Tree_Decade" xml:space="preserve">
+    <value>Decade</value>
+  </data>
+  <data name="cmd_AddSongs" xml:space="preserve">
+    <value>Add Songs</value>
+  </data>
+  <data name="cmd_ConnectDatabase" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="cmd_ConnectServer" xml:space="preserve">
+    <value>Server</value>
+  </data>
+  <data name="cmd_CreateDatabase" xml:space="preserve">
+    <value>Create Database</value>
+  </data>
+  <data name="cmd_DeleteDatabase" xml:space="preserve">
+    <value>Delete Database</value>
+  </data>
+  <data name="cmd_PurgeDatabase" xml:space="preserve">
+    <value>Purge Database</value>
+  </data>
+  <data name="combo_Collation" xml:space="preserve">
+    <value>Collation</value>
+  </data>
+  <data name="grp_CreateDB" xml:space="preserve">
+    <value>Create New Database</value>
+  </data>
+  <data name="grp_Database" xml:space="preserve">
+    <value>Select Database</value>
+  </data>
+  <data name="grp_SetupDB" xml:space="preserve">
+    <value>Existing Databases</value>
+  </data>
+  <data name="grp_Tools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="grp_View" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="menu_About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="menu_GUI_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="menu_Options" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="menu_WIKI_Language" xml:space="preserve">
+    <value>Wikipedia Language</value>
+  </data>
+  <data name="ribbonTab_Collection" xml:space="preserve">
+    <value>Collection</value>
+  </data>
+  <data name="ribbonTab_Database" xml:space="preserve">
+    <value>Database</value>
+  </data>
+  <data name="ribbonTab_Party" xml:space="preserve">
+    <value>Party</value>
+  </data>
+  <data name="ribbonTab_Tools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="tbDatabaseName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="frmFolderSelction_Info" xml:space="preserve">
+    <value>This dialog helps you adding music files to your database</value>
+  </data>
+  <data name="cmd_ConnectDatabase_Tooltip" xml:space="preserve">
+    <value>Connect to the selected database</value>
+  </data>
+  <data name="cmd_ConnectServer_Tooltip" xml:space="preserve">
+    <value>Connect to a database server on your Computer or in the network</value>
+  </data>
+  <data name="cmd_DeleteDatabase_Tooltip" xml:space="preserve">
+    <value>Delete the selected database</value>
+  </data>
+  <data name="cmd_PurgeDatabase_Tooltip" xml:space="preserve">
+    <value>Purge the selected database. This will delete all information but retain the database structure</value>
+  </data>
+  <data name="listbox_Databases_Tooltip" xml:space="preserve">
+    <value>Databases on the connected server</value>
+  </data>
+  <data name="frmColumnsSelector_Title" xml:space="preserve">
+    <value>Columns Selector</value>
+  </data>
+  <data name="Col_Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="cmd_DeleteConnection_Tooltip" xml:space="preserve">
+    <value>Delete the selected connection (not the database)</value>
+  </data>
+  <data name="listbox_Connections_Tooltip" xml:space="preserve">
+    <value>Database Connections</value>
+  </data>
+  <data name="cmd_AutoTag" xml:space="preserve">
+    <value>Auto-Tag</value>
+  </data>
+  <data name="cmd_AutoTag_Tooltip" xml:space="preserve">
+    <value>Get ID3 Tags from filename</value>
+  </data>
+  <data name="cmd_Rename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="cmd_Rename_Tooltip" xml:space="preserve">
+    <value>Rename files based on ID3 tags</value>
+  </data>
+  <data name="grp_AutoTag" xml:space="preserve">
+    <value>Auto-Tag Files</value>
+  </data>
+  <data name="grp_Rename" xml:space="preserve">
+    <value>Rename Files</value>
+  </data>
+  <data name="cmd_Connection_Down_Tooltip" xml:space="preserve">
+    <value>Move selected database connection down</value>
+  </data>
+  <data name="cmd_Connection_Up_Tooltip" xml:space="preserve">
+    <value>Move selected database connection up</value>
+  </data>
+  <data name="cmd_CoverImages_ToolTip" xml:space="preserve">
+    <value>Manage Cover Images</value>
+  </data>
+  <data name="cmd_DeleteAlbumList_Tooltip" xml:space="preserve">
+    <value>Delete Albums</value>
+  </data>
+  <data name="cmd_PlayLast_ToolTip" xml:space="preserve">
+    <value>Play Last</value>
+  </data>
+  <data name="cmd_PlayNext_ToolTip" xml:space="preserve">
+    <value>Play Next</value>
+  </data>
+  <data name="cmd_PlayNow_ToolTip" xml:space="preserve">
+    <value>Play Now</value>
+  </data>
+  <data name="cmd_Properties_ToolTip" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="cmd_Wikipedia_ToolTip" xml:space="preserve">
+    <value>Wikipedia</value>
+  </data>
+  <data name="cmd_DeleteAlbum_Tooltip" xml:space="preserve">
+    <value>Delete Album</value>
+  </data>
+  <data name="frmCoverImage_TitleTip" xml:space="preserve">
+    <value>This dialog helps you manage the images related to your music collection</value>
+  </data>
+  <data name="Col_ArtistType" xml:space="preserve">
+    <value>Artist Type</value>
+  </data>
+  <data name="Col_Channels" xml:space="preserve">
+    <value>Channel Mode</value>
+  </data>
+  <data name="Col_Filesize" xml:space="preserve">
+    <value>Filesize</value>
+  </data>
+  <data name="Col_Website_Artist" xml:space="preserve">
+    <value>Website Artist</value>
+  </data>
+  <data name="Col_Website_User" xml:space="preserve">
+    <value>Website User</value>
+  </data>
+  <data name="frmProperties_Album_Info" xml:space="preserve">
+    <value>Album Information</value>
+  </data>
+  <data name="frmProperties_Contributors" xml:space="preserve">
+    <value>Contributors</value>
+  </data>
+  <data name="frmProperties_Song_Info" xml:space="preserve">
+    <value>Song Information</value>
+  </data>
+  <data name="frmProperties_Technical_Info" xml:space="preserve">
+    <value>Technical Information</value>
+  </data>
+  <data name="frmProperties_TitleTip" xml:space="preserve">
+    <value>This dialog helps you changing the properties for all selected songs</value>
+  </data>
+  <data name="previewLabel" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="frmAllMyMusic_SavePlaylist" xml:space="preserve">
+    <value>Save playlist</value>
+  </data>
+  <data name="cmd_DeleteSongsPL_ToolTip" xml:space="preserve">
+    <value>Delete songs from this Playlist</value>
+  </data>
+  <data name="cmd_OpenPlaylist_ToolTip" xml:space="preserve">
+    <value>Open a Playlist</value>
+  </data>
+  <data name="cmd_SavePlaylist_ToolTip" xml:space="preserve">
+    <value>Save this Playlist</value>
+  </data>
+  <data name="cmd_LockOverwrite_ToolTip" xml:space="preserve">
+    <value>Lock Overwrite</value>
+  </data>
+  <data name="frmFolderSelction_Title1" xml:space="preserve">
+    <value> Add music files to the library</value>
+  </data>
+  <data name="cmd_SaveAsPlaylist_ToolTip" xml:space="preserve">
+    <value>Save this Playlist As ....</value>
+  </data>
+  <data name="frmPartyButton_AddNew" xml:space="preserve">
+    <value>Add New</value>
+  </data>
+  <data name="frmPartyButton_DeleteSelected" xml:space="preserve">
+    <value>Delete Selected</value>
+  </data>
+  <data name="frmPartyButton_GrpDesign" xml:space="preserve">
+    <value>Design your Playlist</value>
+  </data>
+  <data name="frmPartyButton_Grppreview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="frmPartyButton_GrpSelected" xml:space="preserve">
+    <value>Select a Playlist</value>
+  </data>
+  <data name="frmPartyButton_Purpose" xml:space="preserve">
+    <value>This dialog helps you designing your Playlists</value>
+  </data>
+  <data name="frmPartyButton_Title" xml:space="preserve">
+    <value>Party Button Designer</value>
+  </data>
+  <data name="cmd_Example" xml:space="preserve">
+    <value>Example</value>
+  </data>
+  <data name="cmd_Insert" xml:space="preserve">
+    <value>Insert</value>
+  </data>
+  <data name="cmd_Test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="sqlPlaylist_GroupExample" xml:space="preserve">
+    <value>Show Example</value>
+  </data>
+  <data name="sqlPlaylist_GroupInsertField" xml:space="preserve">
+    <value>Insert a Field</value>
+  </data>
+  <data name="sqlPlaylist_GroupOperator" xml:space="preserve">
+    <value>Operator</value>
+  </data>
+  <data name="sqlPlaylist_GroupTest" xml:space="preserve">
+    <value>Test this query</value>
+  </data>
+  <data name="ribbon_Cmd_AddSongs" xml:space="preserve">
+    <value>Add Songs</value>
+  </data>
+  <data name="ribbon_Grp_AddSongs" xml:space="preserve">
+    <value>Add Songs</value>
+  </data>
+  <data name="ribbon_Grp_CoverImages" xml:space="preserve">
+    <value>Cover Images</value>
+  </data>
+  <data name="ribbon_Grp_DatabaseConnections" xml:space="preserve">
+    <value>Database Connections</value>
+  </data>
+  <data name="ribbon_Grp_ExistingDatabases" xml:space="preserve">
+    <value>Existing Databases</value>
+  </data>
+  <data name="ribbon_Grp_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="ribbon_Grp_NewDatabase" xml:space="preserve">
+    <value>Create New Database</value>
+  </data>
+  <data name="ribbon_Grp_PartyButton" xml:space="preserve">
+    <value>Playlists</value>
+  </data>
+  <data name="ribbon_Grp_PartyButtonTool" xml:space="preserve">
+    <value>Playlists Tool</value>
+  </data>
+  <data name="ribbon_Grp_SelectDatabase" xml:space="preserve">
+    <value>Select Database</value>
+  </data>
+  <data name="ribbon_Grp_Server" xml:space="preserve">
+    <value>Server</value>
+  </data>
+  <data name="ribbon_Grp_Wikipedia" xml:space="preserve">
+    <value>Wikipedia</value>
+  </data>
+  <data name="ribbon_Tab_Collection" xml:space="preserve">
+    <value>Collection</value>
+  </data>
+  <data name="ribbon_Tab_Database" xml:space="preserve">
+    <value>Database</value>
+  </data>
+  <data name="ribbon_Tab_Party" xml:space="preserve">
+    <value>Party</value>
+  </data>
+  <data name="ribbon_Tab_Tools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="queryComposer_Tooltip_Alphabet" xml:space="preserve">
+    <value>Select the value that identifies the Songs you are searching</value>
+  </data>
+  <data name="queryComposer_Tooltip_CompareOperators" xml:space="preserve">
+    <value>Select the operation that includes or excludes the Songs you are searching</value>
+  </data>
+  <data name="queryComposer_Tooltip_Fieldname" xml:space="preserve">
+    <value>Select the field that identifies the Songs you are searching</value>
+  </data>
+  <data name="queryComposer_Tooltip_FieldValues" xml:space="preserve">
+    <value>Select the value that identifies the Songs you are searching</value>
+  </data>
+  <data name="frmTools_ColumnSelectorToolTip" xml:space="preserve">
+    <value>Select the columns you want to see in the table to the right</value>
+  </data>
+  <data name="frmTools_DadaGridToolTip" xml:space="preserve">
+    <value>Reorder columns with Drag and Drop</value>
+  </data>
+  <data name="frmTools_PropertiesToolTip" xml:space="preserve">
+    <value>Edit the fields that you want to change. The table will preview the changes. Press OK to apply changes to all files listed in the table</value>
+  </data>
+  <data name="frmTools_TitleTip" xml:space="preserve">
+    <value>This form helps organizing your MP3 files</value>
+  </data>
+  <data name="frmTools_ToolTipsLabel" xml:space="preserve">
+    <value>Tools Tips</value>
+  </data>
+</root>

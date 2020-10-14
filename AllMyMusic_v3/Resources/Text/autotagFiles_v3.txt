@@ -1,0 +1,18 @@
+; Pattern for the Auto-Tag tool
+; Add patterns here
+; Put most frequent used patterns to the top
+;
+; Save at: C:\Users\<Your Name>\AppData\Roaming\AllMyMusic
+;
+<track> - <song>
+<track> - <band> - <song>
+<track> - <leadperformer> - <song>
+<track> - <song> (<country>)
+<album>\<track> - <song>
+<band>\<album>\<track> - <song>
+<year> <album>\<track> - <song>
+<band>\<year> <album>\<track> - <song>
+<ABC>\<band>\<year> <album>\<track> - <song>
+<genre>\<band>\<year> <album>\<track> - <song>
+
+

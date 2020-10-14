@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="AllMyMusic_v3.View.viewCountry"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vw="clr-namespace:AllMyMusic_v3.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600"
+             Name="viewCountry1"
+             d:DataContext="{d:DesignData Source=../../DesignTimeData/CountryItemDesignData.xaml}" >
+    
+    <UserControl.Resources>
+        <vw:CountryImageConverter x:Key="countryImageConverter1"/>
+    </UserControl.Resources>
+
+
+    <Image Source="{Binding Path=FlagPath, Converter={StaticResource countryImageConverter1}}">
+        <Image.ToolTip>
+            <Label Content="{Binding Path=Country}"/>
+        </Image.ToolTip>
+    </Image>
+        
+
+</UserControl>

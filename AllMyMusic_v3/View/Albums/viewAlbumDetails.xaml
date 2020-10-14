@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="AllMyMusic_v3.View.viewAlbumDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vw="clr-namespace:AllMyMusic_v3.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600"
+             d:DataContext="{d:DesignData Source=../../DesignTimeData/AlbumItemDesignData.xaml}" >
+
+    <UserControl.Resources>
+        <vw:PlaytimeConverter x:Key="playtimeConverter1" />
+        <vw:NumberFormatter x:Key="numberFormatter1"/>
+        <vw:StringNullOrEmptyToVisibilityConverter x:Key="stringNullOrEmptyToVisibilityConverter1"/>
+    </UserControl.Resources>
+    
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label>Year:</Label>
+            <Label Content="{Binding Path=Year}"></Label>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label>Genre:</Label>
+            <Label Content="{Binding Path=AlbumGenre}"></Label>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label>Total Length:</Label>
+            <Label Content="{Binding Path=TotalLength, Converter={StaticResource playtimeConverter1}}"></Label>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label>Sampling Rate:</Label>
+            <Label>
+                <TextBlock Text="{Binding Path=SamplingRate, Converter={StaticResource numberFormatter1},ConverterParameter='##.#'}"/>
+            </Label>
+            <Label>kHz</Label>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label>Bitrate</Label>
+            <Label Content="{Binding Path=Bitrate}"></Label>
+            <Label>kBps</Label>
+        </StackPanel>
+
+        <TextBlock Margin="5"
+                   Visibility="{Binding Path=WebsiteUser, Converter={StaticResource stringNullOrEmptyToVisibilityConverter1}}">           
+            <Hyperlink NavigateUri="{Binding Path=WebsiteUser}" RequestNavigate="Hyperlink_RequestNavigate">
+                Website User
+            </Hyperlink>
+            <TextBlock.ToolTip>
+                <Label>User defined Website</Label>
+            </TextBlock.ToolTip>
+        </TextBlock>
+
+
+        <TextBlock Margin="5"
+                   Visibility="{Binding Path=WebsiteArtist, Converter={StaticResource stringNullOrEmptyToVisibilityConverter1}}">  
+            <Hyperlink NavigateUri="{Binding Path=WebsiteArtist}" RequestNavigate="Hyperlink_RequestNavigate">
+                Website Artist
+            </Hyperlink>
+            <TextBlock.ToolTip>
+                <Label>Official Artist Website</Label>
+            </TextBlock.ToolTip>
+        </TextBlock>
+
+    </StackPanel>
+
+</UserControl>

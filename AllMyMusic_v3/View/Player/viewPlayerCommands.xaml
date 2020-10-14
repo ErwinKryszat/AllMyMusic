@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="AllMyMusic_v3.View.viewPlayerCommands"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="400">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../ResourceDictionaries/MainSkin.xaml" />
+                <ResourceDictionary Source="../../Styles/PlayerButtonImages.xaml" />
+                <ResourceDictionary Source="../../Styles/ButtonStyle.xaml" />
+                <ResourceDictionary Source="../../Styles/ToolbarToggleButtonStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Height="30" Background="{DynamicResource PagerBackground}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+
+        <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center" MinWidth="140">
+
+            <Button Content="{StaticResource playSongImage}" 
+                    Margin="2" 
+                    Command="{Binding Path=PlayCommand}"
+                    Style="{StaticResource ButtonStyle}">
+            </Button>
+
+            <ToggleButton Content="{StaticResource pauseImage}" 
+                    Margin="2" 
+                    Command="{Binding Path=PauseCommand}"
+                    IsChecked="{Binding Path=PlaybackPaused}"
+                    Style="{StaticResource ToolbarToggleButtonStyle}">
+            </ToggleButton>
+
+            <Button Content="{StaticResource stopImage}" 
+                    Margin="2" 
+                    Command="{Binding Path=StopCommand}"
+                    Style="{StaticResource ButtonStyle}">
+            </Button>
+            
+            <Button Content="{StaticResource previousSongImage}" 
+                    Margin="2" 
+                    Command="{Binding Path=PreviousSongCommand}"
+                    Style="{StaticResource ButtonStyle}">
+            </Button>
+
+            <Button Content="{StaticResource nextSongImage}" 
+                    Margin="2" 
+                    Command="{Binding Path=NextSongCommand}"
+                    Style="{StaticResource ButtonStyle}">
+            </Button>
+
+            <ToggleButton Content="{StaticResource randomizerImage}" 
+                    x:Name="randomizeButton"
+                    Margin="2" 
+                    Command="{Binding Path=RandomizeCommand}"
+                    CommandParameter="{Binding ElementName=randomizeButton, Path=IsChecked}"
+                    IsChecked="{Binding Path=Randomize}"
+                    Style="{StaticResource ToolbarToggleButtonStyle}">
+            </ToggleButton>
+
+        </StackPanel>
+
+        
+    </Grid>
+</UserControl>

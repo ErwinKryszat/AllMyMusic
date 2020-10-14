@@ -1,0 +1,9 @@
+﻿    <model:CountryItem
+        xmlns:model="clr-namespace:AllMyMusic_v3"
+        CountryId="1" 
+        Country="Germany"
+        Abbreviation="DE"
+        FlagPath="C:\Users\Erwin\AppData\Roaming\AllMyMusic\Flags\de.gif"/>
+
+
+

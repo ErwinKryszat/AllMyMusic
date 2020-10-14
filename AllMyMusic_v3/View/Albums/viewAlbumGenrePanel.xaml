@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="AllMyMusic_v3.View.viewAlbumGenrePanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../DataTemplates/AlbumGenreItemTemplate.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+        
+    </UserControl.Resources>
+    
+
+    <DockPanel>
+        <ListBox x:Name="albumGenreList" 
+                 Background="{DynamicResource PanelBackground}"
+                 ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+                 ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                 ItemsSource="{Binding Path=AlbumGenreCollection}" SelectedItem="{Binding Path=SelectedAlbumGenre}"
+                 ItemTemplate="{StaticResource AlbumGenreItemTemplate}">
+
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Vertical" Width="{Binding ElementName=albumGenreList, Path=ViewportWidth}"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+           
+        </ListBox>
+    </DockPanel>
+</UserControl>

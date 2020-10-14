@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="AllMyMusic_v3.View.viewMessageBoxOkCancel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="60" d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../ResourceDictionaries/MainSkin.xaml" />
+                <ResourceDictionary Source="../Styles/ButtonStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <BooleanToVisibilityConverter x:Key="boolVisibilitConverter1"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid  Background="{DynamicResource PagerBackground}" MinHeight="60">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="{Binding Path=MessageText}"
+                   HorizontalAlignment="Right"
+                   TextWrapping="Wrap"
+                   Grid.Column="0"
+                   VerticalAlignment="Center">
+        </TextBlock>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" MinWidth="80">
+            <Button Content="OK" 
+                    Visibility="{Binding Path=OK_ButtonVisible, Converter={StaticResource boolVisibilitConverter1}}"
+                    Margin="5" 
+                    Command="{Binding Path=OkCommand}"
+                    Style="{StaticResource ButtonStyle}">
+            </Button>
+            <Button Content="Cancel" 
+                    Visibility="{Binding Path=Cancel_ButtonVisible, Converter={StaticResource boolVisibilitConverter1}}"
+                    Margin="5" 
+                    Command="{Binding Path=CancelCommand}"
+                    Style="{StaticResource ButtonStyle}">
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

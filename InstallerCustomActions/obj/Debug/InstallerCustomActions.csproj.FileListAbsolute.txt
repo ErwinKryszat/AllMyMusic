@@ -1,0 +1,49 @@
+D:\AllMyMusic_WIP\InstallerCustomActions\bin\Debug\InstallerCustomActions.dll
+D:\AllMyMusic_WIP\InstallerCustomActions\bin\Debug\InstallerCustomActions.pdb
+D:\AllMyMusic_WIP\InstallerCustomActions\obj\Debug\ResolveAssemblyReference.cache
+D:\AllMyMusic_WIP\InstallerCustomActions\obj\Debug\InstallerCustomActions.dll
+D:\AllMyMusic_WIP\InstallerCustomActions\obj\Debug\InstallerCustomActions.pdb
+D:\My Projects\AllMyMusic_1.8.2_WIP\InstallerCustomActions\bin\Debug\InstallerCustomActions.dll
+D:\My Projects\AllMyMusic_1.8.2_WIP\InstallerCustomActions\bin\Debug\InstallerCustomActions.pdb
+D:\My Projects\AllMyMusic_1.8.2_WIP\InstallerCustomActions\obj\Debug\ResolveAssemblyReference.cache
+D:\My Projects\AllMyMusic_1.8.2_WIP\InstallerCustomActions\obj\Debug\InstallerCustomActions.dll
+D:\My Projects\AllMyMusic_1.8.2_WIP\InstallerCustomActions\obj\Debug\InstallerCustomActions.pdb
+D:\My Projects\AllMyMusic_1.8.2\InstallerCustomActions\bin\Debug\InstallerCustomActions.dll
+D:\My Projects\AllMyMusic_1.8.2\InstallerCustomActions\bin\Debug\InstallerCustomActions.pdb
+D:\My Projects\AllMyMusic_1.8.2\InstallerCustomActions\obj\Debug\ResolveAssemblyReference.cache
+D:\My Projects\AllMyMusic_1.8.2\InstallerCustomActions\obj\Debug\InstallerCustomActions.dll
+D:\My Projects\AllMyMusic_1.8.2\InstallerCustomActions\obj\Debug\InstallerCustomActions.pdb
+D:\My Projects\AllMyMusic_1.8.3_WIP\InstallerCustomActions\bin\Debug\InstallerCustomActions.dll
+D:\My Projects\AllMyMusic_1.8.3_WIP\InstallerCustomActions\bin\Debug\InstallerCustomActions.pdb
+D:\My Projects\AllMyMusic_1.8.3_WIP\InstallerCustomActions\obj\Debug\ResolveAssemblyReference.cache
+D:\My Projects\AllMyMusic_1.8.3_WIP\InstallerCustomActions\obj\Debug\InstallerCustomActions.dll
+D:\My Projects\AllMyMusic_1.8.3_WIP\InstallerCustomActions\obj\Debug\InstallerCustomActions.pdb
+D:\My Projects\AllMyMusic_1.8.4\InstallerCustomActions\bin\Debug\InstallerCustomActions.dll
+D:\My Projects\AllMyMusic_1.8.4\InstallerCustomActions\bin\Debug\InstallerCustomActions.pdb
+D:\My Projects\AllMyMusic_1.8.4\InstallerCustomActions\obj\Debug\ResolveAssemblyReference.cache
+D:\My Projects\AllMyMusic_1.8.4\InstallerCustomActions\obj\Debug\InstallerCustomActions.dll
+D:\My Projects\AllMyMusic_1.8.4\InstallerCustomActions\obj\Debug\InstallerCustomActions.pdb
+D:\My Projects\AllMyMusic\InstallerCustomActions\bin\Debug\InstallerCustomActions.dll
+D:\My Projects\AllMyMusic\InstallerCustomActions\bin\Debug\InstallerCustomActions.pdb
+D:\My Projects\AllMyMusic\InstallerCustomActions\obj\Debug\ResolveAssemblyReference.cache
+D:\My Projects\AllMyMusic\InstallerCustomActions\obj\Debug\InstallerCustomActions.dll
+D:\My Projects\AllMyMusic\InstallerCustomActions\obj\Debug\InstallerCustomActions.pdb
+D:\Projects\AllMyMusic\InstallerCustomActions\bin\Debug\InstallerCustomActions.dll
+D:\Projects\AllMyMusic\InstallerCustomActions\bin\Debug\InstallerCustomActions.pdb
+D:\Projects\AllMyMusic\InstallerCustomActions\obj\Debug\InstallerCustomActions.dll
+D:\Projects\AllMyMusic\InstallerCustomActions\obj\Debug\InstallerCustomActions.pdb
+D:\Projects\AllMyMusic\InstallerCustomActions\obj\Debug\InstallerCustomActions.csprojResolveAssemblyReference.cache
+D:\Projects_VC13\AllMyMusic_v3\InstallerCustomActions\bin\Debug\InstallerCustomActions.dll
+D:\Projects_VC13\AllMyMusic_v3\InstallerCustomActions\bin\Debug\InstallerCustomActions.pdb
+D:\Projects_VC13\AllMyMusic_v3\InstallerCustomActions\obj\Debug\InstallerCustomActions.dll
+D:\Projects_VC13\AllMyMusic_v3\InstallerCustomActions\obj\Debug\InstallerCustomActions.pdb
+D:\Projects_VC13\AllMyMusic_v3\InstallerCustomActions\obj\Debug\InstallerCustomActions.csprojResolveAssemblyReference.cache
+I:\Projects\AllMyMusic_v3\InstallerCustomActions\bin\Debug\InstallerCustomActions.dll
+I:\Projects\AllMyMusic_v3\InstallerCustomActions\bin\Debug\InstallerCustomActions.pdb
+I:\Projects\AllMyMusic_v3\InstallerCustomActions\obj\Debug\InstallerCustomActions.csprojResolveAssemblyReference.cache
+I:\Projects\AllMyMusic_v3\InstallerCustomActions\obj\Debug\InstallerCustomActions.dll
+I:\Projects\AllMyMusic_v3\InstallerCustomActions\obj\Debug\InstallerCustomActions.pdb
+D:\Projekte\AllMyMusic_v3\InstallerCustomActions\bin\Debug\InstallerCustomActions.dll
+D:\Projekte\AllMyMusic_v3\InstallerCustomActions\bin\Debug\InstallerCustomActions.pdb
+D:\Projekte\AllMyMusic_v3\InstallerCustomActions\obj\Debug\InstallerCustomActions.dll
+D:\Projekte\AllMyMusic_v3\InstallerCustomActions\obj\Debug\InstallerCustomActions.pdb

@@ -1,0 +1,171 @@
+﻿<UserControl x:Class="AllMyMusic_v3.View.viewAlbum"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vw="clr-namespace:AllMyMusic_v3.View"
+             Name="viewAlbum1"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignData Source=../../DesignTimeData/AlbumItemDesignData.xaml}"
+             d:DesignHeight="800" d:DesignWidth="800" Loaded="viewAlbum1_Loaded" >
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../ResourceDictionaries/MainSkin.xaml" />
+                <ResourceDictionary Source="../../Styles/NoChromeButtonStyle.xaml" />
+                <ResourceDictionary Source="../../ControlTemplates/RatingSliderTemplate.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            
+            <vw:ImageConverter x:Key="imagePathToImageConverter" />
+            <vw:RatingImageConverter x:Key="ratingImageConverter1"/>
+            <vw:CountryImageConverter x:Key="countryImageConverter1"/>
+            <BooleanToVisibilityConverter x:Key="headlineVisibility"/>
+            
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+
+    <Grid Background="{DynamicResource PagerBackground}" >
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border   Background="{DynamicResource HeadlineBackground}" Grid.Row="0" >
+            <TextBlock 
+                        Text="{Binding Path=HeadlineAlbum}"
+                        Foreground="{DynamicResource HeadlineText}"
+                        FontSize="36"
+                        FontWeight="Bold"
+                        HorizontalAlignment="Center">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="2"
+                                Direction="315"
+                                Color="Black"
+                                Opacity="1.0"
+                                BlurRadius="1"/>
+                </TextBlock.Effect>
+            </TextBlock>
+        </Border>
+
+
+        <!--Album View-->
+        <ScrollViewer Grid.Row="1"
+            HorizontalScrollBarVisibility="Auto"
+            VerticalScrollBarVisibility="Auto">
+
+            <Grid Background="{DynamicResource PanelBackground}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" >
+                    <StackPanel.Resources>
+                        <BooleanToVisibilityConverter x:Key="bandColumnVisibility"/>
+                        <FrameworkElement x:Key="ProxyElement" DataContext="{Binding  Path=SongsViewModel}"/>
+                    </StackPanel.Resources>
+                    
+                    <ContentControl Visibility="Collapsed" Content="{StaticResource ProxyElement}"/>
+                    
+                    <vw:CustomDataGrid x:Name="dataGridTracks"    
+                    IsReadOnly="False"
+                    MinHeight="200"
+                    Margin="10,10,10,0" 
+                    DataContext="{Binding Path=SongsViewModel}"
+                    SelectedItemsList="{Binding Path=SelectedSongs, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                    ItemsSource="{Binding Path=Songs}" 
+                    CellEditEnding="dataGridTracks_CellEditEnding">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Track}" Header="Track" IsReadOnly="False"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding BandName}" Header="BandName" IsReadOnly="False"
+                                                Visibility="{Binding Path=DataContext.BandColumnVisible
+                                                                ,Source={StaticResource ProxyElement}
+                                                                ,Converter={StaticResource bandColumnVisibility}}">
+                                
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding SongTitle}" Header="SongTitle" IsReadOnly="False"></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Duration}" Header="Duration" IsReadOnly="True"></DataGridTextColumn>
+
+                            <DataGridTemplateColumn Header="Rating">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding Path=Rating, Converter={StaticResource ratingImageConverter1} }" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <vw:RatingSlider  x:Name="ratingSlider1"
+                                                      Template="{StaticResource RatingSliderTemplate}" 
+                                                      Height="16"
+                                                      TagValue="{Binding Path=Rating}"
+                                                      ForegroundRectColor="{DynamicResource PanelBackground}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </vw:CustomDataGrid>
+                </StackPanel>
+                
+
+                <StackPanel Orientation="Horizontal" Grid.Row="1" >
+                    <Grid Margin="10" Background="{DynamicResource AlbumItemBackground}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Border BorderBrush="#49FFFFFF" BorderThickness="2,2,0,0"/>
+                        <Border BorderBrush="#49000000" BorderThickness="0,0,2,2"/>
+
+                        <Button Command="{Binding Path=CoverImageCommand}" Style="{StaticResource NoChromeButtonStyle}" >
+                            <Image Source="{Binding Path=Album.FrontImageFullpath, Converter={StaticResource imagePathToImageConverter}}" 
+                                    Margin="5"
+                                    MinHeight="200" 
+                                    MinWidth="200" 
+                                    Height="{Binding Path=SleeveImageSize}"
+                                    Width="{Binding Path=SleeveImageSize}"/>
+                        </Button>
+                    </Grid>
+
+                    <StackPanel>
+                        <Button Command="{Binding Path=CountryImageCommand}" Style="{StaticResource NoChromeButtonStyle}" >
+
+                            <Image Source="{Binding Path=FlagPath, Converter={StaticResource countryImageConverter1}}"
+                                   Height="{Binding Path=DataContext.CountryFlagHeight, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type vw:viewAlbum}}}"
+                                   MinHeight="30"
+                                   MinWidth="60" 
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   Margin="10"
+                                   DataContext="{Binding Path=Country}"
+                                   d:DataContext="{d:DesignData Source=../../DesignTimeData/CountryItemDesignData.xaml}">
+                                <Image.ToolTip>
+                                    <Label Content="{Binding Path=Country}"/>
+                                </Image.ToolTip>
+                            </Image>
+                        </Button>
+                        
+
+
+                        <vw:viewAlbumDetails 
+                            Margin="0,5,10,10" 
+                            DataContext="{Binding Path=AlbumDetails}"
+                            d:DataContext="{d:DesignData Source=../../DesignTimeData/AlbumDetailsDesignData.xaml}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+        <vw:viewCommands Grid.Row="2" 
+                            DataContext="{Binding}" Margin="20,5,20,5"/>
+
+
+    </Grid>
+
+    
+</UserControl>
