@@ -15,4 +15,6 @@ Main Features:
 - Search 
 - Playlists
 
+Using NAudio form mp3 streaming
+
 See also www.winisoft.ch
