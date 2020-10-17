@@ -1,7 +1,7 @@
 # AllMyMusic
 Desktop MP3 Player with database 
 
-Requires local installation of a database server.
+Requires local installation of a database server
 - SQL-Server or SQL-Server Express
 - MySQL
 
@@ -15,6 +15,6 @@ Main Features:
 - Search 
 - Playlists
 
-Using NAudio form mp3 streaming
+Using NAudio for mp3 streaming
 
 See also www.winisoft.ch
