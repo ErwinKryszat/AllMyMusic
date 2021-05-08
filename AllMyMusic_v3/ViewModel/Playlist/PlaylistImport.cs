@@ -5,7 +5,7 @@ using System.Text;
 using System.Xml;
 
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public static class PlaylistImport
     {

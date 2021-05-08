@@ -5,7 +5,7 @@ using System.Collections;
 using System.ComponentModel;
 
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public class TrackColumnsSorter : IComparer
     {

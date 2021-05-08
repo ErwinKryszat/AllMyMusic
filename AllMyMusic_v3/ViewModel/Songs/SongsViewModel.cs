@@ -1,4 +1,4 @@
-﻿using AllMyMusic_v3.View;
+﻿using AllMyMusic.View;
 
 using System;
 using System.Collections;
@@ -12,11 +12,11 @@ using System.Windows.Data;
 using System.ComponentModel;
 using System.Threading.Tasks;
 
-using AllMyMusic_v3.DataService;
+using AllMyMusic.DataService;
 
 
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class SongsViewModel : ViewModelBase, IDisposable
     {

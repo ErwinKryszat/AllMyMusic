@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using System.ComponentModel;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public class AlbumItem : INotifyPropertyChanged 
     {

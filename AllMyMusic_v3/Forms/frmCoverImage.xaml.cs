@@ -15,9 +15,9 @@ using System.Windows.Forms;
 
 
 using System.IO;
-using AllMyMusic_v3.Settings;
+using AllMyMusic.Settings;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     /// <summary>
     /// Interaction logic for FrmCoverImage.xaml

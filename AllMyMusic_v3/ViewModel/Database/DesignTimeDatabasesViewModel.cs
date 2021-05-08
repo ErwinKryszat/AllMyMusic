@@ -6,7 +6,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Input;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class DesignTimeDatabasesViewModel : ViewModelBase, IDisposable
     {

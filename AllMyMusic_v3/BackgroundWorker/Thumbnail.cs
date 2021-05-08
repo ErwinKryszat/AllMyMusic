@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public static class Thumbnail
     {

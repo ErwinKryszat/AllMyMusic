@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AllMyMusic_v3.Controls
+namespace AllMyMusic.Controls
 {
     /// <summary>
     /// Interaction logic for PolylineWaveFormControl.xaml

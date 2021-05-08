@@ -6,9 +6,9 @@ using System.Windows;
 using System.Xml;
 
 using System.Globalization;
-using AllMyMusic_v3;
+using AllMyMusic;
 
-namespace AllMyMusic_v3.Settings
+namespace AllMyMusic.Settings
 {
     public class FormSettings
     {

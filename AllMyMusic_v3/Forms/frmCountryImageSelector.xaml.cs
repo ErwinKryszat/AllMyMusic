@@ -12,9 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-using AllMyMusic_v3.ViewModel;
+using AllMyMusic.ViewModel;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public partial class frmCountryImageSelector : Window
     {

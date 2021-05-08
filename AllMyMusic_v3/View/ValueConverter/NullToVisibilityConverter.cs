@@ -6,7 +6,7 @@ using System.Windows.Data;
 using System.Windows;
 using System.Globalization;
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public class NullToVisibilityConverter : IValueConverter
     {

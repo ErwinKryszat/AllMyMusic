@@ -4,7 +4,7 @@ using System.ComponentModel.Composition;
 using System.Windows;
 using System.Windows.Threading;
 
-namespace AllMyMusic_v3.Controls
+namespace AllMyMusic.Controls
 {
     [Export(typeof(IVisualizationPlugin))]
     class PolylineWaveFormVisualization : IVisualizationPlugin

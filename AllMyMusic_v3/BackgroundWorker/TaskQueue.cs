@@ -4,9 +4,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-using AllMyMusic_v3.ViewModel;
+using AllMyMusic.ViewModel;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public delegate void ReportProgress_Delegate(object[] progressParams);
     public delegate void ReportProgress_Callback(ProgressDataViewModel progressData);

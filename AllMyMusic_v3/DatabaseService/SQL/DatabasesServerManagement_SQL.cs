@@ -6,12 +6,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
-using AllMyMusic_v3.Database;
-using AllMyMusic_v3.QueryBuilder;
-using AllMyMusic_v3.Settings;
+using AllMyMusic.Database;
+using AllMyMusic.QueryBuilder;
+using AllMyMusic.Settings;
 
 
-namespace AllMyMusic_v3.DataService
+namespace AllMyMusic.DataService
 {
     public class DatabasesServerManagement_SQL : IDatabasesServerManagement, IDisposable
     {
@@ -346,6 +346,14 @@ namespace AllMyMusic_v3.DataService
                     if (res == MessageBoxResult.OK)
                     {
                         SqlCommand cmd = new SqlCommand("PurgeDatabase", _connection);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+
+                        cmd = new SqlCommand("InitializeCountries", _connection);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+
+                        cmd = new SqlCommand("InitializeLanguages", _connection);
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.ExecuteNonQuery();
                     }

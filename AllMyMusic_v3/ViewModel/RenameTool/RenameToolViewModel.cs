@@ -5,9 +5,9 @@ using System.Collections.ObjectModel;
 using System.Reflection;
 using System.Windows.Input;
 
-using AllMyMusic_v3.Settings;
+using AllMyMusic.Settings;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class RenameToolViewModel : ViewModelBase, IDisposable
     {
@@ -119,7 +119,7 @@ namespace AllMyMusic_v3.ViewModel
 
             if (File.Exists(Global.RenamePatternFile) == false)
             {
-                ResourceHelper.CopyResourceTextFileToFilesystem("AllMyMusic_v3.Resources.Text.renameFiles.txt", Global.RenamePatternFile);
+                ResourceHelper.CopyResourceTextFileToFilesystem("AllMyMusic.Resources.Text.renameFiles.txt", Global.RenamePatternFile);
             }
 
             if (File.Exists(Global.RenamePatternFile) == true)

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Text;
 using System.Diagnostics;
+using System.Windows.Forms;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
 
     internal sealed class EventLogging
@@ -11,15 +12,22 @@ namespace AllMyMusic_v3
 
         private static bool IsEnabled = true;
 
-        internal const string sSource = "AllMyMusic_v3";
+        internal const string sSource = "AllMyMusic";
         internal const string sLog = "Application";
               
   
         public EventLogging()
         {
-            if (!EventLog.SourceExists(sSource))
+            try
             {
-                EventLog.CreateEventSource(sSource,sLog);
+                if (!EventLog.SourceExists(sSource))
+                {
+                    EventLog.CreateEventSource(sSource, sLog);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("When running AllMyMusic for the first time, please use 'Run As Administrator'", "Error", System.Windows.Forms.MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

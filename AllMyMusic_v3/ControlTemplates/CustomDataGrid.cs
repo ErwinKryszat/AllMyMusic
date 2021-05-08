@@ -9,7 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public class CustomDataGrid : DataGrid
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-using AllMyMusic_v3;
+using AllMyMusic;
 
 namespace Metadata.ID3
 {

@@ -8,7 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace AllMyMusic_v3.Controls
+namespace AllMyMusic.Controls
 {
     public class EditComboBox : ComboBox
     {

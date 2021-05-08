@@ -8,7 +8,7 @@ using System.Windows.Media;
 
 
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public partial class viewPlayList : UserControl
     {

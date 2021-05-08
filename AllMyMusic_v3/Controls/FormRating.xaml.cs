@@ -12,9 +12,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using AllMyMusic_v3.View;
+using AllMyMusic.View;
 
-namespace AllMyMusic_v3.Controls
+namespace AllMyMusic.Controls
 {
     /// <summary>
     /// Interaction logic for FormRating.xaml

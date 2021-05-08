@@ -3,7 +3,7 @@ using System.Text;
 using System.Globalization;
 using System.Windows.Data;
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public class ServerTypeToStringConverter : IValueConverter
     {

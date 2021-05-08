@@ -5,9 +5,9 @@ using System.Collections.ObjectModel;
 using System.Threading;
 using System.Threading.Tasks;
 
-using AllMyMusic_v3.QueryBuilder;
+using AllMyMusic.QueryBuilder;
 
-namespace AllMyMusic_v3.DataService
+namespace AllMyMusic.DataService
 {
     public class DataServiceAlbumGenre_MYSQL : IDataServiceAlbumGenre, IDisposable
     {

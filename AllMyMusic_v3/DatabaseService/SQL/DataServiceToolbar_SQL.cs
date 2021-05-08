@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 using System.Data;
 using System.Data.SqlClient;
-using AllMyMusic_v3.Database;
-using AllMyMusic_v3.ViewModel;
-using AllMyMusic_v3.QueryBuilder;
+using AllMyMusic.Database;
+using AllMyMusic.ViewModel;
+using AllMyMusic.QueryBuilder;
 
 
-namespace AllMyMusic_v3.DataService
+namespace AllMyMusic.DataService
 {
     public class DataServiceToolbar_SQL : IDataServiceToolbar, IDisposable
     {

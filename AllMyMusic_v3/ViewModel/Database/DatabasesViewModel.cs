@@ -10,10 +10,10 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Drawing;
 
-using AllMyMusic_v3.DataService;
-using AllMyMusic_v3.Settings;
+using AllMyMusic.DataService;
+using AllMyMusic.Settings;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class DatabasesViewModel : ViewModelBase, IDisposable
     {
@@ -25,7 +25,7 @@ namespace AllMyMusic_v3.ViewModel
             _serverName = GetServerName();
             _serverTypes = GetServerTypes();
             _databaseCollation = "latin";
-
+            DatabaseName = "New-DB-Name";
             Localize();
         }
         public DatabasesViewModel(ObservableCollection<ConnectionInfo> conectionList)
@@ -50,7 +50,7 @@ namespace AllMyMusic_v3.ViewModel
             _serverName = GetServerName();
             _serverTypes = GetServerTypes();
             _databaseCollation = "latin";
-
+            DatabaseName = "New-DB-Name";
             Localize();
         }
         private void BuildDatabaseViewModels(ObservableCollection<ConnectionInfo> conectionList)
@@ -953,13 +953,20 @@ namespace AllMyMusic_v3.ViewModel
         }
         private void ExecuteCreateDatabase(String _databaseName)
         {
-            ConnectionInfo dbCI = GetDatabaseConnectionInfo(_databaseName);
-            Boolean _res = _databasesServerManagement.CreateDatabase(dbCI);
-            if (_res == true)
+            if ((_databaseName.IndexOf(" ") >= 0) == true)
             {
-                UpdateOrAddConnection(dbCI);
-                OnUserDatabasesChanged();
-                SelectDatabase(dbCI);
+                ShowError.Show("Database name must not contain spaces");
+            }
+            else
+            {
+                ConnectionInfo dbCI = GetDatabaseConnectionInfo(_databaseName);
+                Boolean _res = _databasesServerManagement.CreateDatabase(dbCI);
+                if (_res == true)
+                {
+                    UpdateOrAddConnection(dbCI);
+                    OnUserDatabasesChanged();
+                    SelectDatabase(dbCI);
+                }
             }
         }
         private bool CanCreateDatabase(String _databaseName)

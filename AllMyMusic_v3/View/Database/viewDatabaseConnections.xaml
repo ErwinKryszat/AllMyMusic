@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="AllMyMusic_v3.View.viewDatabaseConnections"
+﻿<UserControl x:Class="AllMyMusic.View.viewDatabaseConnections"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -33,7 +33,7 @@
                 Command="{Binding Path=MoveConnectionUpCommand}"
                  Style="{StaticResource ButtonStyle}">
                 <Button.Content>
-                    <Image Source="/AllMyMusic_v3;component/Resources/images/Arrow_Up.png">
+                    <Image Source="/AllMyMusic;component/Resources/images/Arrow_Up.png">
                     <Image.Style>
                         <Style TargetType="Image">
                             <Style.Triggers>
@@ -54,7 +54,7 @@
                  Command="{Binding Path=MoveConnectionDownCommand}"
                  Style="{StaticResource ButtonStyle}">
             <Button.Content>
-                <Image Source="/AllMyMusic_v3;component/Resources/images/Arrow_Down.png">
+                <Image Source="/AllMyMusic;component/Resources/images/Arrow_Down.png">
                     <Image.Style>
                         <Style TargetType="Image">
                             <Style.Triggers>
@@ -76,7 +76,7 @@
                  CommandParameter="{Binding ElementName=lbDatabaseConnections, Path=SelectedItem}"
                  Style="{StaticResource ButtonStyle}">
                 <Button.Content>
-                    <Image Source="/AllMyMusic_v3;component/Resources/images/delete_connection_32.png">
+                    <Image Source="/AllMyMusic;component/Resources/images/delete_connection_32.png">
                     <Image.Style>
                         <Style TargetType="Image">
                             <Style.Triggers>

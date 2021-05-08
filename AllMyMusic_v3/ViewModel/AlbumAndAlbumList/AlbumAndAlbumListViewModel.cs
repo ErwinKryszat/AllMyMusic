@@ -5,10 +5,10 @@ using System.Windows;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
 
-//using AllMyMusic_v3.AllSql;
-using AllMyMusic_v3.Settings;
+//using AllMyMusic.AllSql;
+using AllMyMusic.Settings;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class AlbumAndAlbumListViewModel : ViewModelBase, IDisposable
     {

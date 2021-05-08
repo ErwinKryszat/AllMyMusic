@@ -8,7 +8,7 @@ using System.Xml;
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 
-namespace AllMyMusic_v3.Settings
+namespace AllMyMusic.Settings
 {
     public class DatabaseSettings
     {

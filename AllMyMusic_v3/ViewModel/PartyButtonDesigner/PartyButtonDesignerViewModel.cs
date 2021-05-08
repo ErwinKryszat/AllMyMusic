@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
-using AllMyMusic_v3.Settings;
-using AllMyMusic_v3.DataService;
+using AllMyMusic.Settings;
+using AllMyMusic.DataService;
 using Microsoft.Win32;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     /// <summary>
     /// This class contains properties that the main View can data bind to.

@@ -8,11 +8,11 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
 
-using AllMyMusic_v3.Settings;
-using AllMyMusic_v3.ViewModel;
+using AllMyMusic.Settings;
+using AllMyMusic.ViewModel;
 
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public partial class viewAlbum : UserControl
     {

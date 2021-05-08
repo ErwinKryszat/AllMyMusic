@@ -7,7 +7,7 @@ using System.Windows.Media.Imaging;
 using System.IO;
 using System.Globalization;
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public class PlaytimeConverter : IValueConverter
     {

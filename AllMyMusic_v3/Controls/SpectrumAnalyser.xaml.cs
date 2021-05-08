@@ -13,7 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using NAudio.Dsp;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     /// <summary>
     /// Interaction logic for SpectrumAnalyser.xaml

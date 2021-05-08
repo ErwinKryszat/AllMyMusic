@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using NAudio.Dsp;
 
-namespace AllMyMusic_v3.Controls
+namespace AllMyMusic.Controls
 {
     public interface IVisualizationPlugin
     {

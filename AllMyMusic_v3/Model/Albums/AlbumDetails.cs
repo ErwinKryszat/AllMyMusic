@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public class AlbumDetails
     {

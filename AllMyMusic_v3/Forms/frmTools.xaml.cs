@@ -10,14 +10,14 @@ using System.Windows.Shapes;
 using System.Windows.Controls;
 using System.Threading.Tasks;
 
-//using AllMyMusic_v3.AllSql;
-using AllMyMusic_v3.DataService;
-using AllMyMusic_v3.Settings;
-using AllMyMusic_v3.ViewModel;
-using AllMyMusic_v3.View;
+//using AllMyMusic.AllSql;
+using AllMyMusic.DataService;
+using AllMyMusic.Settings;
+using AllMyMusic.ViewModel;
+using AllMyMusic.View;
 
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public delegate void ToolsCallbackDelegate(ToolType toolType, ChangedPropertiesList changedProperties, ObservableCollection<SongItem> songs);
 

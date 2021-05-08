@@ -11,10 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Drawing;
 
-using AllMyMusic_v3.DataService;
+using AllMyMusic.DataService;
 using Metadata.Mp3;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class AlbumViewModel : ViewModelBase, IDisposable
     {
@@ -120,17 +120,21 @@ namespace AllMyMusic_v3.ViewModel
         }
         private void ExecuteCountryImageCommand(object notUsed)
         {
-            _countrySelectorViewModel = new CountrySelectorViewModel(_country);
-
-            frmCountryImageSelector frmCountry = new frmCountryImageSelector(_countrySelectorViewModel);
-            frmCountry.ShowDialog();
-
-            if ((frmCountry.DialogResult.HasValue == true) && (frmCountry.DialogResult == true))
+            if (String.IsNullOrEmpty(_country.Country) == false)
             {
-                CountryItem selectedCountry = _countrySelectorViewModel.SelectedCountry;
-                if (File.Exists(selectedCountry.FlagPath) == true) 
+                _countrySelectorViewModel = new CountrySelectorViewModel(_country);
+
+                frmCountryImageSelector frmCountry = new frmCountryImageSelector(_countrySelectorViewModel);
+                frmCountry.ShowDialog();
+
+                if ((frmCountry.DialogResult.HasValue == true) && (frmCountry.DialogResult == true))
                 {
-                    _dataServiceCountries.AddCountry(selectedCountry);
+                    CountryItem selectedCountry = _countrySelectorViewModel.SelectedCountry;
+                    if (File.Exists(selectedCountry.FlagPath) == true)
+                    {
+                        Country = selectedCountry;
+                        _dataServiceCountries.AddCountry(selectedCountry);
+                    }
                 }
             }
         }
@@ -335,9 +339,6 @@ namespace AllMyMusic_v3.ViewModel
             get { return _country; }
             set
             {
-                if (value == _country)
-                    return;
-
                 _country = value;
 
                 RaisePropertyChanged("Country");

@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     /// <summary>
     /// Interaction logic for viewBandPanel.xaml

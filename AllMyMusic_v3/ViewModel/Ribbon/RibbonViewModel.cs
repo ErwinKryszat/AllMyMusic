@@ -6,10 +6,10 @@ using System.Windows.Input;
 using System.Threading;
 using System.Threading.Tasks;
 
-using AllMyMusic_v3.Settings;
-using AllMyMusic_v3.DataService;
+using AllMyMusic.Settings;
+using AllMyMusic.DataService;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class RibbonViewModel : ViewModelBase, IDisposable
     {

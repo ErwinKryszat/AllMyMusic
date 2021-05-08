@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Globalization;
 using System.Windows.Data;
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public class EnumMatchToBooleanConverter : IValueConverter
     {

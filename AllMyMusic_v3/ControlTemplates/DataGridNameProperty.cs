@@ -2,7 +2,7 @@
 using System.Text;
 using System.Windows;
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public class DataGridNameProperty
     {

@@ -11,14 +11,14 @@ using System.Threading.Tasks;
 
 using System.Diagnostics;
 
-using AllMyMusic_v3.ViewModel;
+using AllMyMusic.ViewModel;
 
 using Metadata.Mp3;
 using Metadata.ID3;
 
 
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public class UpdateSongsBackgroundWorker : IBackgroundQueueJob, IDisposable
     {

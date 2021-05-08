@@ -4,11 +4,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
-using AllMyMusic_v3.Settings;
-using AllMyMusic_v3.DataService;
+using AllMyMusic.Settings;
+using AllMyMusic.DataService;
 
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     /// <summary>
     /// This class contains properties that the main View can data bind to.

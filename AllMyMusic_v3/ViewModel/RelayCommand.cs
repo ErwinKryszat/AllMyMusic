@@ -3,7 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     /// <summary>
     /// A command whose sole purpose is to 

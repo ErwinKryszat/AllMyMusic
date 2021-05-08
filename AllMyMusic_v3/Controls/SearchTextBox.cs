@@ -16,7 +16,7 @@ using System.Windows.Threading;
 
 
 
-namespace AllMyMusic_v3.Controls
+namespace AllMyMusic.Controls
 {
 
     public enum SearchMode {

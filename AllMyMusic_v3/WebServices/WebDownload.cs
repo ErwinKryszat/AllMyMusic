@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using System.Xml;
 
 
-namespace AllMyMusic_v3.WebServices
+namespace AllMyMusic.WebServices
 {
     public static class WebDownload
     {

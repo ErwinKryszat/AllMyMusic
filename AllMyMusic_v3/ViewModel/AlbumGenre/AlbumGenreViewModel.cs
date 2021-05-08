@@ -2,9 +2,9 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using AllMyMusic_v3.DataService;
+using AllMyMusic.DataService;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class AlbumGenreViewModel : ViewModelBase, IDisposable
     {

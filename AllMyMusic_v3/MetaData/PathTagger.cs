@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 
-using AllMyMusic_v3;
+using AllMyMusic;
 
 namespace Metadata.ID3
 {

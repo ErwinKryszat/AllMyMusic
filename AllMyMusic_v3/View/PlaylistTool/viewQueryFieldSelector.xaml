@@ -1,10 +1,16 @@
-﻿<UserControl x:Class="AllMyMusic_v3.View.viewQueryFieldSelector"
+﻿<UserControl x:Class="AllMyMusic.View.viewQueryFieldSelector"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="30" d:DesignWidth="600">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <BooleanToVisibilityConverter x:Key="boolToVisibilityConverter1"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
 
     <StackPanel Orientation="Horizontal">
         <ComboBox  Width="140" Margin="0,0,10,0" ItemsSource="{Binding Path=FieldNames}" SelectedItem="{Binding Path=SelectedFieldName}">
@@ -19,7 +25,8 @@
             </ComboBox.ToolTip>
         </ComboBox>
 
-        <ComboBox Width="40" Margin="0,0,10,0" IsEditable="True" ItemsSource="{Binding Path=Alphabet}" SelectedItem="{Binding Path=SelectedAlphabet}">
+        <ComboBox Width="40" Margin="0,0,10,0" IsEditable="True" ItemsSource="{Binding Path=Alphabet}" SelectedItem="{Binding Path=SelectedAlphabet}"
+                   Visibility="{Binding Path=AlphabetVisible, Converter={StaticResource boolToVisibilityConverter1}}">
             <ComboBox.ToolTip>
                 <Label Content="{Binding Path=Tooltip_Alphabet}"></Label>
             </ComboBox.ToolTip>

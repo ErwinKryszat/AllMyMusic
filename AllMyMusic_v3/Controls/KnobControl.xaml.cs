@@ -10,7 +10,7 @@ using System.Runtime.CompilerServices;
 
 
 
-namespace AllMyMusic_v3.Controls
+namespace AllMyMusic.Controls
 {
     /// <summary>
     /// Interaction logic for knob.xaml

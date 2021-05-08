@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Data;
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public class FrequencyFormatter : IValueConverter
     {

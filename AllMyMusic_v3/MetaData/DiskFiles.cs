@@ -6,7 +6,7 @@ using System.Text;
 
 using Metadata.Mp3;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class DiskFiles : ViewModelBase
     {

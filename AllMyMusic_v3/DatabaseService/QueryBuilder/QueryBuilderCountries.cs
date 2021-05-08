@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AllMyMusic_v3.QueryBuilder
+namespace AllMyMusic.QueryBuilder
 {
     public static class QueryBuilderCountries
     {
-        private static String columns = "SELECT ID, Country, Abbreviation, FlagPath ";
+        private static String columns = "SELECT Country, Abbreviation, ID, FlagPath ";
 
         private static String source = " FROM Countries ";
 

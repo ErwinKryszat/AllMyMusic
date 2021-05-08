@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-using AllMyMusic_v3.ViewModel;
+using AllMyMusic.ViewModel;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public class FolderListCreator
     {

@@ -8,7 +8,7 @@ using System.Windows.Media.Imaging;
 
 
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
      /// <summary>
     /// This class is used to:

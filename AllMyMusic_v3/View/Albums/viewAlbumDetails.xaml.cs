@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using System.Diagnostics;
 
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public partial class viewAlbumDetails : UserControl
     {

@@ -2,13 +2,13 @@
 using System.Collections.ObjectModel;
 using System.Data;
 
-using AllMyMusic_v3.QueryBuilder;
-using AllMyMusic_v3.Settings;
+using AllMyMusic.QueryBuilder;
+using AllMyMusic.Settings;
 
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AllMyMusic_v3.DataService
+namespace AllMyMusic.DataService
 {
     public interface IDataServiceCountries 
     {

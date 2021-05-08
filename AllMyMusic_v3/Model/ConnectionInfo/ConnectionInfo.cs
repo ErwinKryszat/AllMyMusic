@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public class ConnectionInfo : IDataErrorInfo
     {

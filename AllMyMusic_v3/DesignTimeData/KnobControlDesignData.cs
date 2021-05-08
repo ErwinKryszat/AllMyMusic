@@ -8,7 +8,7 @@ using System.ComponentModel;
 using System.Windows.Shapes;
 using System.Runtime.CompilerServices;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public class KnobControlDesignData : UserControl
     {

@@ -9,14 +9,14 @@ using System.Reflection;
 using System.Security.Principal;
 
 
-namespace AllMyMusic_v3.Database
+namespace AllMyMusic.Database
 {
     public class dbSchema_SQL : IDisposable
     {
         private ConnectionInfo _dbConnectionInfo;
         private String _dbCurrentVersion;
         private SqlConnection con = null;
-        private String assemblyBasePath = "AllMyMusic_v3.DatabaseService.DatabaseSchema.";
+        private String assemblyBasePath = "AllMyMusic.DatabaseService.DatabaseSchema.";
 
         /// <summary>
         /// This class provides functions to create and to update the database schema

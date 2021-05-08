@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class MessageBoxViewModel : ViewModelBase, IDisposable
     {
@@ -202,7 +202,7 @@ namespace AllMyMusic_v3.ViewModel
         }
         public MessageBoxViewModel(String message)
         {
-            CaptionText = "Please excuse me for this error in AllMyMusic_v3";
+            CaptionText = "Please excuse me for this error in AllMyMusic";
             MessageText = message;
             _severityType = MessageBoxImage.Error;
             _exceptionText = String.Empty;
@@ -213,7 +213,7 @@ namespace AllMyMusic_v3.ViewModel
 
         public MessageBoxViewModel(String message, Exception exception)
         {
-            CaptionText = "Please excuse me for this error in AllMyMusic_v3";
+            CaptionText = "Please excuse me for this error in AllMyMusic";
             MessageText = message;
             _severityType = MessageBoxImage.Error;
             _exceptionText = exception.ToString();
@@ -223,7 +223,7 @@ namespace AllMyMusic_v3.ViewModel
         }
         public MessageBoxViewModel(String message, AggregateException ae)
         {
-            CaptionText = "Please excuse me for this error in AllMyMusic_v3";
+            CaptionText = "Please excuse me for this error in AllMyMusic";
             MessageText = message;
             _severityType = MessageBoxImage.Error;
 
@@ -330,7 +330,7 @@ namespace AllMyMusic_v3.ViewModel
 
         public void Localize()
         {
-            TitleText = "AllMyMusic_v3 Message";
+            TitleText = "AllMyMusic Message";
             OkButtonText = AmmLocalization.GetLocalizedString("Common_OK");
             CancelButtonText = AmmLocalization.GetLocalizedString("Common_Cancel");
         }

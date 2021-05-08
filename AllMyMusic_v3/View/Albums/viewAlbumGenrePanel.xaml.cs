@@ -6,7 +6,7 @@ using System.Windows.Data;
 using System.Windows.Input;
 
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     /// <summary>
     /// Interaction logic for viewBandPanel.xaml

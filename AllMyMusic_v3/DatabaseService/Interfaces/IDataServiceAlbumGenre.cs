@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 
 
-namespace AllMyMusic_v3.DataService
+namespace AllMyMusic.DataService
 {
     public interface IDataServiceAlbumGenre 
     {

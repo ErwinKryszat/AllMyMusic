@@ -11,9 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
 
-using AllMyMusic_v3.DataService;
+using AllMyMusic.DataService;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class QueryComposerViewModel : ViewModelBase, IDisposable
     {
@@ -107,12 +107,16 @@ namespace AllMyMusic_v3.ViewModel
             set
             {
                 if (value == _selectedFieldName)
-                    return;
+                { 
+                    return; 
+                }
+                else
+                {
+                    _selectedFieldName = value;
 
-                _selectedFieldName = value;
-                RaisePropertyChanged("SelectedFieldName");
-
-                Task.Run(() => OnSelectedFieldNameChanged());
+                    Task.Run(() => OnSelectedFieldNameChanged());
+                    RaisePropertyChanged("SelectedFieldName");
+                }
             }
         }
         public String SelectedFieldValue
@@ -172,8 +176,8 @@ namespace AllMyMusic_v3.ViewModel
             LoadCompareOperators();
             LoadFieldNames();
 
-            SelectedFieldName = "BandName";
-            SelectedCompareOperator = " like ";
+            _selectedFieldName = "BandName";
+            _selectedCompareOperator = " like ";
             //SelectedAlphabet = "A";
             //SelectedFieldValue = "ABBA";
             Localize();
@@ -222,6 +226,7 @@ namespace AllMyMusic_v3.ViewModel
 
         private async Task OnSelectedFieldNameChanged()
         {
+            _alphabet = new ObservableCollection<string>();
             if (_selectedFieldName == "BandName")
             {
                 Alphabet = await _dataServiceListItems.GetAlphabet(TreeviewCategory.Band);
@@ -259,6 +264,10 @@ namespace AllMyMusic_v3.ViewModel
                     FieldValues = await _dataServiceListItems.GetListItemsByColumn(_selectedFieldName);
                     AlphabetVisible = false;
                 }
+            }
+            else
+            {
+                AlphabetVisible = true;
             }
            
 

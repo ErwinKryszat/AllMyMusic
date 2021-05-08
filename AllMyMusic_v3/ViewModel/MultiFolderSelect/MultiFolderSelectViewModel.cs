@@ -17,7 +17,7 @@ using System.Management;
 
 
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     /// <summary>
     /// Interaction logic for MultiFolderSelectControl.xaml

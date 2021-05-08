@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     /// <summary>
     /// Interaction logic for MessageBoxOkCancel.xaml

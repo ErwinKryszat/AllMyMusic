@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Media;
 using System.Windows;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     class WaveFormVisual : FrameworkElement, IWaveFormRenderer
     {

@@ -1,5 +1,5 @@
 ﻿<model:AlbumDetails
-    xmlns:model="clr-namespace:AllMyMusic_v3"
+    xmlns:model="clr-namespace:AllMyMusic"
     AlbumGenre="Blues"
     Year="1981"
     Bitrate="192"

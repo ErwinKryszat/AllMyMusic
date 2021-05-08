@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Windows;
 
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     /// <summary>
     /// Provides common functionality for ViewModel classes

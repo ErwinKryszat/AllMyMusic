@@ -7,6 +7,8 @@ using System.Diagnostics;
 using System.Security.Permissions;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
+
 
 namespace InstallerCustomActions
 {
@@ -63,6 +65,21 @@ namespace InstallerCustomActions
             {
                 MessageBox.Show("Commit Error: " + Err.Message);
             }
+
+
+            try
+            {
+                String _applicationDataPath = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + @"\winisoft\AllMyMusic"; // C:\ProgramData\winisoft\AllMyMusic
+                if (Directory.Exists(_applicationDataPath) == false)
+                {
+                    CommonApplicationData commonAppDFata = new CommonApplicationData("winisoft", "AllMyMusic", true);
+                }
+            }
+            catch (Exception Err)
+            {
+                MessageBox.Show("Commit Error: " + Err.Message);
+            }
+
 
             // let's launch the application
             //MessageBox.Show(Context.Parameters["TARGETDIR"].ToString() + "AllMyMusic.exe");

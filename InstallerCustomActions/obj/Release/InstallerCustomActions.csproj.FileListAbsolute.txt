@@ -17,3 +17,12 @@ D:\Projects_VC13\AllMyMusic_v3\InstallerCustomActions\bin\Release\InstallerCusto
 D:\Projects_VC13\AllMyMusic_v3\InstallerCustomActions\obj\Release\InstallerCustomActions.dll
 D:\Projects_VC13\AllMyMusic_v3\InstallerCustomActions\obj\Release\InstallerCustomActions.pdb
 D:\Projects_VC13\AllMyMusic_v3\InstallerCustomActions\obj\Release\InstallerCustomActions.csprojResolveAssemblyReference.cache
+D:\GitHub\AllMyMusic\InstallerCustomActions\bin\Release\InstallerCustomActions.dll
+D:\GitHub\AllMyMusic\InstallerCustomActions\bin\Release\InstallerCustomActions.pdb
+D:\GitHub\AllMyMusic\InstallerCustomActions\obj\Release\InstallerCustomActions.dll
+D:\GitHub\AllMyMusic\InstallerCustomActions\obj\Release\InstallerCustomActions.pdb
+D:\GIT_PUBLIC\AllMyMusic\InstallerCustomActions\bin\Release\InstallerCustomActions.dll
+D:\GIT_PUBLIC\AllMyMusic\InstallerCustomActions\bin\Release\InstallerCustomActions.pdb
+D:\GIT_PUBLIC\AllMyMusic\InstallerCustomActions\obj\Release\InstallerCustomActions.dll
+D:\GIT_PUBLIC\AllMyMusic\InstallerCustomActions\obj\Release\InstallerCustomActions.pdb
+D:\GIT_PUBLIC\AllMyMusic\InstallerCustomActions\obj\Release\InstallerCustomActions.csproj.CoreCompileInputs.cache

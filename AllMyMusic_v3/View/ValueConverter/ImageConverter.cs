@@ -10,7 +10,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Resources;
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public class ImageConverter : IValueConverter
     {
@@ -34,7 +34,7 @@ namespace AllMyMusic_v3.View
                     }
                     else
                     {
-                        // "/AllMyMusic_v3;component/Images/cover.jpg"
+                        // "/AllMyMusic;component/Images/cover.jpg"
                         //value = new Uri(Global.Images + "cover.jpg", UriKind.Relative);
                         Uri imageReference = new Uri(Global.Images + "cover.jpg", UriKind.Relative);
                         StreamResourceInfo sri = Application.GetResourceStream(imageReference);
@@ -49,7 +49,7 @@ namespace AllMyMusic_v3.View
                 }
             }
 
-            // "/AllMyMusic_v3;component/Images/cover.jpg"
+            // "/AllMyMusic;component/Images/cover.jpg"
             value = new Uri(Global.Images + "cover.jpg", UriKind.Relative);
             Uri imageReference2 = new Uri(Global.Images + "cover.jpg", UriKind.Relative);
             StreamResourceInfo sri2 = Application.GetResourceStream(imageReference2);

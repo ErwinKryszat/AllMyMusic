@@ -11,10 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
 using Microsoft.Win32;
-using AllMyMusic_v3.Settings;
-using AllMyMusic_v3.DataService;
+using AllMyMusic.Settings;
+using AllMyMusic.DataService;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class SqlPlaylistViewModel : ViewModelBase, IDisposable
     {

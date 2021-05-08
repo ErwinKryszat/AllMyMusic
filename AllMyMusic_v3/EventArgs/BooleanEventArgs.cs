@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public class BooleanEventArgs : EventArgs
     {

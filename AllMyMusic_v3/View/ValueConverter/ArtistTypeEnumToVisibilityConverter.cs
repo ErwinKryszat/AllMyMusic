@@ -7,7 +7,7 @@ using System.Globalization;
 using System.Windows.Data;
 using System.Windows;
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public class ArtistTypeEnumToVisibilityConverter : IValueConverter
     {

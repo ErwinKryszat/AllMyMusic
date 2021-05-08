@@ -12,11 +12,11 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
-using AllMyMusic_v3.Settings;
+using AllMyMusic.Settings;
 using Metadata.Mp3;
 using Metadata.ID3;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class ToolsViewModel : ViewModelBase, IDisposable
     {
@@ -94,12 +94,12 @@ namespace AllMyMusic_v3.ViewModel
         {
             get 
             {
-                if (_toolType == AllMyMusic_v3.ToolType.PropertiesTool)
+                if (_toolType == AllMyMusic.ToolType.PropertiesTool)
                 {
                     return _propertiesToolVM.ChangedProperties; 
                 }
 
-                if (_toolType == AllMyMusic_v3.ToolType.AutoTagTool)
+                if (_toolType == AllMyMusic.ToolType.AutoTagTool)
                 {
                     return _autoTagToolVM.ChangedProperties;
                 }
@@ -281,7 +281,7 @@ namespace AllMyMusic_v3.ViewModel
         }
         private void AutoTagTool_PreviewRequested(object sender, EventArgs e)
         {
-            if (_toolType == AllMyMusic_v3.ToolType.AutoTagTool)
+            if (_toolType == AllMyMusic.ToolType.AutoTagTool)
             {
                 if (_songsVM.Songs.Count > 0)
                 {
@@ -292,7 +292,7 @@ namespace AllMyMusic_v3.ViewModel
         }
         private void RenameTool_PreviewRequested(object sender, EventArgs e)
         {
-            if (_toolType == AllMyMusic_v3.ToolType.RenameTool)
+            if (_toolType == AllMyMusic.ToolType.RenameTool)
             {
                 if (_songsVM.Songs.Count > 0)
                 {

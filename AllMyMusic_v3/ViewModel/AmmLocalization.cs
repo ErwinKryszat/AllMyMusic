@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Resources;
 using System.Reflection;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     /// <summary>
     /// This class is used to:

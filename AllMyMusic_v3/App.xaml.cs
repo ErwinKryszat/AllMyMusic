@@ -6,9 +6,9 @@ using System.Linq;
 using System.Windows;
 using System.ComponentModel.Composition.Hosting;
 
-using AllMyMusic_v3.ViewModel;
+using AllMyMusic.ViewModel;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     /// <summary>
     /// Interaction logic for App.xaml

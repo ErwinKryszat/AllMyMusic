@@ -7,7 +7,7 @@ using System.IO;
 using System.Text;
 using System.Xml;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {   
     public class CountryCollection : List<CountryItem>
     {

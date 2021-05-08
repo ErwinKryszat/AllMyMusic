@@ -2,9 +2,9 @@
 using System.Data;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
-using AllMyMusic_v3.ViewModel;
+using AllMyMusic.ViewModel;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public interface IDataServiceToolbar
     {

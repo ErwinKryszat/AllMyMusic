@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     static class Global
     {
-        public static String Application = "AllMyMusic_v3";
+        public static String Application = "AllMyMusic";
         public static String Images = "/" + Application + ";component/Resources/Images/";
         public static String Instruments = "/" + Application + ";component/Resources/Instruments/";
-        // "/AllMyMusic_v3;component/Resources/images/CD_32.png"
+        // "/AllMyMusic;component/Resources/images/CD_32.png"
 
 
         public static String Resources = Application +  ".Properties.Resources";

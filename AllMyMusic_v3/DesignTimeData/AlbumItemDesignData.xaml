@@ -1,5 +1,5 @@
 ﻿<model:AlbumItem
-    xmlns:model="clr-namespace:AllMyMusic_v3"
+    xmlns:model="clr-namespace:AllMyMusic"
     BandName="Iron Maiden" 
     AlbumName ="Killers"
     Year="1981"

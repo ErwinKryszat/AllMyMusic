@@ -5,7 +5,7 @@ using System.Windows.Data;
 using System.Text;
 
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public class GridLengthValueConverter : IValueConverter
     {

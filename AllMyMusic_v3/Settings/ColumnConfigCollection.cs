@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AllMyMusic_v3.Settings
+namespace AllMyMusic.Settings
 {
     public class ColumnConfigCollection : List<dgColumnConfig>
     {

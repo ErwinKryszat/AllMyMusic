@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace AllMyMusic_v3.Design
+namespace AllMyMusic.Design
 {
     //public class DesignDataService : IDataService
     //{

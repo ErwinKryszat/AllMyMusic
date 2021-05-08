@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel.Composition;
 
-namespace AllMyMusic_v3.Controls
+namespace AllMyMusic.Controls
 {
     [Export(typeof(IVisualizationPlugin))]
     class SpectrumAnalyzerVisualization : IVisualizationPlugin

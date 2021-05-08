@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AllMyMusic_v3.QueryBuilder
+namespace AllMyMusic.QueryBuilder
 {
     public static class QueryBuilderItems
     {

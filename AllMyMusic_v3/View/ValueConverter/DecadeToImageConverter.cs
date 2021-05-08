@@ -6,7 +6,7 @@ using System.Windows.Data;
 using System.Windows.Media.Imaging;
 using System.Globalization;
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     class DecadeToImageConverter : IValueConverter
     {
@@ -61,7 +61,7 @@ namespace AllMyMusic_v3.View
 
             BitmapImage bi = new BitmapImage();
             bi.BeginInit();
-            bi.UriSource = new Uri("/AllMyMusic_v3;component/images/" + path, UriKind.Relative);
+            bi.UriSource = new Uri("/AllMyMusic;component/images/" + path, UriKind.Relative);
             bi.EndInit();
             return bi;
 

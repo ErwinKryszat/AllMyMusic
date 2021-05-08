@@ -14,9 +14,9 @@ using System.Windows.Shapes;
 
 using System.IO;
 
-using AllMyMusic_v3.ViewModel;
+using AllMyMusic.ViewModel;
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     /// <summary>
     /// Interaction logic for SqlQueryPanel.xaml

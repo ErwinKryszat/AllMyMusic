@@ -5,7 +5,7 @@ using System.Text;
 using System.Xml;
 
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public static class PlaylistExport
     {

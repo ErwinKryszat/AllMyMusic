@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
 
-using AllMyMusic_v3.ViewModel;
-using AllMyMusic_v3.Settings;
+using AllMyMusic.ViewModel;
+using AllMyMusic.Settings;
 using Metadata.Mp3;
 using Metadata.ID3;
 
 
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public class AddSongsBackgroundWorker : IBackgroundQueueJob, IDisposable
     {

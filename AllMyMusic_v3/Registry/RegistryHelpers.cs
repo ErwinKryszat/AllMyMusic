@@ -5,7 +5,7 @@ using System.Text;
 
 using Microsoft.Win32;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public class RegistryHelpers
     {

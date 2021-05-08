@@ -10,14 +10,14 @@ using System.IO;
 using System.Reflection;
 using System.Security.Principal;
 
-namespace AllMyMusic_v3.Database
+namespace AllMyMusic.Database
 {
     public class dbSchema_MYSQL : IDisposable
     {
         private ConnectionInfo _dbConnectionInfo;
         private String _dbCurrentVersion;
         private MySqlConnection con = null;
-        private String assemblyBasePath = "AllMyMusic_v3.Database.DatabaseSchema.";
+        private String assemblyBasePath = "AllMyMusic.Database.DatabaseSchema.";
 
         /// <summary>
         /// This class provides functions to create and to update the database schema

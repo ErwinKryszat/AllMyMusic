@@ -2,12 +2,12 @@
 using System.Text;
 using System.Diagnostics.Tracing;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
-    [EventSource(Name = "AllMyMusic_v3")]
+    [EventSource(Name = "AllMyMusic")]
     internal sealed class PerformanceLogging : EventSource
     {
-        public static readonly PerformanceLogging Write = new PerformanceLogging();
+        // public static readonly PerformanceLogging Write = new PerformanceLogging();
 
         public class Keywords
         {

@@ -6,9 +6,9 @@ using System.Collections.ObjectModel;
 using System.Reflection;
 using System.Windows.Input;
 
-using AllMyMusic_v3.Settings;
+using AllMyMusic.Settings;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class AutoTagToolViewModel : ViewModelBase, IDisposable
     {
@@ -159,7 +159,7 @@ namespace AllMyMusic_v3.ViewModel
 
             if (File.Exists(Global.AutoTagPatternFile) == false)
             {
-                ResourceHelper.CopyResourceTextFileToFilesystem("AllMyMusic_v3.Resources.Text.autotagFiles.txt", Global.AutoTagPatternFile);
+                ResourceHelper.CopyResourceTextFileToFilesystem("AllMyMusic.Resources.Text.autotagFiles.txt", Global.AutoTagPatternFile);
             }
 
             if (File.Exists(Global.AutoTagPatternFile) == true)

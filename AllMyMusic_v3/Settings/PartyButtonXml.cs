@@ -4,10 +4,10 @@ using System.IO;
 using System.Text;
 using System.Xml;
 
-using AllMyMusic_v3.ViewModel;
+using AllMyMusic.ViewModel;
 
 
-namespace AllMyMusic_v3.Settings
+namespace AllMyMusic.Settings
 {
     public static class PartyButtonXml
     {

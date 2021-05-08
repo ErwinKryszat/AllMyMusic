@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     /// <summary>
     /// Specifies from what kind of data source the song comes.

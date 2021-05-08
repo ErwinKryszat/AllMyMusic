@@ -1,5 +1,5 @@
 ﻿    <model:CountryItem
-        xmlns:model="clr-namespace:AllMyMusic_v3"
+        xmlns:model="clr-namespace:AllMyMusic"
         CountryId="1" 
         Country="Germany"
         Abbreviation="DE"

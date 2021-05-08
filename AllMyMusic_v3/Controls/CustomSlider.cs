@@ -3,7 +3,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace AllMyMusic_v3.Controls
+namespace AllMyMusic.Controls
 {
     public class CustomSlider : Slider
     {

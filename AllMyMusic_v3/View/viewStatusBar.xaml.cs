@@ -5,7 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
 
     public partial class viewStatusBar : UserControl

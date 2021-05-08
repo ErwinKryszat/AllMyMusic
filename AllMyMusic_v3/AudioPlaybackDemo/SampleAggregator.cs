@@ -5,7 +5,7 @@ using System.Diagnostics;
 using NAudio.Dsp;
 using NAudio.Wave;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public class SampleAggregator : ISampleProvider
     {

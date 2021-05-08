@@ -9,7 +9,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Resources;
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public class CountryImageConverter : IValueConverter
     {
@@ -36,7 +36,7 @@ namespace AllMyMusic_v3.View
                 }
                 else
                 {
-                    // "/AllMyMusic_v3;component/Images/cover.jpg"
+                    // "/AllMyMusic;component/Images/cover.jpg"
                     //value = new Uri(Global.Images + "world_64.png", UriKind.Relative);
                     Uri imageReference = new Uri(Global.Images + "world_64.png", UriKind.Relative);
                     StreamResourceInfo sri = Application.GetResourceStream(imageReference);

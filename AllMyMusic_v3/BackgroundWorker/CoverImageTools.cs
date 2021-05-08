@@ -14,13 +14,13 @@ using System.Threading.Tasks;
 
 using System.Diagnostics;
 
-using AllMyMusic_v3.DataService;
-using AllMyMusic_v3.Settings;
-using AllMyMusic_v3.QueryBuilder;
+using AllMyMusic.DataService;
+using AllMyMusic.Settings;
+using AllMyMusic.QueryBuilder;
 using Metadata.Mp3;
 using Metadata.ID3;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public class CoverImageTools : IDisposable
     {

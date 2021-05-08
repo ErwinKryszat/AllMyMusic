@@ -1174,7 +1174,7 @@
     <value>Mit diesem Fenster können Sie Wiedergabelisten erstellen</value>
   </data>
   <data name="frmPartyButton_Title" xml:space="preserve">
-    <value>Wiedergabelisten Werkzeug</value>
+    <value>Wiedergabeliste</value>
   </data>
   <data name="cmd_Example" xml:space="preserve">
     <value>Beispiel</value>
@@ -1222,7 +1222,7 @@
     <value>Wiedergabelisten</value>
   </data>
   <data name="ribbon_Grp_PartyButtonTool" xml:space="preserve">
-    <value>Wiedergabelisten Werkzeug</value>
+    <value>Wiedergabeliste</value>
   </data>
   <data name="ribbon_Grp_SelectDatabase" xml:space="preserve">
     <value>Datenbank wählen</value>

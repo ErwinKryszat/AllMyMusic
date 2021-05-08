@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.IO;
-using AllMyMusic_v3.DataService;
+using AllMyMusic.DataService;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public class BackgroundJobHelper : IDisposable
     {

@@ -6,10 +6,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
 
-using AllMyMusic_v3.QueryBuilder;
+using AllMyMusic.QueryBuilder;
 
 
-namespace AllMyMusic_v3.DataService
+namespace AllMyMusic.DataService
 {
     public class DataServiceListItems_MYSQL : IDataServiceListItems, IDisposable
     {

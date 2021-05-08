@@ -1,12 +1,12 @@
-﻿<Window x:Class="AllMyMusic_v3.frmCoverImage"
+﻿<Window x:Class="AllMyMusic.frmCoverImage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="FrmCoverImage" 
-        Height="700" 
-        Width="550" 
+        Height="900" 
+        Width="640" 
         Loaded="Window_Loaded" 
        
-        Icon="/AllMyMusic_v3;component/Resources/Icons/AllMyMusic.ico" Closing="Window_Closing_1">
+        Icon="/AllMyMusic;component/Resources/Icons/AllMyMusic.ico" Closing="Window_Closing_1">
     
     <Window.Resources>
         <ResourceDictionary>

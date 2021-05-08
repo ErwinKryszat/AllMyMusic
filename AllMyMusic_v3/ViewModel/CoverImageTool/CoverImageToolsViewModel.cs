@@ -12,9 +12,9 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using System.Drawing;
 
-using AllMyMusic_v3.Settings;
+using AllMyMusic.Settings;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class CoverImageToolsViewModel : ViewModelBase, IDisposable
     {

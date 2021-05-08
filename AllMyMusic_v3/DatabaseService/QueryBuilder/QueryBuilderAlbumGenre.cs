@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 
-namespace AllMyMusic_v3.QueryBuilder
+namespace AllMyMusic.QueryBuilder
 {
     public static class QueryBuilderAlbumGenre
     {

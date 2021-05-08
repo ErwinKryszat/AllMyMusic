@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="AllMyMusic_v3.Controls.PolylineWaveFormControl"
+﻿<UserControl x:Class="AllMyMusic.Controls.PolylineWaveFormControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
      Foreground="Black">

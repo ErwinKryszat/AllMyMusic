@@ -4,10 +4,10 @@ using System.Text;
 using System.Windows.Input;
 using System.Threading.Tasks;
 
-using AllMyMusic_v3.DataService;
-using AllMyMusic_v3.QueryBuilder;
+using AllMyMusic.DataService;
+using AllMyMusic.QueryBuilder;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class ToolbarViewModel : ViewModelBase, IDisposable
     {

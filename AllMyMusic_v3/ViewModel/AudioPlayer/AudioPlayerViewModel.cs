@@ -10,14 +10,14 @@ using System.Windows.Input;
 using System.Windows;
 
 using System.IO;
-using AllMyMusic_v3.DataService;
-using AllMyMusic_v3.Controls;
-using AllMyMusic_v3.Settings;
+using AllMyMusic.DataService;
+using AllMyMusic.Controls;
+using AllMyMusic.Settings;
 
 using Metadata.Mp3;
 //using Metadata.ID3;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class AudioPlayerViewModel : ViewModelBase, IDisposable
     {
@@ -95,8 +95,9 @@ namespace AllMyMusic_v3.ViewModel
         }
         private void ExecutePlayCommand(object notUsed)
         {
-            _audioPlayback.Play();
-            PlaybackPaused = false;
+            PlaySong();
+            //_audioPlayback.Play();
+            //PlaybackPaused = false;
         }
         private bool CanPlayCommand(object notUsed)
         {
@@ -134,8 +135,9 @@ namespace AllMyMusic_v3.ViewModel
         }
         private void ExecuteStopCommand(object notUsed)
         {
-            _stopped = true;
-            _audioPlayback.Stop();
+            StopPlayback();
+            //_stopped = true;
+            //_audioPlayback.Stop();
         }
         private bool CanStopCommand(object notUsed)
         {
@@ -511,6 +513,8 @@ namespace AllMyMusic_v3.ViewModel
 
                 StreamMp3();
                 _stopped = false;
+                
+                PlaybackPaused = false;
 
                 Rating = Song.Rating;
                 Song.RatingChanged += new SongItem.RatingChangedEventHandler(Song_RatingChanged);
@@ -537,7 +541,7 @@ namespace AllMyMusic_v3.ViewModel
                 {
                     
                 }
-
+                PlaybackPaused = false;
             }
             if (_timer != null)
             {

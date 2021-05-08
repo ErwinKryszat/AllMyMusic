@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public class FileSizeFormatProvider : IFormatProvider, ICustomFormatter
     {

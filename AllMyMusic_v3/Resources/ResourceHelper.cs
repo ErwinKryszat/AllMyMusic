@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.IO;
 using System.Reflection;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public static class ResourceHelper 
     {

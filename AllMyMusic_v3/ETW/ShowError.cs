@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using AllMyMusic_v3.ViewModel;
+using AllMyMusic.ViewModel;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public static class ShowError
     {
@@ -32,6 +32,14 @@ namespace AllMyMusic_v3
         {
             EventLogging.Write.Error(errorMessage, eventId);
             MessageBoxViewModel vmMessage = new MessageBoxViewModel(errorMessage);
+            frmMessage frmMsg = new frmMessage();
+            frmMsg.DataContext = vmMessage;
+            frmMsg.ShowDialog();
+        }
+
+        public static void Show(String message)
+        {
+            MessageBoxViewModel vmMessage = new MessageBoxViewModel(message);
             frmMessage frmMsg = new frmMessage();
             frmMsg.DataContext = vmMessage;
             frmMsg.ShowDialog();

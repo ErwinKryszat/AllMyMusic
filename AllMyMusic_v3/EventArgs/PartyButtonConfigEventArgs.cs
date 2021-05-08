@@ -1,8 +1,8 @@
 ﻿using System;
 
-using AllMyMusic_v3.ViewModel;
+using AllMyMusic.ViewModel;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public class PartyButtonConfigEventArgs : EventArgs
     {

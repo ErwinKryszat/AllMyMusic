@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public class DoubleCollection : ObservableCollection<double>
     {

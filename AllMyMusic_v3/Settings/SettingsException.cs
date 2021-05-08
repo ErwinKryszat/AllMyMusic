@@ -5,7 +5,7 @@ using System.Text;
 
 using System.Runtime.Serialization;
 
-namespace AllMyMusic_v3.Settings
+namespace AllMyMusic.Settings
 {
     [Serializable()]
     public class SettingsException : ApplicationException

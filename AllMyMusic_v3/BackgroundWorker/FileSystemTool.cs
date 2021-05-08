@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     static class FileSystemTool
     {

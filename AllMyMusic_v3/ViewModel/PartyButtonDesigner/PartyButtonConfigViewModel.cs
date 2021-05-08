@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class PartyButtonConfigViewModel : ViewModelBase
     {

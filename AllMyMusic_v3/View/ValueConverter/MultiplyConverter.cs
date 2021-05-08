@@ -3,7 +3,7 @@ using System.Text;
 using System.Windows.Data;
 using System.Globalization;
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public class MultiplyConverter : IMultiValueConverter
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows;
-using AllMyMusic_v3.ViewModel;
-using AllMyMusic_v3.Settings;
+using AllMyMusic.ViewModel;
+using AllMyMusic.Settings;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     /// <summary>
     /// Interaction logic for frmConnectDatabase.xaml

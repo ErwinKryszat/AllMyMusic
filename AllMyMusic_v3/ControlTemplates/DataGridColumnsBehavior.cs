@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public class DataGridColumnsBehavior
     {

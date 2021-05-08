@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public static class ScrollCurrentItemIntoViewBehavior
     {

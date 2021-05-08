@@ -18,7 +18,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     /// <summary>
     /// Interaction logic for viewSongsPlaylistPanel.xaml

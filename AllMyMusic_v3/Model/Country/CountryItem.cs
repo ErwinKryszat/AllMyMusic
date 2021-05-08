@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public class CountryItem : INotifyPropertyChanged 
     {

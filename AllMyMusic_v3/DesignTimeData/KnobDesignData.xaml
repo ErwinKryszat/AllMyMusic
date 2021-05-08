@@ -1,5 +1,5 @@
 ﻿<local:KnobControlDesignData
-    xmlns:local="clr-namespace:AllMyMusic_v3"
+    xmlns:local="clr-namespace:AllMyMusic"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     Angle="0"
     BorderWidth="10"

@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public partial class viewAlbumListAndAlbum : UserControl
     {

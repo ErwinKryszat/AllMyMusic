@@ -47,3 +47,9 @@ D:\Projekte\AllMyMusic_v3\InstallerCustomActions\bin\Debug\InstallerCustomAction
 D:\Projekte\AllMyMusic_v3\InstallerCustomActions\bin\Debug\InstallerCustomActions.pdb
 D:\Projekte\AllMyMusic_v3\InstallerCustomActions\obj\Debug\InstallerCustomActions.dll
 D:\Projekte\AllMyMusic_v3\InstallerCustomActions\obj\Debug\InstallerCustomActions.pdb
+D:\GIT_PUBLIC\AllMyMusic\InstallerCustomActions\bin\Debug\InstallerCustomActions.dll
+D:\GIT_PUBLIC\AllMyMusic\InstallerCustomActions\bin\Debug\InstallerCustomActions.pdb
+D:\GIT_PUBLIC\AllMyMusic\InstallerCustomActions\obj\Debug\InstallerCustomActions.dll
+D:\GIT_PUBLIC\AllMyMusic\InstallerCustomActions\obj\Debug\InstallerCustomActions.pdb
+D:\GIT_PUBLIC\AllMyMusic\InstallerCustomActions\obj\Debug\InstallerCustomActions.csprojAssemblyReference.cache
+D:\GIT_PUBLIC\AllMyMusic\InstallerCustomActions\obj\Debug\InstallerCustomActions.csproj.CoreCompileInputs.cache

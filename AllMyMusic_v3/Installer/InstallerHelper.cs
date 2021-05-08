@@ -6,7 +6,7 @@ using System.Security.Permissions;
 using System.Security.Principal;
 using Microsoft.Win32;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public static class InstallerHelper
     {

@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public class TaskQueueItem
     {

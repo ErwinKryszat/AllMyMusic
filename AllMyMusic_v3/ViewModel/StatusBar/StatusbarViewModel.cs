@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class StatusbarViewModel : ViewModelBase, IDisposable
     {

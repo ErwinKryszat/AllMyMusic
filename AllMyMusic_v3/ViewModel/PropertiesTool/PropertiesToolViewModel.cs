@@ -13,12 +13,12 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
 
-using AllMyMusic_v3.DataService;
-using AllMyMusic_v3.Settings;
+using AllMyMusic.DataService;
+using AllMyMusic.Settings;
 using Metadata.Mp3;
 using Metadata.ID3;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class PropertiesToolViewModel : ViewModelBase, IDisposable
     {

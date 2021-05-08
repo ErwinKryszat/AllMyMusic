@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 
-namespace AllMyMusic_v3.Database
+namespace AllMyMusic.Database
 {
     public class dbSchemaValidation
     {

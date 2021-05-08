@@ -48,3 +48,17 @@ D:\Projects_VC13\AllMyMusic_v3_03\NAudio\obj\Debug\NAudio.Utils.ProgressLog.reso
 D:\Projects_VC13\AllMyMusic_v3_03\NAudio\obj\Debug\NAudio.csproj.GenerateResource.Cache
 D:\Projects_VC13\AllMyMusic_v3_03\NAudio\obj\Debug\NAudio.dll
 D:\Projects_VC13\AllMyMusic_v3_03\NAudio\obj\Debug\NAudio.pdb
+D:\GIT_PUBLIC\AllMyMusic\NAudio\bin\Debug\NAudio.XML
+D:\GIT_PUBLIC\AllMyMusic\NAudio\bin\Debug\NAudio.dll
+D:\GIT_PUBLIC\AllMyMusic\NAudio\bin\Debug\NAudio.pdb
+D:\GIT_PUBLIC\AllMyMusic\NAudio\obj\Debug\NAudio.Gui.Fader.resources
+D:\GIT_PUBLIC\AllMyMusic\NAudio\obj\Debug\NAudio.Gui.PanSlider.resources
+D:\GIT_PUBLIC\AllMyMusic\NAudio\obj\Debug\NAudio.Gui.Pot.resources
+D:\GIT_PUBLIC\AllMyMusic\NAudio\obj\Debug\NAudio.Gui.VolumeSlider.resources
+D:\GIT_PUBLIC\AllMyMusic\NAudio\obj\Debug\NAudio.Gui.WaveViewer.resources
+D:\GIT_PUBLIC\AllMyMusic\NAudio\obj\Debug\NAudio.Utils.ProgressLog.resources
+D:\GIT_PUBLIC\AllMyMusic\NAudio\obj\Debug\NAudio.csproj.GenerateResource.cache
+D:\GIT_PUBLIC\AllMyMusic\NAudio\obj\Debug\NAudio.csproj.CoreCompileInputs.cache
+D:\GIT_PUBLIC\AllMyMusic\NAudio\obj\Debug\NAudio.dll
+D:\GIT_PUBLIC\AllMyMusic\NAudio\obj\Debug\NAudio.pdb
+D:\GIT_PUBLIC\AllMyMusic\NAudio\obj\Debug\NAudio.csprojAssemblyReference.cache

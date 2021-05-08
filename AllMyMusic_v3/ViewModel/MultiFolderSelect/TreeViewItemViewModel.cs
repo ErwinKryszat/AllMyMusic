@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     /// <summary>
     /// Base class for all ViewModel classes displayed by TreeViewItems.  

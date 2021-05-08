@@ -11,7 +11,7 @@ using System.Windows.Controls.Primitives;
 
 
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public class ListBoxSongItems : ListBox
     {

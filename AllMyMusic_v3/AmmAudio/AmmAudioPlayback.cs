@@ -7,7 +7,7 @@ using System.IO;
 using System.Threading;
 
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     #region Enums
     public enum Statuses { None, Initializing, Ready, Loading, Playing, Stopped, Pausing, Terminating, Terminated, Error };

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 
-namespace AllMyMusic_v3.View
+namespace AllMyMusic.View
 {
     public static class DialogCloser
     {

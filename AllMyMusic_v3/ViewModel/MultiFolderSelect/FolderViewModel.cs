@@ -5,7 +5,7 @@ using System.Text;
 
 using System.IO;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class FolderViewModel : TreeViewItemViewModel
     {

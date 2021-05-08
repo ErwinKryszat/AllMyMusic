@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using AllMyMusic_v3.Settings;
+using AllMyMusic.Settings;
 using System.IO;
 
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public class Bootstraper
     {
@@ -24,11 +24,6 @@ namespace AllMyMusic_v3
         private String _flagsPath;
         private String _partyButtonImages;
         private String _playlistPath;
-
-        //private String _applicationLogfilePath;
-        //private String _cachePath;
-        //private String _cachePathImages;
-
         #endregion
 
         #region Constructor
@@ -52,14 +47,14 @@ namespace AllMyMusic_v3
                 return false;
             }
 
-            DirectoryInfo CommonApplicationData = null;
+            DirectoryInfo diAppData = null;
             if (Directory.Exists(_applicationDataPath) == false)
             {
-                CommonApplicationData = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData));
-                CommonApplicationData.CreateSubdirectory("AllMyMusic");
+                diAppData = new DirectoryInfo(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData));
+                diAppData.CreateSubdirectory("AllMyMusic");
             }
 
-          
+
             if (Directory.Exists(_flagsPath) == false)
             {
                 DirectoryInfo applicationDirectory = new DirectoryInfo(_applicationDataPath);
@@ -137,7 +132,7 @@ namespace AllMyMusic_v3
             _applicationDataPath = GetApplicationDataPath();
 
 
-            _applicationSettingsFile = _applicationDataPath + @"\AllMyMusic_v3.xml";
+            _applicationSettingsFile = _applicationDataPath + @"\AllMyMusic.xml";
             _applicationSettingsFile_v2 = _applicationDataPath + @"\AllMyMusic_v2.xml";
 
             _renamePatternFile = _applicationDataPath + @"\renameFiles_v3.txt";
@@ -173,18 +168,18 @@ namespace AllMyMusic_v3
         {
             //return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\AllMyMusic"; //  C:\Users\Erwin\AppData\Roaming\AllMyMusic
 
-            InstallationContexts appContext = InstallerHelper.GetInstalledContext("AllMyMusic_v3");
+            InstallationContexts appContext = InstallerHelper.GetInstalledContext("AllMyMusic");
 
             switch (appContext)
             {
                 case InstallationContexts.NotInstalled:
-                    return Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + @"\AllMyMusic"; // C:\ProgramData
+                    return Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + @"\winisoft\AllMyMusic"; // C:\ProgramData
                 case InstallationContexts.Everyone:
-                    return Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + @"\AllMyMusic"; // C:\ProgramData
+                    return Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + @"\winisoft\AllMyMusic"; // C:\ProgramData
                 case InstallationContexts.JustMe:
-                    return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\AllMyMusic"; // C:\Users\Erwin\AppData\Roaming\AllMyMusic
+                    return Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\winisoft\AllMyMusic"; // C:\Users\Erwin\AppData\Roaming\AllMyMusic
                 default:
-                    return Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + @"\AllMyMusic"; //C:\ProgramData
+                    return Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + @"\winisoft\AllMyMusic"; //C:\ProgramData
             }
         }
 
@@ -192,17 +187,17 @@ namespace AllMyMusic_v3
         {
             if (File.Exists(_worldCountriesFile) == false)
             {
-                ResourceHelper.CopyResourceTextFileToFilesystem("AllMyMusic_v3.Resources.Text.world.xml", _worldCountriesFile);
+                ResourceHelper.CopyResourceTextFileToFilesystem("AllMyMusic.Resources.Text.world.xml", _worldCountriesFile);
             }
 
             if (File.Exists(_renamePatternFile) == false)
             {
-                ResourceHelper.CopyResourceTextFileToFilesystem("AllMyMusic_v3.Resources.Text.renameFiles_v3.txt", _renamePatternFile);
+                ResourceHelper.CopyResourceTextFileToFilesystem("AllMyMusic.Resources.Text.renameFiles_v3.txt", _renamePatternFile);
             }
 
             if (File.Exists(_autoTagPatternFile) == false)
             {
-                ResourceHelper.CopyResourceTextFileToFilesystem("AllMyMusic_v3.Resources.Text.autotagFiles_v3.txt", _autoTagPatternFile);
+                ResourceHelper.CopyResourceTextFileToFilesystem("AllMyMusic.Resources.Text.autotagFiles_v3.txt", _autoTagPatternFile);
             }
         }
         public void CopyPartybuttonImages()
@@ -213,46 +208,46 @@ namespace AllMyMusic_v3
             FileInfo[] fi = di.GetFiles("*.png");
             if ((fi.Length == 0) && (File.Exists(PartyButtonImagePath + "\\bass1.png") == false))
             {
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.bass1.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.bass2.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.bass3.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.drums1.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.drums2.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.drums3.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.drums4.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.g1.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.g3.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.g4.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.g5.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.g6.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.g7.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.g8.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.g9.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.g10.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.harp1.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.sax1.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.sax2.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.balalaika1.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.bandola1.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.e-cello1.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.grand-piano1.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.hat1.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.hat2.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.hat3.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.horn1.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.keyboard1.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.keyboard2.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.keyboard3.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.contrabass1.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.mic1.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.mic2.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.piano1.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.speaker1.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.speaker2.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.trumpet1.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.tuba1.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.violin1.png", PartyButtonImagePath);
-                ResourceHelper.CopyImageToFolder("AllMyMusic_v3.Resources.Instruments.violin2.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.bass1.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.bass2.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.bass3.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.drums1.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.drums2.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.drums3.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.drums4.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.g1.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.g3.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.g4.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.g5.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.g6.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.g7.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.g8.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.g9.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.g10.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.harp1.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.sax1.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.sax2.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.balalaika1.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.bandola1.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.e-cello1.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.grand-piano1.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.hat1.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.hat2.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.hat3.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.horn1.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.keyboard1.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.keyboard2.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.keyboard3.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.contrabass1.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.mic1.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.mic2.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.piano1.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.speaker1.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.speaker2.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.trumpet1.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.tuba1.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.violin1.png", PartyButtonImagePath);
+                ResourceHelper.CopyImageToFolder("AllMyMusic.Resources.Instruments.violin2.png", PartyButtonImagePath);
             }
         }
 

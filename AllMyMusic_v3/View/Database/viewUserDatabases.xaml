@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="AllMyMusic_v3.View.viewUserDatabases"
+﻿<UserControl x:Class="AllMyMusic.View.viewUserDatabases"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -53,7 +53,7 @@
                  CommandParameter="{Binding Path=SelectedDatabase}"
                  Style="{StaticResource ButtonStyle}">
             <Button.Content>
-                <Image Source="/AllMyMusic_v3;component/Resources/images/connect_32.png">
+                <Image Source="/AllMyMusic;component/Resources/images/connect_32.png">
                     <Image.Style>
                         <Style TargetType="Image">
                             <Style.Triggers>
@@ -75,7 +75,7 @@
                  CommandParameter="{Binding Path=SelectedDatabase}"
                  Style="{StaticResource ButtonStyle}">
             <Button.Content>
-                <Image Source="/AllMyMusic_v3;component/Resources/images/purge_32.png">
+                <Image Source="/AllMyMusic;component/Resources/images/purge_32.png">
                     <Image.Style>
                         <Style TargetType="Image">
                             <Style.Triggers>
@@ -97,7 +97,7 @@
                  CommandParameter="{Binding Path=SelectedDatabase}"
                  Style="{StaticResource ButtonStyle}">
             <Button.Content>
-                <Image Source="/AllMyMusic_v3;component/Resources/images/delete_database_32.png">
+                <Image Source="/AllMyMusic;component/Resources/images/delete_database_32.png">
                     <Image.Style>
                         <Style TargetType="Image">
                             <Style.Triggers>

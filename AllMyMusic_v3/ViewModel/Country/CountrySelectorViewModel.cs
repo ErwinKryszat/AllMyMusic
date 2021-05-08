@@ -5,11 +5,11 @@ using System.Text;
 using System.Windows.Input;
 using System.Threading;
 
-using AllMyMusic_v3.DataService;
-using AllMyMusic_v3.Settings;
-using AllMyMusic_v3.WebServices;
+using AllMyMusic.DataService;
+using AllMyMusic.Settings;
+using AllMyMusic.WebServices;
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class CountrySelectorViewModel : ViewModelBase, IDisposable
     {
@@ -180,9 +180,19 @@ namespace AllMyMusic_v3.ViewModel
             {
                 _countryItems.Add(WorldList[i]);
 
-                if (_countryItems[i].Abbreviation == country.Abbreviation )
+                if (String.IsNullOrEmpty(country.Abbreviation) == false)
                 {
-                    SelectedCountry = _countryItems[i];
+                    if (_countryItems[i].Abbreviation == country.Abbreviation)
+                    {
+                        SelectedCountry = _countryItems[i];
+                    }
+                }
+                else
+                {
+                    if (_countryItems[i].Country == country.Country)
+                    {
+                        SelectedCountry = _countryItems[i];
+                    }
                 }
             }
 

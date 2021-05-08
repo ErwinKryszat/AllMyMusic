@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AllMyMusic_v3
+namespace AllMyMusic
 {
     public interface IWaveFormRenderer
     {

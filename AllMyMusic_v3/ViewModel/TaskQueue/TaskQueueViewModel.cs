@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows.Input;
 
 
-namespace AllMyMusic_v3.ViewModel
+namespace AllMyMusic.ViewModel
 {
     public class TaskQueueViewModel : ViewModelBase, IDisposable
     {
@@ -86,7 +86,7 @@ namespace AllMyMusic_v3.ViewModel
         public TaskQueueViewModel(TaskQueue taskQueue)
         {
             _taskQueue = taskQueue;
-            _taskQueue.JobAdded += new AllMyMusic_v3.TaskQueue.JobAddedEventHandler(TaskQueue_JobCompleted);
+            _taskQueue.JobAdded += new AllMyMusic.TaskQueue.JobAddedEventHandler(TaskQueue_JobCompleted);
             _taskQueue.JobCompleted += new TaskQueue.JobCompletedEventHandler(TaskQueue_JobCompleted);
             //_taskQueue.AllJobsCompleted += new TaskQueue.AllJobsCompletedEventHandler(TaskQueue_JobCompleted);
         }
