@@ -10,7 +10,6 @@ using System.Windows.Shapes;
 using System.Windows.Controls;
 using System.Threading.Tasks;
 
-//using AllMyMusic.AllSql;
 using AllMyMusic.DataService;
 using AllMyMusic.Settings;
 using AllMyMusic.ViewModel;
@@ -25,8 +24,6 @@ namespace AllMyMusic
     {
         #region Fields
         private ToolsViewModel _toolsViewModel;
-       
-
         ToolsCallbackDelegate _callback;
         ToolType _previousToolType;
         #endregion

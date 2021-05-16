@@ -395,6 +395,8 @@ namespace AllMyMusic.Settings
                 nodefrmTools_Size.InnerText = ConvertSizeToString(frmTools_Size);
                 nodefrmTools.AppendChild(nodefrmTools_Size);
 
+                if (frmTools_Position.X < 0) { frmTools_Position.X = 0; }
+                if (frmTools_Position.Y <0) { frmTools_Position.Y = 0; }
                 XmlNode nodefrmTools_Position = doc.CreateElement("position");
                 nodefrmTools_Position.InnerText = ConvertPositionToString(frmTools_Position);
                 nodefrmTools.AppendChild(nodefrmTools_Position);

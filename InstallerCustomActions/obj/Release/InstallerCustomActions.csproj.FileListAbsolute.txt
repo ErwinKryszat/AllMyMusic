@@ -26,3 +26,4 @@ D:\GIT_PUBLIC\AllMyMusic\InstallerCustomActions\bin\Release\InstallerCustomActio
 D:\GIT_PUBLIC\AllMyMusic\InstallerCustomActions\obj\Release\InstallerCustomActions.dll
 D:\GIT_PUBLIC\AllMyMusic\InstallerCustomActions\obj\Release\InstallerCustomActions.pdb
 D:\GIT_PUBLIC\AllMyMusic\InstallerCustomActions\obj\Release\InstallerCustomActions.csproj.CoreCompileInputs.cache
+D:\GIT_PUBLIC\AllMyMusic\InstallerCustomActions\obj\Release\InstallerCustomActions.csprojAssemblyReference.cache

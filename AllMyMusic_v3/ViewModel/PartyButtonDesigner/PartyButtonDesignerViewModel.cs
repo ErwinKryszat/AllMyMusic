@@ -126,7 +126,7 @@ namespace AllMyMusic.ViewModel
         }
         private bool CanSelectButtonImageCommand(object notUsed)
         {
-            return true;
+            return (_selectedPlaylistConfiguration != null);
         }
 
         public ICommand SelectTooltipImageCommand
@@ -158,7 +158,7 @@ namespace AllMyMusic.ViewModel
         }
         private bool CanSelectTooltipImageCommand(object notUsed)
         {
-            return true;
+            return (_selectedPlaylistConfiguration != null);
         }
         #endregion
 

@@ -71,20 +71,26 @@ namespace AllMyMusic
 
                 // Append CD1, CD01, or CD2 or CD02 to the newFoldername
                 // This avoid that after rename a multi CD album is all copied to the same folder
-                Int32 pos1 = sourcePath.IndexOf("CD", sourcePath.Length - 6);
-                String _cdNumber = String.Empty;
-                if (pos1 > 0)
+
+                Int32 pos0 = sourcePath.IndexOf("CDS", sourcePath.Length - 6);
+                if (pos0 < 0 )
                 {
-                    _cdNumber = sourcePath.Substring(pos1, sourcePath.Length - pos1);
-                    newFoldername = newFoldername + " " + _cdNumber;
+                    Int32 pos1 = sourcePath.IndexOf("CD", sourcePath.Length - 6);
+                    String _cdNumber = String.Empty;
+                    if (pos1 > 0)
+                    {
+                        _cdNumber = sourcePath.Substring(pos1, sourcePath.Length - pos1);
+                        newFoldername = newFoldername + " " + _cdNumber;
+                    }
                 }
+               
 
                 // If the target directory exists we don't want to mix files, therefor create a new folder
                 for (int k = 0; k < 10; k++)
                 {
                     if (Directory.Exists(newFoldername) == true)
                     {
-                        newFoldername = newFoldername + "_";
+                        newFoldername = newFoldername + "_" + k.ToString();
                     }
                     else
                     {

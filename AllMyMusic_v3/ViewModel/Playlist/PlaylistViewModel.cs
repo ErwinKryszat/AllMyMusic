@@ -135,6 +135,7 @@ namespace AllMyMusic.ViewModel
         {
             SaveFileDialog dlgSaveAsPlaylist = new SaveFileDialog();
             dlgSaveAsPlaylist.DefaultExt = ".m3u";
+            dlgSaveAsPlaylist.AddExtension = true;
             dlgSaveAsPlaylist.Filter = "Playlist Files(*.m3u;*.pls;*.xspf)|*.m3u;*.pls;*.xspf|All files (*.*)|*.*";
             dlgSaveAsPlaylist.FilterIndex = 1;
             dlgSaveAsPlaylist.InitialDirectory = AppSettings.GeneralSettings.PlaylistPath;
@@ -425,6 +426,8 @@ namespace AllMyMusic.ViewModel
             }
             
             LoadPageOfSongItems();
+
+            _playlistChanged = true;
         }
 
         public async Task LoadPlaylist(PartyButtonConfigViewModel playlistConfig)
@@ -626,9 +629,6 @@ namespace AllMyMusic.ViewModel
                 {
                     //MessageBox.Show("No query defined for this button!");
                 }
-
-               
-                
             }
             else
             {
@@ -989,10 +989,11 @@ namespace AllMyMusic.ViewModel
                 if (itemsProcessedCounter >= updateFrequency)
                 {
                     itemsProcessedCounter = 0;
-                    RaisePropertyChanged("PageSongItemCollection");
+                    //RaisePropertyChanged("PageSongItemCollection");
                 }
+                RaisePropertyChanged("PageSongItemCollection");
             }
-            RaisePropertyChanged("PageSongItemCollection");
+            // RaisePropertyChanged("PageSongItemCollection");
         }
 
         #region Events

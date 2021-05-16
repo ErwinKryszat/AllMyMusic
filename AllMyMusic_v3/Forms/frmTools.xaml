@@ -8,6 +8,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:ammControls="clr-namespace:AllMyMusic.Controls"
         xmlns:ignore="http://www.ignore.com"
+        
         mc:Ignorable="d" 
         Title="{Binding Path=Title}"
         MinWidth="350"

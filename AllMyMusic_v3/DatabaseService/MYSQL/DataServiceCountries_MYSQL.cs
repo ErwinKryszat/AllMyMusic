@@ -52,23 +52,25 @@ namespace AllMyMusic.DataService
             {
                 while (reader.Read())
                 {
-                    // Country ID
-                    if (!reader.IsDBNull(0)) { country.CountryId = (Int32)reader.GetInt32(0); }
-                    else { country.CountryId = 0; }
+                  
 
                     // Country Name
-                    if (!reader.IsDBNull(1))
+                    if (!reader.IsDBNull(0))
                     {
-                        country.Country = reader.GetString(1).TrimEnd();
+                        country.Country = reader.GetString(0).TrimEnd();
                     }
                     else { country.Country = String.Empty; }
 
                     // Abbreviation
-                    if (!reader.IsDBNull(2))
+                    if (!reader.IsDBNull(1))
                     {
-                        country.Abbreviation = reader.GetString(2).TrimEnd();
+                        country.Abbreviation = reader.GetString(1).TrimEnd();
                     }
                     else { country.Abbreviation = String.Empty; }
+
+                    // Country ID
+                    if (!reader.IsDBNull(2)) { country.CountryId = (Int32)reader.GetInt32(2); }
+                    else { country.CountryId = 0; }
 
                     // Flag Path
                     if (!reader.IsDBNull(3))
@@ -96,23 +98,23 @@ namespace AllMyMusic.DataService
             {
                 while (reader.Read())
                 {
-                    // Country ID
-                    if (!reader.IsDBNull(0)) { country.CountryId = (Int32)reader.GetInt32(0); }
-                    else { country.CountryId = 0; }
-
                     // Country Name
-                    if (!reader.IsDBNull(1))
+                    if (!reader.IsDBNull(0))
                     {
-                        country.Country = reader.GetString(1).TrimEnd();
+                        country.Country = reader.GetString(0).TrimEnd();
                     }
                     else { country.Country = String.Empty; }
 
                     // Abbreviation
-                    if (!reader.IsDBNull(2))
+                    if (!reader.IsDBNull(1))
                     {
-                        country.Abbreviation = reader.GetString(2).TrimEnd();
+                        country.Abbreviation = reader.GetString(1).TrimEnd();
                     }
                     else { country.Abbreviation = String.Empty; }
+
+                    // Country ID
+                    if (!reader.IsDBNull(2)) { country.CountryId = (Int32)reader.GetInt32(2); }
+                    else { country.CountryId = 0; }
 
                     // Flag Path
                     if (!reader.IsDBNull(3))
@@ -145,24 +147,24 @@ namespace AllMyMusic.DataService
                 {
                     CountryItem Country = new CountryItem();
 
-                    // Country ID
-                    if (!reader.IsDBNull(0)) { Country.CountryId = (Int32)reader.GetInt32(0); }
-                    else { Country.CountryId = 0; }
-
-
                     // Country Name
-                    if (!reader.IsDBNull(1))
+                    if (!reader.IsDBNull(0))
                     {
-                        Country.Country = reader.GetString(1).TrimEnd();
+                        Country.Country = reader.GetString(0).TrimEnd();
                     }
                     else { Country.Country = String.Empty; }
 
                     // Abbreviation
-                    if (!reader.IsDBNull(2))
+                    if (!reader.IsDBNull(1))
                     {
-                        Country.Abbreviation = reader.GetString(2).TrimEnd();
+                        Country.Abbreviation = reader.GetString(1).TrimEnd();
                     }
                     else { Country.Abbreviation = String.Empty; }
+
+                    // Country ID
+                    if (!reader.IsDBNull(2)) { Country.CountryId = (Int32)reader.GetInt32(2); }
+                    else { Country.CountryId = 0; }
+
 
                     // Flag Path
                     if (!reader.IsDBNull(3))
