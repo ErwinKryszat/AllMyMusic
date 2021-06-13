@@ -82,13 +82,25 @@ namespace AllMyMusic
                     _backgroundJob = backgroundJob;
                     _backgroundJob.WorkDoneCallback = BackgroundJobDone;
 
-                    Task.Run(() => _backgroundJob.BackgroundQueueJob.DoWork(_backgroundJob), _backgroundJob.CTS.Token);
+                    Task.Run(() => _backgroundJob.BackgroundQueueJob.DoWork(_backgroundJob), _backgroundJob.CTS.Token
 
+                    ).ContinueWith((t) =>
+                    {
+                        if (t.IsFaulted)
+                        {
+                            String errorMessage = "Error in TaskQueue.Enqueue ";
+                            ShowError.ShowAndLog(t.Exception, errorMessage, 1007);
+                        }
+                            //if (t.IsCompleted) //optionally do some work);
+                    }, TaskScheduler.FromCurrentSynchronizationContext());
                 }
                 EventArgs args = new EventArgs();
                 OnJobAdded(this, args);
             }
         }
+      
+
+      
 
         public delegate void TaskDelegate();
 

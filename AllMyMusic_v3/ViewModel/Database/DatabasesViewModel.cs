@@ -457,7 +457,22 @@ namespace AllMyMusic.ViewModel
         #region UserDB ViewModel Fields
         private ObservableCollection<String> _userDatabaseNames;
         private String _selectedDatabase;
+        private Int32 _countSongs = 0;
+        private Int32 _countAlbums = 0;
+        private Int32 _countBands = 0;
         #endregion
+
+        public void GetStatistics()
+        {
+            if (String.IsNullOrEmpty(_activeDatabaseName) == false)
+            {
+                ConnectionInfo dbCI = GetDatabaseConnectionInfo(_activeDatabaseName);
+                StatisticsItem statistics = _databasesServerManagement.GetStatistics(dbCI);
+                CountSongs = statistics.CountSong;
+                CountAlbums = statistics.CountAlbums;
+                CountBands = statistics.CountBands;
+            }
+        }
 
         #region UserDB ViewModel Properties
         public String ActiveDatabaseName
@@ -497,6 +512,34 @@ namespace AllMyMusic.ViewModel
                 _selectedDatabase = value;
 
                 RaisePropertyChanged("SelectedDatabase");
+            }
+        }
+
+        public Int32 CountSongs
+        {
+            get { return _countSongs; }
+            set
+            {
+                _countSongs = value;
+                RaisePropertyChanged("CountSongs");
+            }
+        }
+        public Int32 CountAlbums
+        {
+            get { return _countAlbums; }
+            set
+            {
+                _countAlbums = value;
+                RaisePropertyChanged("CountAlbums");
+            }
+        }
+        public Int32 CountBands
+        {
+            get { return _countBands; }
+            set
+            {
+                _countBands = value;
+                RaisePropertyChanged("CountBands");
             }
         }
         #endregion
@@ -1064,6 +1107,8 @@ namespace AllMyMusic.ViewModel
         private String _grpDatabaseServer = "Database Server";
         private String _grpDatabaseList = "Databases";
         private String _grpCreateDatabase = "Create Database";
+        
+        
 
         private String _title = "Connect Server";
         private String _titleTip = "This dialog helps you connecting to a database on your computer or in the network";
@@ -1424,7 +1469,8 @@ namespace AllMyMusic.ViewModel
                 RaisePropertyChanged("GrpCreateDatabase");
             }
         }
-
+      
+        
         public String Title
         {
             get { return _title; }

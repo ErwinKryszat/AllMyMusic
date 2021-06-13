@@ -42,53 +42,61 @@ namespace AllMyMusic.DataService
         #region Public 
         public async Task<ObservableCollection<AlphabetItem>> GetAlphabetButtons()
         {
-            ObservableCollection<AlphabetItem> alphabetItems = new ObservableCollection<AlphabetItem>();
-            Boolean digitButtonDone = false;
-            Boolean specialCharacterButtonDone = false;
-
-            String strSQL = QueryBuilderItems.GetAlphabet(TreeviewCategory.Band);
-            SqlCommand cmd = new SqlCommand(strSQL, _connection);
-            cmd.CommandType = CommandType.Text;
-
-            SqlDataReader reader = await cmd.ExecuteReaderAsync();
-
-            while (reader.Read())
+            try
             {
-                if (!reader.IsDBNull(0))
-                {
-                    AlphabetItem item = new AlphabetItem(reader.GetString(0));
-                    alphabetItems.Add(item);
-                }
-            }
-            reader.Close();
+                ObservableCollection<AlphabetItem> alphabetItems = new ObservableCollection<AlphabetItem>();
+                Boolean digitButtonDone = false;
+                Boolean specialCharacterButtonDone = false;
 
-            ObservableCollection<AlphabetItem> buttonLabels = new ObservableCollection<AlphabetItem>();
+                String strSQL = QueryBuilderItems.GetAlphabet(TreeviewCategory.Band);
+                SqlCommand cmd = new SqlCommand(strSQL, _connection);
+                cmd.CommandType = CommandType.Text;
 
-            foreach (AlphabetItem item in alphabetItems)
-            {
-                if ((item.Character.CompareTo("0") >= 0) && (item.Character.CompareTo("9") <= 0) && (digitButtonDone == false))
+                SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+                while (reader.Read())
                 {
-                    if (digitButtonDone == false)
+                    if (!reader.IsDBNull(0))
                     {
-                        buttonLabels.Add(new AlphabetItem("0_9"));
-                        digitButtonDone = true;
+                        AlphabetItem item = new AlphabetItem(reader.GetString(0));
+                        alphabetItems.Add(item);
                     }
                 }
-                else if ((item.Character.CompareTo("A") >= 0) && (item.Character.CompareTo("Z") <= 0))
+                reader.Close();
+
+                ObservableCollection<AlphabetItem> buttonLabels = new ObservableCollection<AlphabetItem>();
+
+                foreach (AlphabetItem item in alphabetItems)
                 {
-                    buttonLabels.Add(item);
+                    if ((item.Character.CompareTo("0") >= 0) && (item.Character.CompareTo("9") <= 0) && (digitButtonDone == false))
+                    {
+                        if (digitButtonDone == false)
+                        {
+                            buttonLabels.Add(new AlphabetItem("0_9"));
+                            digitButtonDone = true;
+                        }
+                    }
+                    else if ((item.Character.CompareTo("A") >= 0) && (item.Character.CompareTo("Z") <= 0))
+                    {
+                        buttonLabels.Add(item);
+                    }
+                    else if ((item.Character.CompareTo("a") >= 0) && (item.Character.CompareTo("z") <= 0))
+                    {
+                        buttonLabels.Add(item);
+                    }
+                    else if (specialCharacterButtonDone == false)
+                    {
+                        buttonLabels.Add(new AlphabetItem("#"));
+                        specialCharacterButtonDone = true;
+                    }
                 }
-                else if ((item.Character.CompareTo("a") >= 0) && (item.Character.CompareTo("z") <= 0))
-                {
-                    buttonLabels.Add(item);
-                }
-                else if (specialCharacterButtonDone == false)                   
-                {
-                    buttonLabels.Add(new AlphabetItem("#"));
-                    specialCharacterButtonDone = true;
-                }
+                return buttonLabels;
             }
-            return buttonLabels;
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceToolbar_SQL, Error in GetAlphabetButtons";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public void ChangeDatabase(ConnectionInfo conInfo)
         {

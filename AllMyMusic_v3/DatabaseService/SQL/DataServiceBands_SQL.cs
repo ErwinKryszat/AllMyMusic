@@ -51,101 +51,133 @@ namespace AllMyMusic.DataService
         #region Public
         public async Task<Int32> AddBand(BandItem band)
         {
-            SqlParameter param = null;
+            try
+            {
+                SqlParameter param = null;
 
-            SqlCommand cmd = new SqlCommand("AddBand", _connection);
-            cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("AddBand", _connection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            param = cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 100);
-            param.Value = band.BandName.Substring(0, Math.Min(band.BandName.Length, 100));
+                param = cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 100);
+                param.Value = band.BandName.Substring(0, Math.Min(band.BandName.Length, 100));
 
-            param = cmd.Parameters.Add("@SortName", SqlDbType.NVarChar, 100);
-            param.Value = band.SortName.Substring(0, Math.Min(band.SortName.Length, 100));
+                param = cmd.Parameters.Add("@SortName", SqlDbType.NVarChar, 100);
+                param.Value = band.SortName.Substring(0, Math.Min(band.SortName.Length, 100));
 
-            param = cmd.Parameters.Add("@ID", SqlDbType.Int);
-            param.Direction = ParameterDirection.Output;
+                param = cmd.Parameters.Add("@ID", SqlDbType.Int);
+                param.Direction = ParameterDirection.Output;
 
-            await cmd.ExecuteNonQueryAsync();
+                await cmd.ExecuteNonQueryAsync();
 
-            band.BandId = (int)param.Value;
+                band.BandId = (int)param.Value;
 
-            return band.BandId;
+                return band.BandId;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceBands_SQL, Error in AddBand";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<BandItem>> GetBandsByAlphabet(String firstCharacter)
         {
-            String strSQL = String.Empty;
-            if (firstCharacter == "0_9")
+            try
             {
-                strSQL = QueryBuilderBands.BandsByDigit();
-            }
-            else if (firstCharacter == "#")
-            {
-                strSQL = QueryBuilderBands.BandsBySpecialCharacter();
-            }
-            else
-            {
-                strSQL = QueryBuilderBands.BandsByAlphabet();
-            }
+                String strSQL = String.Empty;
+                if (firstCharacter == "0_9")
+                {
+                    strSQL = QueryBuilderBands.BandsByDigit();
+                }
+                else if (firstCharacter == "#")
+                {
+                    strSQL = QueryBuilderBands.BandsBySpecialCharacter();
+                }
+                else
+                {
+                    strSQL = QueryBuilderBands.BandsByAlphabet();
+                }
 
-            SqlParameter sqlParam = new SqlParameter("@FirstChar", SqlDbType.NVarChar);
-            sqlParam.Value = firstCharacter;
+                SqlParameter sqlParam = new SqlParameter("@FirstChar", SqlDbType.NVarChar);
+                sqlParam.Value = firstCharacter;
 
-            ObservableCollection<BandItem> bands = await GetBandsDB(strSQL, sqlParam);
-            return bands;
+                ObservableCollection<BandItem> bands = await GetBandsDB(strSQL, sqlParam);
+                return bands;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceBands_SQL, Error in GetBandsByAlphabet";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<BandItem>> SearchBands(String searchText)
         {
-            String strSQL = QueryBuilderBands.SearchBands();
-            SqlParameter searchParam = new SqlParameter("@Name", SqlDbType.NVarChar);
-            searchParam.Value = searchText;
+            try
+            {
+                String strSQL = QueryBuilderBands.SearchBands();
+                SqlParameter searchParam = new SqlParameter("@Name", SqlDbType.NVarChar);
+                searchParam.Value = searchText;
 
-            ObservableCollection<BandItem> bands = await GetBandsDB(strSQL, searchParam);
-            return bands;
+                ObservableCollection<BandItem> bands = await GetBandsDB(strSQL, searchParam);
+                return bands;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceBands_SQL, Error in SearchBands";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<BandItem> GetBand(Int32 bandID)
         {
-            BandItem band = new BandItem();
-
-            String strSQL = QueryBuilderBands.BandById(bandID);
-
-            SqlCommand cmd = new SqlCommand(strSQL, _connection);
-            cmd.CommandType = CommandType.Text;
-
-            SqlDataReader reader = await cmd.ExecuteReaderAsync();
-
-            if (reader.HasRows)
+            try
             {
-                while (reader.Read())
+                BandItem band = new BandItem();
+
+                String strSQL = QueryBuilderBands.BandById(bandID);
+
+                SqlCommand cmd = new SqlCommand(strSQL, _connection);
+                cmd.CommandType = CommandType.Text;
+
+                SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+                if (reader.HasRows)
                 {
-                    if (!reader.IsDBNull(0))
+                    while (reader.Read())
                     {
-                        band.BandName = reader.GetString(0).TrimEnd();
+                        if (!reader.IsDBNull(0))
+                        {
+                            band.BandName = reader.GetString(0).TrimEnd();
+                        }
+                        else { band.BandName = String.Empty; }
+
+                        // bandID (bandID, LeadPerformerID, ComposerID, ConductorID)
+                        if (!reader.IsDBNull(1)) { band.BandId = (Int32)reader.GetInt32(1); }
+                        else { band.BandId = 0; }
+
+                        if (!reader.IsDBNull(2))
+                        {
+                            band.SortName = reader.GetString(2).TrimEnd();
+                        }
+                        else { band.SortName = String.Empty; }
+
+                        // album Count
+                        if (!reader.IsDBNull(3)) { band.AlbumCount = (Int32)reader.GetInt32(3); }
+                        else { band.AlbumCount = 0; }
+
+                        // Bookmarked Flag
+                        if (!reader.IsDBNull(4)) { band.BookmarkedBand = (Int32)reader.GetInt32(4); }
+                        else { band.BookmarkedBand = 0; }
+
                     }
-                    else { band.BandName = String.Empty; }
-
-                    // bandID (bandID, LeadPerformerID, ComposerID, ConductorID)
-                    if (!reader.IsDBNull(1)) { band.BandId = (Int32)reader.GetInt32(1); }
-                    else { band.BandId = 0; }
-
-                    if (!reader.IsDBNull(2))
-                    {
-                        band.SortName = reader.GetString(2).TrimEnd();
-                    }
-                    else { band.SortName = String.Empty; }
-
-                    // album Count
-                    if (!reader.IsDBNull(3)) { band.AlbumCount = (Int32)reader.GetInt32(3); }
-                    else { band.AlbumCount = 0; }
-
-                    // Bookmarked Flag
-                    if (!reader.IsDBNull(4)) { band.BookmarkedBand = (Int32)reader.GetInt32(4); }
-                    else { band.BookmarkedBand = 0; }
-
                 }
-            }
-            reader.Close();
+                reader.Close();
 
-            return band;
+                return band;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceBands_SQL, Error in GetBand";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
 
 

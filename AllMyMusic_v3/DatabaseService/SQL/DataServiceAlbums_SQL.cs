@@ -49,235 +49,395 @@ namespace AllMyMusic.DataService
         #region Public
         public async Task<Int32> AddAlbum( AlbumItem album)
         {
-            SqlParameter param = null;
+            try
+            {
+                SqlParameter param = null;
 
-            SqlCommand cmd = new SqlCommand("AddAlbum", _connection);
-            cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("AddAlbum", _connection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            param = cmd.Parameters.Add("@IDAlbum", SqlDbType.Int);
-            param.Value = album.AlbumId;
+                param = cmd.Parameters.Add("@IDAlbum", SqlDbType.Int);
+                param.Value = album.AlbumId;
 
-            param = cmd.Parameters.Add("@IDBand", SqlDbType.Int);
-            param.Value = album.BandId;
+                param = cmd.Parameters.Add("@IDBand", SqlDbType.Int);
+                param.Value = album.BandId;
 
-            param = cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 100);
-            param.Value = album.AlbumName.Substring(0, Math.Min(album.AlbumName.Length, 100));
+                param = cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 100);
+                param.Value = album.AlbumName.Substring(0, Math.Min(album.AlbumName.Length, 100));
 
-            param = cmd.Parameters.Add("@SortName", SqlDbType.NVarChar, 100);
-            param.Value = album.AlbumSortName.Substring(0, Math.Min(album.AlbumSortName.Length, 100));
+                param = cmd.Parameters.Add("@SortName", SqlDbType.NVarChar, 100);
+                param.Value = album.AlbumSortName.Substring(0, Math.Min(album.AlbumSortName.Length, 100));
 
-            param = cmd.Parameters.Add("@Year", SqlDbType.Char, 4);
-            param.Value = album.Year;
+                param = cmd.Parameters.Add("@Year", SqlDbType.Char, 4);
+                param.Value = album.Year;
 
-            param = cmd.Parameters.Add("@AlbumVA", SqlDbType.Int);
-            param.Value = (Int32)album.ArtistType;
+                param = cmd.Parameters.Add("@AlbumVA", SqlDbType.Int);
+                param.Value = (Int32)album.ArtistType;
 
-            param = cmd.Parameters.Add("@AlbumGenre", SqlDbType.NVarChar, 50);
-            param.Value = album.AlbumGenre;
+                param = cmd.Parameters.Add("@AlbumGenre", SqlDbType.NVarChar, 50);
+                param.Value = album.AlbumGenre;
 
-            param = cmd.Parameters.Add("@AlbumPath", SqlDbType.NVarChar, 200);
-            param.Value = album.AlbumPath;
+                param = cmd.Parameters.Add("@AlbumPath", SqlDbType.NVarChar, 200);
+                param.Value = album.AlbumPath;
 
-            param = cmd.Parameters.Add("@ID", SqlDbType.Int);
-            param.Direction = ParameterDirection.Output;
+                param = cmd.Parameters.Add("@ID", SqlDbType.Int);
+                param.Direction = ParameterDirection.Output;
 
-            await cmd.ExecuteNonQueryAsync();
+                await cmd.ExecuteNonQueryAsync();
 
-            album.AlbumId = (int)param.Value;
+                album.AlbumId = (int)param.Value;
 
-            return album.AlbumId;
+                return album.AlbumId;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in AddAlbum";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task AddImage(AlbumItem album)
         {
-            SqlCommand cmd = new SqlCommand("AddImage", _connection);
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlParameter param;
-
-            if (album.AlbumId == 0)
+            try
             {
-                return;
+                SqlCommand cmd = new SqlCommand("AddImage", _connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter param;
+
+                if (album.AlbumId == 0)
+                {
+                    return;
+                }
+
+                //  Note: Param Names in Stored Procedure have to match this code!
+                param = cmd.Parameters.Add("@IDAlbum", SqlDbType.Int);
+                param.Value = album.AlbumId;
+                param = cmd.Parameters.Add("@IDBand", SqlDbType.Int);
+                param.Value = album.BandId;
+                param = cmd.Parameters.Add("@Front", SqlDbType.NVarChar, 250);
+                param.Value = album.FrontImageFileName;
+                param = cmd.Parameters.Add("@Back", SqlDbType.NVarChar, 250);
+                param.Value = album.BackImageFileName;
+                param = cmd.Parameters.Add("@Stamp", SqlDbType.NVarChar, 250);
+                param.Value = album.StampImageFileName;
+
+                await cmd.ExecuteNonQueryAsync();
             }
-
-            //  Note: Param Names in Stored Procedure have to match this code!
-            param = cmd.Parameters.Add("@IDAlbum", SqlDbType.Int);
-            param.Value = album.AlbumId;
-            param = cmd.Parameters.Add("@IDBand", SqlDbType.Int);
-            param.Value = album.BandId;
-            param = cmd.Parameters.Add("@Front", SqlDbType.NVarChar, 250);
-            param.Value = album.FrontImageFileName;
-            param = cmd.Parameters.Add("@Back", SqlDbType.NVarChar, 250);
-            param.Value = album.BackImageFileName;
-            param = cmd.Parameters.Add("@Stamp", SqlDbType.NVarChar, 250);
-            param.Value = album.StampImageFileName;
-
-            await cmd.ExecuteNonQueryAsync();
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in AddImage";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
 
         public async Task<AlbumItem> GetAlbumByPath(String albumPath)
         {
-            String strSQL = QueryBuilderAlbums.Folder_SQL();
-            SqlParameter sqlParam = new SqlParameter("@PathPart", SqlDbType.NVarChar);
-            sqlParam.Value = albumPath;
+            try
+            {
+                String strSQL = QueryBuilderAlbums.Folder_SQL();
+                SqlParameter sqlParam = new SqlParameter("@PathPart", SqlDbType.NVarChar);
+                sqlParam.Value = albumPath;
 
-            AlbumItem album = await GetAlbumDB(strSQL, sqlParam);
+                AlbumItem album = await GetAlbumDB(strSQL, sqlParam);
 
-            return album;
+                return album;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in GetAlbumByPath";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
 
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(BandItem band)
         {
-            String strSQL = QueryBuilderAlbums.AlbumsByBand(band);
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
-            return albums;
+            try
+            {
+                String strSQL = QueryBuilderAlbums.AlbumsByBand(band);
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(AlbumGenreItem albumGenre)
         {
-            String strSQL = QueryBuilderAlbumsVA.Albums(albumGenre);
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
-            return albums;
+            try
+            {
+                String strSQL = QueryBuilderAlbumsVA.Albums(albumGenre);
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }     
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(ComposerItem composer)
         {
-            String strSQL = QueryBuilderAlbums.AlbumsByComposer(composer);
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
-            return albums;
+            try
+            {
+                String strSQL = QueryBuilderAlbums.AlbumsByComposer(composer);
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(ConductorItem conductor)
         {
-            String strSQL = QueryBuilderAlbums.AlbumsByConductor(conductor);
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
-            return albums;
+            try
+            {
+                String strSQL = QueryBuilderAlbums.AlbumsByConductor(conductor);
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(CountryItem country)
         {
-            String strSQL = QueryBuilderAlbums.AlbumsByCountry(country);
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
-            return albums;
+            try
+            {
+                String strSQL = QueryBuilderAlbums.AlbumsByCountry(country);
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(GenreItem genre)
         {
-            String strSQL = QueryBuilderAlbums.AlbumsByGenre(genre);
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
-            return albums;
+            try
+            {
+                String strSQL = QueryBuilderAlbums.AlbumsByGenre(genre);
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(LanguageItem language)
         {
-            String strSQL = QueryBuilderAlbums.AlbumsByLanguage(language);
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
-            return albums;
+            try
+            {
+                String strSQL = QueryBuilderAlbums.AlbumsByLanguage(language);
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(ObservableCollection<String> playList)
         {
-            ObservableCollection<AlbumItem> albums = new ObservableCollection<AlbumItem>();
-            for (int i = 0; i < playList.Count; i++)
+            try
             {
-                String strSQL = QueryBuilderAlbums.Folder_SQL();
-                SqlParameter searchParam = new SqlParameter("@PathPart", SqlDbType.NVarChar);
-                searchParam.Value = playList[i];
+                ObservableCollection<AlbumItem> albums = new ObservableCollection<AlbumItem>();
+                for (int i = 0; i < playList.Count; i++)
+                {
+                    String strSQL = QueryBuilderAlbums.Folder_SQL();
+                    SqlParameter searchParam = new SqlParameter("@PathPart", SqlDbType.NVarChar);
+                    searchParam.Value = playList[i];
 
-                AlbumItem album = await GetAlbumDB(strSQL, searchParam);
-                albums.Add(album);
+                    AlbumItem album = await GetAlbumDB(strSQL, searchParam);
+                    albums.Add(album);
+                }
+                return albums;
             }
-            return albums;
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbumsByPath(String albumFolderPath)
         {
-            String strSQL = QueryBuilderAlbums.Folder_SQL();
+            try
+            {
+                String strSQL = QueryBuilderAlbums.Folder_SQL();
 
-            SqlParameter sqlParam = new SqlParameter("@PathPart", SqlDbType.NVarChar);
-            sqlParam.Value = albumFolderPath;
+                SqlParameter sqlParam = new SqlParameter("@PathPart", SqlDbType.NVarChar);
+                sqlParam.Value = albumFolderPath;
 
-            ObservableCollection<AlbumItem> albums = await Task.Run(() => GetAlbumsDB(strSQL, sqlParam));
-            return albums;
+                ObservableCollection<AlbumItem> albums = await Task.Run(() => GetAlbumsDB(strSQL, sqlParam));
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in GetAlbumsByPath";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(LeadPerformerItem leadPerformer)
         {
-            String strSQL = QueryBuilderAlbums.AlbumsByLeadPerformer(leadPerformer);
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
-            return albums;
+            try
+            {
+                String strSQL = QueryBuilderAlbums.AlbumsByLeadPerformer(leadPerformer);
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> SearchAlbums(String searchString)
         {
-            String strSQL = QueryBuilderAlbums.SearchAlbums();
-            SqlParameter searchParam = new SqlParameter("@Name", SqlDbType.NVarChar);
-            searchParam.Value = searchString;
+            try
+            {
+                String strSQL = QueryBuilderAlbums.SearchAlbums();
+                SqlParameter searchParam = new SqlParameter("@Name", SqlDbType.NVarChar);
+                searchParam.Value = searchString;
 
-            ObservableCollection<AlbumItem> albums = await Task.Run(() => GetAlbumsDB(strSQL, searchParam));
-            return albums;
+                ObservableCollection<AlbumItem> albums = await Task.Run(() => GetAlbumsDB(strSQL, searchParam));
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in AddAlbum";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbumsByCondition(String condition)
         {
-            String strSQL = QueryBuilderAlbums.AlbumsByCondition(condition);
+            try
+            {
+                String strSQL = QueryBuilderAlbums.AlbumsByCondition(condition);
 
-            ObservableCollection<AlbumItem> albums = await Task.Run(() => GetAlbumsDB(strSQL));
-            return albums;
+                ObservableCollection<AlbumItem> albums = await Task.Run(() => GetAlbumsDB(strSQL));
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in GetAlbumsByCondition";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
 
         public async Task<AlbumItem> GetAlbum(Int32 albumID)
         {
-            AlbumItem album = await Task<AlbumItem>.Run(() => 
+            try
             {
-                AlbumItem album2 = null;
-                String strSQL = QueryBuilderAlbums.Album(albumID);
-                SqlCommand cmd = new SqlCommand(strSQL, _connection);
-                cmd.CommandType = CommandType.Text;
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.HasRows)
+                AlbumItem album = await Task<AlbumItem>.Run(() =>
                 {
-                    reader.Read();
-                    album2 = ReadAlbum(reader);
-                }
-                reader.Close();
+                    AlbumItem album2 = null;
+                    String strSQL = QueryBuilderAlbums.Album(albumID);
+                    SqlCommand cmd = new SqlCommand(strSQL, _connection);
+                    cmd.CommandType = CommandType.Text;
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-                return album2;
-            });
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        album2 = ReadAlbum(reader);
+                    }
+                    reader.Close();
 
-            return album;
+                    return album2;
+                });
+
+                return album;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in GetAlbum";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(String strSQL)
         {
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
-            return albums;
+            try
+            {
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task DeleteAlbum(AlbumItem album)
         {
-            SqlCommand cmd = new SqlCommand("DeleteAlbum", _connection);
-            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("DeleteAlbum", _connection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            SqlParameter param = cmd.Parameters.Add("@AlbumId", SqlDbType.Int);
-            param.Value = album.AlbumId;
+                SqlParameter param = cmd.Parameters.Add("@AlbumId", SqlDbType.Int);
+                param.Value = album.AlbumId;
 
-            param = cmd.Parameters.Add("@Rowcount", SqlDbType.Int);
-            param.Direction = ParameterDirection.Output;
+                param = cmd.Parameters.Add("@Rowcount", SqlDbType.Int);
+                param.Direction = ParameterDirection.Output;
 
-            await cmd.ExecuteNonQueryAsync();
+                await cmd.ExecuteNonQueryAsync();
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in DeleteAlbum";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task DeleteAlbumGenre(AlbumGenreItem albumGenre)
         {
-            SqlCommand cmd = new SqlCommand("DeleteAlbumGenre", _connection);
-            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("DeleteAlbumGenre", _connection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            SqlParameter param = cmd.Parameters.Add("@AlbumGenreID", SqlDbType.Int);
-            param.Value = albumGenre.AlbumGenreId;
+                SqlParameter param = cmd.Parameters.Add("@AlbumGenreID", SqlDbType.Int);
+                param.Value = albumGenre.AlbumGenreId;
 
-            param = cmd.Parameters.Add("@Rowcount", SqlDbType.Int);
-            param.Direction = ParameterDirection.Output;
+                param = cmd.Parameters.Add("@Rowcount", SqlDbType.Int);
+                param.Direction = ParameterDirection.Output;
 
-            await cmd.ExecuteNonQueryAsync();
-        }
+                await cmd.ExecuteNonQueryAsync();
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in DeleteAlbumGenre";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
+         }
         public async Task DeleteBand(BandItem band)
         {
-            SqlCommand cmd = new SqlCommand("DeleteBand", _connection);
-            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("DeleteBand", _connection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            SqlParameter param = cmd.Parameters.Add("@BandID", SqlDbType.Int);
-            param.Value = band.BandId;
+                SqlParameter param = cmd.Parameters.Add("@BandID", SqlDbType.Int);
+                param.Value = band.BandId;
 
-            param = cmd.Parameters.Add("@Rowcount", SqlDbType.Int);
-            param.Direction = ParameterDirection.Output;
+                param = cmd.Parameters.Add("@Rowcount", SqlDbType.Int);
+                param.Direction = ParameterDirection.Output;
 
-            await cmd.ExecuteNonQueryAsync();
+                await cmd.ExecuteNonQueryAsync();
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_SQL, Error in DeleteBand";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
 
         public void ChangeDatabase(ConnectionInfo conInfo)

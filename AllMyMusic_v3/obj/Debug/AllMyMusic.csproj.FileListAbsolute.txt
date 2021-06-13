@@ -13,7 +13,6 @@ D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Debug\Renci.SshNet.dll
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Debug\NAudio.pdb
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Debug\NAudio.xml
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Debug\MySql.Data.xml
-D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\AllMyMusic.csprojAssemblyReference.cache
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\Controls\FormComboBox.baml
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\Controls\FormLabel.baml
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\Controls\FormLabelUOM.baml
@@ -162,3 +161,6 @@ D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\pl-PL\AllMyMusic.resources.dll
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\AllMyMusic.csproj.CopyComplete
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\AllMyMusic.exe
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\AllMyMusic.pdb
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\View\Database\viewDatabaseStatistics.baml
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\View\Database\viewDatabaseStatistics.g.cs
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\AllMyMusic.csprojAssemblyReference.cache

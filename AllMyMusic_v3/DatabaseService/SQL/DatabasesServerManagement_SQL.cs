@@ -246,6 +246,11 @@ namespace AllMyMusic.DataService
 		        result = CreateDatabaseSchema(dbCI);
 	        }
 
+            if (result == true)
+            {
+                result = InitializeDatabase(dbCI);
+            }
+
             return result;
         }
         private Boolean CreateDatabaseName(ConnectionInfo dbCI)
@@ -295,6 +300,61 @@ namespace AllMyMusic.DataService
                 ShowError.ShowAndLog(Err, errorMessage, 1005);
                 throw;
             }
+
+            return result;
+        }
+
+        private Boolean InitializeDatabase(ConnectionInfo dbCI)
+        {
+            Boolean result = false;
+            SqlConnection con = null;
+
+            try
+            {
+                con = new SqlConnection(dbCI.GetConnectionString());
+                con.Open();
+                SqlCommand cmd = new SqlCommand("InitializeCountries", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                Int32 resultInt = cmd.ExecuteNonQuery();
+                if (resultInt > 0)
+                {
+                    result = true;
+                }
+                result = true;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "Could not Initialize Countries" + dbCI.DatabaseName;
+                ShowError.ShowAndLog(Err, errorMessage, 1006);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            try
+            {
+                con = new SqlConnection(dbCI.GetConnectionString());
+                con.Open();
+                SqlCommand cmd = new SqlCommand("InitializeLanguages", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                Int32 resultInt = cmd.ExecuteNonQuery();
+                if (resultInt > 0)
+                {
+                    result = true;
+                }
+                result = true;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "Could not Initialize Languages " + dbCI.DatabaseName;
+                ShowError.ShowAndLog(Err, errorMessage, 1006);
+            }
+            finally
+            {
+                con.Close();
+            }
+
             return result;
         }
 
@@ -348,16 +408,13 @@ namespace AllMyMusic.DataService
                         SqlCommand cmd = new SqlCommand("PurgeDatabase", _connection);
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.ExecuteNonQuery();
-
-                        cmd = new SqlCommand("InitializeCountries", _connection);
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.ExecuteNonQuery();
-
-                        cmd = new SqlCommand("InitializeLanguages", _connection);
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.ExecuteNonQuery();
                     }
                     _success = true;
+
+                    if (_success == true)
+                    {
+                        _success = InitializeDatabase(dbCI);
+                    }
                 }
                 catch (Exception Err)
                 {
@@ -421,6 +478,45 @@ namespace AllMyMusic.DataService
             }
 
             return _success;
+        }
+
+        public StatisticsItem GetStatistics(ConnectionInfo dbCI)
+        {
+            StatisticsItem statistics = new StatisticsItem();
+
+            if (dbCI.IsValid == true)
+            {
+                try
+                { 
+                    SqlCommand cmd = new SqlCommand("GetStatistics", _connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0)) { statistics.CountSong = (Int32)reader.GetInt32(0); }
+                            else { statistics.CountSong = 0; }
+
+                            if (!reader.IsDBNull(1)) { statistics.CountAlbums = (Int32)reader.GetInt32(1); }
+                            else { statistics.CountAlbums = 0; }
+
+                            if (!reader.IsDBNull(2)) { statistics.CountBands = (Int32)reader.GetInt32(2); }
+                            else { statistics.CountBands = 0; }
+                        }
+                    }
+                    reader.Close();
+                  
+                }
+                catch (Exception Err)
+                {
+                    String errorMessage = "Could not GetStatistics " + dbCI.DatabaseName;
+                    ShowError.ShowAndLog(Err, errorMessage, 1006);
+                }
+            }
+
+            return statistics;
         }
         public void Close()
         {

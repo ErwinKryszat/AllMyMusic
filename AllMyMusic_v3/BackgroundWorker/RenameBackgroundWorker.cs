@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
+using System.Windows;
 
 using AllMyMusic.ViewModel;
 using AllMyMusic.Settings;
@@ -39,7 +40,7 @@ namespace AllMyMusic
 
             ObservableCollection<SongItem>  _songs = args.Songs;
             SongItem lastSong = null;
-            BackgroundJobHelper jobHelper = new BackgroundJobHelper(AppSettings.DatabaseSettings.DefaultDatabase);
+            BackgroundJobHelper _jobHelper = new BackgroundJobHelper(AppSettings.DatabaseSettings.DefaultDatabase);
 
 
             double secondsPerFile;
@@ -111,7 +112,7 @@ namespace AllMyMusic
                         File.Move(fullFilenameSource, fullFilenameDestination);
                         _songs[i].SongFilename = Path.GetFileName(fullFilenameDestination);
                         _songs[i].SongPath = Path.GetDirectoryName(fullFilenameDestination) + "\\";
-                        await jobHelper.AddOneBandAlbumSong(_songs[i], lastSong);
+                        await _jobHelper.AddOneBandAlbumSong(_songs[i], lastSong);
                         lastSong = _songs[i];
                     }
                 }
@@ -153,17 +154,26 @@ namespace AllMyMusic
                 }
             }
 
-            await jobHelper.UpdateCountryTable();
-
-            ElapseTimer.Stop();
-
-            jobHelper.Close();
-
-            if (workDoneCallback != null)
+            try
             {
-                workDoneCallback();
+                await _jobHelper.UpdateCountryTable();
             }
+            catch (Exception Err)
+            {
+                String errorMessage = "Error in BackgroundJobHelper.UpdateCountryTable ";
+                await Application.Current.Dispatcher.BeginInvoke(new Action(() => ShowError.ShowAndLog(Err, errorMessage, 1007)));
+            }
+            finally
+            {
+                ElapseTimer.Stop();
 
+                _jobHelper.Close();
+
+                if (workDoneCallback != null)
+                {
+                    workDoneCallback();
+                }
+            }
         }
        
 

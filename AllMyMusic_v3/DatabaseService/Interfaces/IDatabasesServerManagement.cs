@@ -25,7 +25,8 @@ namespace AllMyMusic.DataService
         Boolean PurgeDatabase(ConnectionInfo dbCI);
         
         Boolean DeleteDatabase(ConnectionInfo dbCI);
-        
+
+        StatisticsItem GetStatistics(ConnectionInfo dbCI);
         void Close();
 
         void Dispose();

@@ -507,6 +507,7 @@ namespace AllMyMusic.ViewModel
         private String _grp_Wikipedia;
         private String _grp_PartyButtonTool;
         private String _grp_PartyButton;
+        private String _grp_DatabaseStatistic;
 
         private String _cmd_Rename_ToolTip;
         private String _cmd_AutoTag_ToolTip;
@@ -714,6 +715,21 @@ namespace AllMyMusic.ViewModel
                 RaisePropertyChanged("Grp_DatabaseConnections");
             }
         }
+
+        public String Grp_DatabaseStatistics
+        {
+            get { return _grp_DatabaseStatistic; }
+            set
+            {
+                if (value == _grp_DatabaseStatistic)
+                    return;
+
+                _grp_DatabaseStatistic = value;
+
+                RaisePropertyChanged("Grp_DatabaseStatistics");
+            }
+        }
+
         public String Grp_CoverImages
         {
             get { return _grp_CoverImages; }
@@ -795,6 +811,7 @@ namespace AllMyMusic.ViewModel
             Grp_ExistingDatabases = AmmLocalization.GetLocalizedString("ribbon_Grp_ExistingDatabases");
             Grp_NewDatabase = AmmLocalization.GetLocalizedString("ribbon_Grp_NewDatabase");
             Grp_DatabaseConnections = AmmLocalization.GetLocalizedString("ribbon_Grp_DatabaseConnections");
+            Grp_DatabaseStatistics = AmmLocalization.GetLocalizedString("ribbon_Grp_DatabaseStatistics");
             Grp_CoverImages = AmmLocalization.GetLocalizedString("ribbon_Grp_CoverImages");
             Grp_Language = AmmLocalization.GetLocalizedString("ribbon_Grp_Language");
             Grp_Wikipedia = AmmLocalization.GetLocalizedString("ribbon_Grp_Wikipedia");

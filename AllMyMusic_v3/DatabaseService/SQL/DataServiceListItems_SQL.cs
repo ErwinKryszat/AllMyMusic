@@ -37,138 +37,202 @@ namespace AllMyMusic.DataService
         #region Public
         public async Task<ObservableCollection<String>> GetListItems(String strSQL)
         {
-            ObservableCollection<String> listItems = new ObservableCollection<String>();
-
-            SqlCommand cmd = new SqlCommand(strSQL, _connection);
-            cmd.CommandType = CommandType.Text;
-
-            SqlDataReader reader = await cmd.ExecuteReaderAsync();
-
-            if (reader.HasRows)
+            try
             {
-                while (reader.Read())
+                ObservableCollection<String> listItems = new ObservableCollection<String>();
+
+                SqlCommand cmd = new SqlCommand(strSQL, _connection);
+                cmd.CommandType = CommandType.Text;
+
+                SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+                if (reader.HasRows)
                 {
-                    String listItem;
-                    if (!reader.IsDBNull(0))
+                    while (reader.Read())
                     {
-                        listItem = reader.GetString(0).TrimEnd();
+                        String listItem;
+                        if (!reader.IsDBNull(0))
+                        {
+                            listItem = reader.GetString(0).TrimEnd();
+                        }
+                        else { listItem = String.Empty; }
+
+                        listItems.Add(listItem);
                     }
-                    else { listItem = String.Empty; }
-
-                    listItems.Add(listItem);
                 }
-            }
-            reader.Close();
+                reader.Close();
 
-            return listItems;
+                return listItems;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceListItems_SQL, Error in GetListItems";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<String>> GetListItemsIntByColumn(String columName)
         {
-            ObservableCollection<String> listItems = new ObservableCollection<String>();
-            String strSQL = QueryBuilderItems.GetIntItemsByColumn(columName);
-
-            SqlCommand cmd = new SqlCommand(strSQL, _connection);
-            cmd.CommandType = CommandType.Text;
-
-            SqlDataReader reader = await cmd.ExecuteReaderAsync();
-
-            if (reader.HasRows)
+            try
             {
-                while (reader.Read())
+                ObservableCollection<String> listItems = new ObservableCollection<String>();
+                String strSQL = QueryBuilderItems.GetIntItemsByColumn(columName);
+
+                SqlCommand cmd = new SqlCommand(strSQL, _connection);
+                cmd.CommandType = CommandType.Text;
+
+                SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+                if (reader.HasRows)
                 {
-                    String listItem;
-                    if (!reader.IsDBNull(0))
+                    while (reader.Read())
                     {
-                        listItem = reader.GetInt32(0).ToString();
+                        String listItem;
+                        if (!reader.IsDBNull(0))
+                        {
+                            listItem = reader.GetInt32(0).ToString();
+                        }
+                        else { listItem = "0"; }
+
+                        listItems.Add(listItem);
                     }
-                    else { listItem = "0"; }
-
-                    listItems.Add(listItem);
                 }
-            }
-            reader.Close();
+                reader.Close();
 
-            return listItems;
+                return listItems;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceListItems_SQL, Error in GetListItemsIntByColumn";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<String>> GetListItemsByColumn(String columName)
         {
-            ObservableCollection<String> listItems = new ObservableCollection<String>();
-            String strSQL = QueryBuilderItems.GetStringItemsByColumn(columName);
-
-            SqlCommand cmd = new SqlCommand(strSQL, _connection);
-            cmd.CommandType = CommandType.Text;
-
-            SqlDataReader reader = await cmd.ExecuteReaderAsync();
-
-            if (reader.HasRows)
+            try
             {
-                while (reader.Read())
+                ObservableCollection<String> listItems = new ObservableCollection<String>();
+                String strSQL = QueryBuilderItems.GetStringItemsByColumn(columName);
+
+                SqlCommand cmd = new SqlCommand(strSQL, _connection);
+                cmd.CommandType = CommandType.Text;
+
+                SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+                if (reader.HasRows)
                 {
-                    String listItem;
-                    if (!reader.IsDBNull(0))
+                    while (reader.Read())
                     {
-                        listItem = reader.GetString(0);
+                        String listItem;
+                        if (!reader.IsDBNull(0))
+                        {
+                            listItem = reader.GetString(0);
+                        }
+                        else { listItem = String.Empty; }
+
+                        listItems.Add(listItem);
                     }
-                    else { listItem = String.Empty; }
-
-                    listItems.Add(listItem);
                 }
-            }
-            reader.Close();
+                reader.Close();
 
-            return listItems;
+                return listItems;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceListItems_SQL, Error in GetListItemsByColumn";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<String>> GetStringItemsByAlphabet(String columName, String firstCharacter)
         {
-            ObservableCollection<String> listItems = new ObservableCollection<String>();
-            String strSQL = QueryBuilderItems.GetStringItemsByAlphabet(columName, firstCharacter);
-
-            SqlCommand cmd = new SqlCommand(strSQL, _connection);
-            cmd.CommandType = CommandType.Text;
-
-            SqlDataReader reader = await cmd.ExecuteReaderAsync();
-
-            if (reader.HasRows)
+            try
             {
-                while (reader.Read())
+                ObservableCollection<String> listItems = new ObservableCollection<String>();
+                String strSQL = QueryBuilderItems.GetStringItemsByAlphabet(columName, firstCharacter);
+
+                SqlCommand cmd = new SqlCommand(strSQL, _connection);
+                cmd.CommandType = CommandType.Text;
+
+                SqlDataReader reader = await cmd.ExecuteReaderAsync();
+
+                if (reader.HasRows)
                 {
-                    String listItem;
-                    if (!reader.IsDBNull(0))
+                    while (reader.Read())
                     {
-                        listItem = reader.GetString(0);
+                        String listItem;
+                        if (!reader.IsDBNull(0))
+                        {
+                            listItem = reader.GetString(0);
+                        }
+                        else { listItem = String.Empty; }
+
+                        listItems.Add(listItem);
                     }
-                    else { listItem = String.Empty; }
-
-                    listItems.Add(listItem);
                 }
-            }
-            reader.Close();
+                reader.Close();
 
-            return listItems;
+                return listItems;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceListItems_SQL, Error in GetStringItemsByAlphabet";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<String>> GetCountries()
         {
-            String strSQL = QueryBuilderItems.Counties();
-            ObservableCollection<String> listItems = await GetListItems(strSQL);
-            return listItems;
+            try
+            {
+                String strSQL = QueryBuilderItems.Counties();
+                ObservableCollection<String> listItems = await GetListItems(strSQL);
+                return listItems;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceListItems_SQL, Error in GetCountries";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<String>> GetLanguages()
         {
-            String strSQL = QueryBuilderItems.Languages();
-            ObservableCollection<String> listItems = await GetListItems(strSQL);
-            return listItems;
+            try
+            {
+                String strSQL = QueryBuilderItems.Languages();
+                ObservableCollection<String> listItems = await GetListItems(strSQL);
+                return listItems;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceListItems_SQL, Error in GetLanguages";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<String>> GetGenres()
         {
-            String strSQL = QueryBuilderItems.Genres();
-            ObservableCollection<String> listItems = await GetListItems(strSQL);
-            return listItems;
+            try
+            {
+                String strSQL = QueryBuilderItems.Genres();
+                ObservableCollection<String> listItems = await GetListItems(strSQL);
+                return listItems;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceListItems_SQL, Error in GetGenres";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<String>> GetAlphabet(TreeviewCategory tvCategory)
         {
-            String strSQL = QueryBuilderItems.GetAlphabet(tvCategory); ;
-            ObservableCollection<String>  alphabetItems = await GetListItems(strSQL);
-            return alphabetItems;
+            try
+            {
+                String strSQL = QueryBuilderItems.GetAlphabet(tvCategory); ;
+                ObservableCollection<String> alphabetItems = await GetListItems(strSQL);
+                return alphabetItems;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceListItems_SQL, Error in GetAlphabet";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
 
         public void ChangeDatabase(ConnectionInfo conInfo)

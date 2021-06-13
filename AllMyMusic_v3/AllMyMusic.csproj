@@ -156,6 +156,7 @@
     <Compile Include="EventArgs\IntegerEventArgs.cs" />
     <Compile Include="EventArgs\ConnectionInfoEventArgs.cs" />
     <Compile Include="EventArgs\PartyButtonConfigEventArgs.cs" />
+    <Compile Include="Exceptions\DatabaseLayerException.cs" />
     <Compile Include="Forms\frmCountryImageSelector.xaml.cs">
       <DependentUpon>frmCountryImageSelector.xaml</DependentUpon>
     </Compile>
@@ -190,6 +191,7 @@
     </Compile>
     <Compile Include="Installer\InstallerHelper.cs" />
     <Compile Include="MetaData\APIC.cs" />
+    <Compile Include="Model\StatisticsItem.cs" />
     <Compile Include="Model\Country\CountryCollection.cs" />
     <Compile Include="DatabaseService\SQL\DataServiceCountries_SQL.cs" />
     <Compile Include="DatabaseService\SQL\DataServiceListItems_SQL.cs" />
@@ -230,6 +232,9 @@
     <Compile Include="ViewModel\Country\CountrySelectorViewModel.cs" />
     <Compile Include="View\Behavior\ScrollCurrentItemIntoViewBehavior.cs" />
     <Compile Include="Forms\DialogCloser.cs" />
+    <Compile Include="View\Database\viewDatabaseStatistics.xaml.cs">
+      <DependentUpon>viewDatabaseStatistics.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ValueConverter\ArtistTypeEnumToVisibilityConverter.cs" />
     <Compile Include="View\ValueConverter\ArtistTypeEnumToStringConverter.cs" />
     <Compile Include="View\ValueConverter\MultiplyConverter.cs" />
@@ -553,6 +558,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\ToolbarToggleButtonStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Database\viewDatabaseStatistics.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -83,6 +83,12 @@
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
             </r:RibbonGroup>
+            
+            <!-- Group Database Statistics-->
+            <r:RibbonGroup  x:Name="grp_Statistics" Header="{Binding Path=Grp_DatabaseStatistics}">
+                <vw:viewDatabaseStatistics DataContext="{Binding Path=DatabasesViewModel}" />
+            </r:RibbonGroup>
+
         </r:RibbonTab>
 
         <!-- Ribbon Tab Party -->

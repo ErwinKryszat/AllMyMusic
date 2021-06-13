@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="AllMyMusic.View.viewDatabaseStatistics"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"      
+             mc:Ignorable="d" 
+             d:DesignHeight="80" d:DesignWidth="160">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../ResourceDictionaries/MainSkin.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="80"/>
+        </Grid.ColumnDefinitions>
+        <Label Padding="1" Grid.Column="0" Grid.Row="0">Songs:</Label>
+        <Label Padding="1" Grid.Column="0" Grid.Row="1">Albums:</Label>
+        <Label Padding="1" Grid.Column="0" Grid.Row="2">Bands:</Label>
+
+        <Label Padding="1" Grid.Column="1" Grid.Row="0" Content="{Binding Path=CountSongs}"/>
+        <Label Padding="1" Grid.Column="1" Grid.Row="1" Content="{Binding Path=CountAlbums}"/>
+        <Label Padding="1" Grid.Column="1" Grid.Row="2" Content="{Binding Path=CountBands}"/>
+    </Grid>
+</UserControl>

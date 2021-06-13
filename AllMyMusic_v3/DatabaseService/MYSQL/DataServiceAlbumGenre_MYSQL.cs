@@ -39,26 +39,42 @@ namespace AllMyMusic.DataService
         #region Public
         public async Task<ObservableCollection<AlbumGenreItem>> GetAlbumGenres()
         {
-            String strSQL = QueryBuilderAlbumGenre.VariousArtistsGenres();
-            ObservableCollection<AlbumGenreItem> albumGenres = await Task.Run(() => GetAlbumGenresDB(strSQL));
-            return albumGenres;
+            try
+            {
+                String strSQL = QueryBuilderAlbumGenre.VariousArtistsGenres();
+                ObservableCollection<AlbumGenreItem> albumGenres = await Task.Run(() => GetAlbumGenresDB(strSQL));
+                return albumGenres;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbumGenre_MYSQL, Error in GetAlbumGenres";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<Int32> AddAlbumGenre(AlbumGenreItem AlbumGenre)
         {
-            MySqlParameter param = null;
+            try
+            {
+                MySqlParameter param = null;
 
-            MySqlCommand cmd = new MySqlCommand("AddAlbumGenre", _connection);
-            cmd.CommandType = CommandType.StoredProcedure;
+                MySqlCommand cmd = new MySqlCommand("AddAlbumGenre", _connection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            param = cmd.Parameters.Add("var_Name", MySqlDbType.VarChar, 100);
-            param.Value = AlbumGenre.Name.Substring(0, Math.Min(AlbumGenre.Name.Length, 100));
+                param = cmd.Parameters.Add("var_Name", MySqlDbType.VarChar, 100);
+                param.Value = AlbumGenre.Name.Substring(0, Math.Min(AlbumGenre.Name.Length, 100));
 
-            param = cmd.Parameters.Add("var_ID", MySqlDbType.Int32);
-            param.Direction = ParameterDirection.Output;
+                param = cmd.Parameters.Add("var_ID", MySqlDbType.Int32);
+                param.Direction = ParameterDirection.Output;
 
-            await cmd.ExecuteNonQueryAsync();
+                await cmd.ExecuteNonQueryAsync();
 
-            return (int)param.Value;
+                return (int)param.Value;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbumGenre_MYSQL, Error in AddAlbumGenre";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public void ChangeDatabase(ConnectionInfo conInfo)
         {

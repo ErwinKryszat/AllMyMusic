@@ -135,8 +135,16 @@ namespace AllMyMusic
                 }
             }
 
-            await jobHelper.UpdateCountryTable();
-   
+            
+            try
+            {
+                await jobHelper.UpdateCountryTable();
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "Error UpdateCountryTable in UpdateSongsBackgroundWorker";
+                ShowError.ShowAndLog(Err, errorMessage, 3001);
+            }
 
             ElapseTimer.Stop();
 

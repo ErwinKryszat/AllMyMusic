@@ -38,26 +38,42 @@ namespace AllMyMusic.DataService
         #region Public
         public async Task<ObservableCollection<AlbumGenreItem>> GetAlbumGenres()
         {
-            String strSQL = QueryBuilderAlbumGenre.VariousArtistsGenres();
-            ObservableCollection<AlbumGenreItem> albumGenres = await Task.Run(() => GetAlbumGenresDB(strSQL));
-            return albumGenres;
+            try
+            {
+                String strSQL = QueryBuilderAlbumGenre.VariousArtistsGenres();
+                ObservableCollection<AlbumGenreItem> albumGenres = await Task.Run(() => GetAlbumGenresDB(strSQL));
+                return albumGenres;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbumGenre_SQL, Error in GetAlbumGenres";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<Int32> AddAlbumGenre(AlbumGenreItem AlbumGenre)
         {
-            SqlParameter param = null;
+            try
+            {
+                SqlParameter param = null;
 
-            SqlCommand cmd = new SqlCommand("AddAlbumGenre", _connection);
-            cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("AddAlbumGenre", _connection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            param = cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 100);
-            param.Value = AlbumGenre.Name.Substring(0, Math.Min(AlbumGenre.Name.Length, 100));
+                param = cmd.Parameters.Add("@Name", SqlDbType.NVarChar, 100);
+                param.Value = AlbumGenre.Name.Substring(0, Math.Min(AlbumGenre.Name.Length, 100));
 
-            param = cmd.Parameters.Add("@ID", SqlDbType.Int);
-            param.Direction = ParameterDirection.Output;
+                param = cmd.Parameters.Add("@ID", SqlDbType.Int);
+                param.Direction = ParameterDirection.Output;
 
-            await cmd.ExecuteNonQueryAsync();
+                await cmd.ExecuteNonQueryAsync();
 
-            return (int)param.Value;
+                return (int)param.Value;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbumGenre_SQL, Error in AddAlbumGenre";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public void ChangeDatabase(ConnectionInfo conInfo)
         {

@@ -67,7 +67,7 @@ namespace AllMyMusic
                     {
                         song.ArtistType = lastSong.ArtistType;
                     }
-                    if ((song.AlbumId == lastSong.AlbumId) && (song.BandName != lastSong.BandName) && lastSong.ArtistType == ArtistType.SingleArtist)
+                    if ((song.AlbumId == lastSong.AlbumId) && (song.BandName.ToLower() != lastSong.BandName.ToLower()) && lastSong.ArtistType == ArtistType.SingleArtist)
                     {
                         song.ArtistType = ArtistType.VariousArtist;
                         song.MustUpdateAlbum = true;
@@ -131,7 +131,15 @@ namespace AllMyMusic
 
                     song.AlbumId = await _dataServiceAlbums.AddAlbum(album);
 
-                    await _dataServiceAlbums.AddImage(album);
+                    try
+                    {
+                        await _dataServiceAlbums.AddImage(album);
+                    }
+                    catch (Exception Err)
+                    {
+                        String errorMessage = "Error AddOneBandAlbumSong, AddImage";
+                        ShowError.ShowAndLog(Err, errorMessage, 2002);
+                    }
 
                 }
 
@@ -153,11 +161,7 @@ namespace AllMyMusic
                 {
                     errorMessage = "Error updating Band, Album and Song: No song data available!";
                 }
-
-
-                
                 ShowError.ShowAndLog(Err, errorMessage, 2001);
-        
             }
 
             return song;
@@ -241,17 +245,17 @@ namespace AllMyMusic
         }
         private static Boolean SongsFromDifferentAlbums(SongItem lastSong, SongItem song)
         {
-            if ((lastSong.AlbumName != String.Empty) && (song.AlbumName != String.Empty) && (lastSong.AlbumName != song.AlbumName))
+            if ((lastSong.AlbumName != String.Empty) && (song.AlbumName != String.Empty) && (lastSong.AlbumName.ToLower() != song.AlbumName.ToLower()))
             {
                 return true;
             }
 
-            if ((lastSong.AlbumSortName != String.Empty) && (song.AlbumSortName != String.Empty) && (lastSong.AlbumSortName != song.AlbumSortName))
+            if ((lastSong.AlbumSortName != String.Empty) && (song.AlbumSortName != String.Empty) && (lastSong.AlbumSortName.ToLower() != song.AlbumSortName.ToLower()))
             {
                 return true;
             }
 
-            if ((lastSong.BandName != String.Empty) && (song.BandName != String.Empty) && (lastSong.BandName != song.BandName) && (lastSong.ArtistType == ArtistType.SingleArtist))
+            if ((lastSong.BandName != String.Empty) && (song.BandName != String.Empty) && (lastSong.BandName.ToLower() != song.BandName.ToLower()) && (lastSong.ArtistType == ArtistType.SingleArtist))
             {
                 return true;
             }
@@ -280,12 +284,12 @@ namespace AllMyMusic
         }
         private static Boolean BandCompare(SongItem lastSong, SongItem song)
         {
-            if ((lastSong.BandName != String.Empty) && (song.BandName != String.Empty) && (lastSong.BandName != song.BandName))
+            if ((lastSong.BandName != String.Empty) && (song.BandName != String.Empty) && (lastSong.BandName.ToLower() != song.BandName.ToLower()))
             {
                 return true;
             }
 
-            if ((lastSong.BandSortName != String.Empty) && (song.BandSortName != String.Empty) && (lastSong.BandSortName != song.BandSortName))
+            if ((lastSong.BandSortName != String.Empty) && (song.BandSortName != String.Empty) && (lastSong.BandSortName.ToLower() != song.BandSortName.ToLower()))
             {
                 return true;
             }

@@ -1272,4 +1272,7 @@
   <data name="frmTools_ToolTipsLabel" xml:space="preserve">
     <value>Tools Tips</value>
   </data>
+  <data name="ribbon_Grp_DatabaseStatistics" xml:space="preserve">
+    <value>Statistique</value>
+  </data>
 </root>

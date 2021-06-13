@@ -57,238 +57,402 @@ namespace AllMyMusic.DataService
         #region Public
         public async Task<Int32> AddAlbum(AlbumItem album)
         {
-            MySqlParameter param = null;
+            try
+            {
+                MySqlParameter param = null;
 
-            MySqlCommand cmd = new MySqlCommand("AddAlbum", _connection);
-            cmd.CommandType = CommandType.StoredProcedure;
+                MySqlCommand cmd = new MySqlCommand("AddAlbum", _connection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            param = cmd.Parameters.Add("var_IDAlbum", MySqlDbType.Int32);
-            param.Value = album.AlbumId;
+                param = cmd.Parameters.Add("var_IDAlbum", MySqlDbType.Int32);
+                param.Value = album.AlbumId;
 
-            param = cmd.Parameters.Add("var_IDBand", MySqlDbType.Int32);
-            param.Value = album.BandId;
+                param = cmd.Parameters.Add("var_IDBand", MySqlDbType.Int32);
+                param.Value = album.BandId;
 
-            param = cmd.Parameters.Add("var_Name", MySqlDbType.VarString, 100);
-            param.Value = album.AlbumName.Substring(0, Math.Min(album.AlbumName.Length, 100));
+                param = cmd.Parameters.Add("var_Name", MySqlDbType.VarString, 100);
+                param.Value = album.AlbumName.Substring(0, Math.Min(album.AlbumName.Length, 100));
 
-            param = cmd.Parameters.Add("var_SortName", MySqlDbType.VarString, 100);
-            param.Value = album.AlbumSortName.Substring(0, Math.Min(album.AlbumSortName.Length, 100));
+                param = cmd.Parameters.Add("var_SortName", MySqlDbType.VarString, 100);
+                param.Value = album.AlbumSortName.Substring(0, Math.Min(album.AlbumSortName.Length, 100));
 
-            param = cmd.Parameters.Add("var_Year", MySqlDbType.VarChar, 4);
-            param.Value = album.Year;
+                param = cmd.Parameters.Add("var_Year", MySqlDbType.VarChar, 4);
+                param.Value = album.Year;
 
-            param = cmd.Parameters.Add("var_AlbumVA", MySqlDbType.Int32);
-            param.Value = (Int32)album.ArtistType;
+                param = cmd.Parameters.Add("var_AlbumVA", MySqlDbType.Int32);
+                param.Value = (Int32)album.ArtistType;
 
-            param = cmd.Parameters.Add("var_AlbumGenre", MySqlDbType.VarString, 50);
-            param.Value = album.AlbumGenre;
+                param = cmd.Parameters.Add("var_AlbumGenre", MySqlDbType.VarString, 50);
+                param.Value = album.AlbumGenre;
 
-            param = cmd.Parameters.Add("var_AlbumPath", MySqlDbType.VarString, 200);
-            param.Value = album.AlbumPath;
+                param = cmd.Parameters.Add("var_AlbumPath", MySqlDbType.VarString, 200);
+                param.Value = album.AlbumPath;
 
-            param = cmd.Parameters.Add("var_ID", MySqlDbType.Int32);
-            param.Direction = ParameterDirection.Output;
+                param = cmd.Parameters.Add("var_ID", MySqlDbType.Int32);
+                param.Direction = ParameterDirection.Output;
 
-            await cmd.ExecuteNonQueryAsync();
+                await cmd.ExecuteNonQueryAsync();
 
-            album.AlbumId = (int)param.Value;
+                album.AlbumId = (int)param.Value;
 
-            return album.AlbumId;
+                return album.AlbumId;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in AddAlbum";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task AddImage(AlbumItem album)
         {
-            MySqlCommand cmd = new MySqlCommand("AddImage", _connection);
-            cmd.CommandType = CommandType.StoredProcedure;
-            MySqlParameter param;
-
-            if (album.AlbumId == 0)
+            try
             {
-                return;
+                MySqlCommand cmd = new MySqlCommand("AddImage", _connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                MySqlParameter param;
+
+                if (album.AlbumId == 0)
+                {
+                    return;
+                }
+
+                //  Note: Param Names in Stored Procedure have to match this code!
+                param = cmd.Parameters.Add("var_IDAlbum", MySqlDbType.Int32);
+                param.Value = album.AlbumId;
+                param = cmd.Parameters.Add("var_IDBand", MySqlDbType.Int32);
+                param.Value = album.BandId;
+                param = cmd.Parameters.Add("var_Front", MySqlDbType.VarString, 250);
+                param.Value = album.FrontImageFileName;
+                param = cmd.Parameters.Add("var_Back", MySqlDbType.VarString, 250);
+                param.Value = album.BackImageFileName;
+                param = cmd.Parameters.Add("var_Stamp", MySqlDbType.VarString, 250);
+                param.Value = album.StampImageFileName;
+
+                await cmd.ExecuteNonQueryAsync();
             }
-
-            //  Note: Param Names in Stored Procedure have to match this code!
-            param = cmd.Parameters.Add("var_IDAlbum", MySqlDbType.Int32);
-            param.Value = album.AlbumId;
-            param = cmd.Parameters.Add("var_IDBand", MySqlDbType.Int32);
-            param.Value = album.BandId;
-            param = cmd.Parameters.Add("var_Front", MySqlDbType.VarString, 250);
-            param.Value = album.FrontImageFileName;
-            param = cmd.Parameters.Add("var_Back", MySqlDbType.VarString, 250);
-            param.Value = album.BackImageFileName;
-            param = cmd.Parameters.Add("var_Stamp", MySqlDbType.VarString, 250);
-            param.Value = album.StampImageFileName;
-
-            await cmd.ExecuteNonQueryAsync();
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in AddImage";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
 
         public async Task<AlbumItem> GetAlbumByPath(String albumPath)
         {
-            String strSQL = QueryBuilderAlbums.Folder_MYSQL();
-            MySqlParameter sqlParam = new MySqlParameter("@PathPart", SqlDbType.NVarChar);
-            sqlParam.Value = albumPath;
+            try
+            {
+                String strSQL = QueryBuilderAlbums.Folder_MYSQL();
+                MySqlParameter sqlParam = new MySqlParameter("@PathPart", SqlDbType.NVarChar);
+                sqlParam.Value = albumPath;
 
-            AlbumItem album = await GetAlbumDB(strSQL, sqlParam);
+                AlbumItem album = await GetAlbumDB(strSQL, sqlParam);
 
-            return album;
+                return album;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in GetAlbumByPath";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
 
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(BandItem band)
         {
-            String strSQL = QueryBuilderAlbums.AlbumsByBand(band);
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
-            return albums;
+            try
+            {
+                String strSQL = QueryBuilderAlbums.AlbumsByBand(band);
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(AlbumGenreItem albumGenre)
         {
-            String strSQL = QueryBuilderAlbumsVA.Albums(albumGenre);
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
-            return albums;
+            try
+            {
+                String strSQL = QueryBuilderAlbumsVA.Albums(albumGenre);
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
 
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(ComposerItem composer)
         {
-            String strSQL = QueryBuilderAlbums.AlbumsByComposer(composer);
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
-            return albums;
+            try
+            {
+                String strSQL = QueryBuilderAlbums.AlbumsByComposer(composer);
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(ConductorItem conductor)
         {
-            String strSQL = QueryBuilderAlbums.AlbumsByConductor(conductor);
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
-            return albums;
+            try
+            {
+                String strSQL = QueryBuilderAlbums.AlbumsByConductor(conductor);
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }         
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(CountryItem country)
         {
-            String strSQL = QueryBuilderAlbums.AlbumsByCountry(country);
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
-            return albums;
+            try
+            {
+                String strSQL = QueryBuilderAlbums.AlbumsByCountry(country);
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(GenreItem genre)
         {
-            String strSQL = QueryBuilderAlbums.AlbumsByGenre(genre);
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
-            return albums;
+            try
+            {
+                String strSQL = QueryBuilderAlbums.AlbumsByGenre(genre);
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(LanguageItem language)
         {
-            String strSQL = QueryBuilderAlbums.AlbumsByLanguage(language);
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
-            return albums;
+            try
+            {
+                String strSQL = QueryBuilderAlbums.AlbumsByLanguage(language);
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbumsByPath(String albumFolderPath)
         {
-            String strSQL = QueryBuilderAlbums.Folder_MYSQL();
+            try
+            {
+                String strSQL = QueryBuilderAlbums.Folder_MYSQL();
 
-            MySqlParameter sqlParam = new MySqlParameter("var_PathPart", MySqlDbType.VarString);
-            sqlParam.Value = albumFolderPath;
+                MySqlParameter sqlParam = new MySqlParameter("var_PathPart", MySqlDbType.VarString);
+                sqlParam.Value = albumFolderPath;
 
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL, sqlParam);
-            return albums;
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL, sqlParam);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in GetAlbumsByPath";
+                throw new DatabaseLayerException(errorMessage, Err);
+
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(LeadPerformerItem leadPerformer)
         {
-            String strSQL = QueryBuilderAlbums.AlbumsByLeadPerformer(leadPerformer);
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
-            return albums;
+            try
+            {
+                String strSQL = QueryBuilderAlbums.AlbumsByLeadPerformer(leadPerformer);
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(ObservableCollection<String> playList)
         {
-            ObservableCollection<AlbumItem> albums = new ObservableCollection<AlbumItem>();
-            for (int i = 0; i < playList.Count; i++)
+            try
             {
-                String strSQL = QueryBuilderAlbums.Folder_MYSQL();
-                MySqlParameter searchParam = new MySqlParameter("var_PathPart", SqlDbType.NVarChar);
-                searchParam.Value = playList[i];
+                ObservableCollection<AlbumItem> albums = new ObservableCollection<AlbumItem>();
+                for (int i = 0; i < playList.Count; i++)
+                {
+                    String strSQL = QueryBuilderAlbums.Folder_MYSQL();
+                    MySqlParameter searchParam = new MySqlParameter("var_PathPart", SqlDbType.NVarChar);
+                    searchParam.Value = playList[i];
 
-                AlbumItem album = await GetAlbumDB(strSQL, searchParam);
+                    AlbumItem album = await GetAlbumDB(strSQL, searchParam);
+                }
+                return albums;
             }
-            return albums;
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> SearchAlbums(String searchString)
         {
-            String strSQL = QueryBuilderAlbums.SearchAlbums();
-            MySqlParameter searchParam = new MySqlParameter("var_Name", MySqlDbType.VarString);
-            searchParam.Value = searchString;
+            try
+            {
+                String strSQL = QueryBuilderAlbums.SearchAlbums();
+                MySqlParameter searchParam = new MySqlParameter("var_Name", MySqlDbType.VarString);
+                searchParam.Value = searchString;
 
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL, searchParam);
-            return albums;
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL, searchParam);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in SearchAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<AlbumItem>> GetAlbumsByCondition(String condition)
         {
-            String strSQL = QueryBuilderAlbums.AlbumsByCondition(condition);
+            try
+            {
+                String strSQL = QueryBuilderAlbums.AlbumsByCondition(condition);
 
-            ObservableCollection<AlbumItem> albums = await Task.Run(() => GetAlbumsDB(strSQL));
-            return albums;
+                ObservableCollection<AlbumItem> albums = await Task.Run(() => GetAlbumsDB(strSQL));
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in GetAlbumsByCondition";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<AlbumItem> GetAlbum(Int32 albumID)
         {
-            AlbumItem album = await Task<AlbumItem>.Run(() => 
+            try
             {
-                AlbumItem album2 = null;
-                String strSQL = QueryBuilderAlbums.Album(albumID);
-                MySqlCommand cmd = new MySqlCommand(strSQL, _connection);
-                cmd.CommandType = CommandType.Text;
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.HasRows)
+                AlbumItem album = await Task<AlbumItem>.Run(() =>
                 {
-                    reader.Read();
-                    album2 = ReadAlbum(reader);
-                }
-                reader.Close();
+                    AlbumItem album2 = null;
+                    String strSQL = QueryBuilderAlbums.Album(albumID);
+                    MySqlCommand cmd = new MySqlCommand(strSQL, _connection);
+                    cmd.CommandType = CommandType.Text;
+                    MySqlDataReader reader = cmd.ExecuteReader();
 
-                return album2;
-            });
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        album2 = ReadAlbum(reader);
+                    }
+                    reader.Close();
 
-            return album;
+                    return album2;
+                });
+
+                return album;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in GetAlbum";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
 
         public async Task<ObservableCollection<AlbumItem>> GetAlbums(String strSQL)
         {
-            ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
-            return albums;
+            try
+            {
+                ObservableCollection<AlbumItem> albums = await GetAlbumsDB(strSQL);
+                return albums;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in GetAlbums";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
 
         public async Task DeleteAlbum(AlbumItem album)
         {
-            MySqlCommand cmd = new MySqlCommand("DeleteAlbum", _connection);
-            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
 
-            MySqlParameter param = cmd.Parameters.Add("var_AlbumId", MySqlDbType.Int32);
-            param.Value = album.AlbumId;
+                MySqlCommand cmd = new MySqlCommand("DeleteAlbum", _connection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            param = cmd.Parameters.Add("var_Rowcount", MySqlDbType.Int32);
-            param.Direction = ParameterDirection.Output;
+                MySqlParameter param = cmd.Parameters.Add("var_AlbumId", MySqlDbType.Int32);
+                param.Value = album.AlbumId;
 
-            await cmd.ExecuteNonQueryAsync();
+                param = cmd.Parameters.Add("var_Rowcount", MySqlDbType.Int32);
+                param.Direction = ParameterDirection.Output;
+
+                await cmd.ExecuteNonQueryAsync();
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in DeleteAlbum";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
 
         public async Task DeleteAlbumGenre(AlbumGenreItem albumGenre)
         {
-            MySqlCommand cmd = new MySqlCommand("DeleteAlbumGenre", _connection);
-            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("DeleteAlbumGenre", _connection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            MySqlParameter param = cmd.Parameters.Add("var_AlbumGenreID", MySqlDbType.Int32);
-            param.Value = albumGenre.AlbumGenreId;
+                MySqlParameter param = cmd.Parameters.Add("var_AlbumGenreID", MySqlDbType.Int32);
+                param.Value = albumGenre.AlbumGenreId;
 
-            param = cmd.Parameters.Add("var_Rowcount", MySqlDbType.Int32);
-            param.Direction = ParameterDirection.Output;
+                param = cmd.Parameters.Add("var_Rowcount", MySqlDbType.Int32);
+                param.Direction = ParameterDirection.Output;
 
-            await cmd.ExecuteNonQueryAsync();
+                await cmd.ExecuteNonQueryAsync();
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in DeleteAlbumGenre";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
 
         public async Task DeleteBand(BandItem band)
         {
-            MySqlCommand cmd = new MySqlCommand("DeleteBand", _connection);
-            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand("DeleteBand", _connection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            MySqlParameter param = cmd.Parameters.Add("var_BandID", MySqlDbType.Int32);
-            param.Value = band.BandId;
+                MySqlParameter param = cmd.Parameters.Add("var_BandID", MySqlDbType.Int32);
+                param.Value = band.BandId;
 
-            param = cmd.Parameters.Add("var_Rowcount", MySqlDbType.Int32);
-            param.Direction = ParameterDirection.Output;
+                param = cmd.Parameters.Add("var_Rowcount", MySqlDbType.Int32);
+                param.Direction = ParameterDirection.Output;
 
-            await cmd.ExecuteNonQueryAsync();
+                await cmd.ExecuteNonQueryAsync();
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceAlbums_MYSQL, Error in DeleteBand";
+                throw new DatabaseLayerException(errorMessage, Err);
+
+            }
         }
 
         public void ChangeDatabase(ConnectionInfo conInfo)

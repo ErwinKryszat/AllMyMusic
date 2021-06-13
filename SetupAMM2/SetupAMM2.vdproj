@@ -94,19 +94,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_08BC5E238B8A6FE9589FC6A7CD3A6D35"
+        "OwnerKey" = "8:_305EAB1274A748D0828A5B1D56B45EB9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_9A8CF43DFBA344FC863E8E14D671DB1D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_305EAB1274A748D0828A5B1D56B45EB9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -145,6 +139,12 @@
         "OwnerKey" = "8:_79FCE8C1CBCB439CC292A96BEF95C498"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_08BC5E238B8A6FE9589FC6A7CD3A6D35"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -163,6 +163,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -179,6 +195,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -529,25 +561,25 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:AllMyMusic"
-        "ProductCode" = "8:{3C10A8EA-A53F-4581-A6D2-FDF3AF1B69C4}"
-        "PackageCode" = "8:{8CFE7FA5-2EB0-4926-A2E5-531C9D11DB86}"
+        "ProductCode" = "8:{68773BB1-C40D-4511-8EA5-29A6CF944A30}"
+        "PackageCode" = "8:{78CC37AB-871D-4353-BF98-99A4E800AC32}"
         "UpgradeCode" = "8:{ED238AC3-3250-4312-9616-8F3840F4D20D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:3.0.7"
         "Manufacturer" = "8:winisoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:ASetupAllMyMusic"
+        "Title" = "8:SetupAllMyMusic"
         "Subject" = "8:"
         "ARPCONTACT" = "8:E. Kryszat"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:"
+        "ARPCOMMENTS" = "8:MP3 Manager and Player"
         "ARPURLINFOABOUT" = "8:http://www.winisoft.ch"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_B5C77417F4234AEDB32F29ED9C8A973D"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -1079,7 +1111,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_305EAB1274A748D0828A5B1D56B45EB9"
             {
-            "SourcePath" = "8:..\\AllMyMusic_v3\\obj\\Release\\AllMyMusic.exe"
+            "SourcePath" = "8:..\\AllMyMusic_v3\\obj\\Debug\\AllMyMusic.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BD762F0F2B434466A1266A14F4C46957"

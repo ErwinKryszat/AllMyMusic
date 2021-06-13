@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
+using System.Windows;
 
 using AllMyMusic.ViewModel;
 using AllMyMusic.Settings;
@@ -100,18 +101,26 @@ namespace AllMyMusic
                 }
             }
 
-            await _jobHelper.UpdateCountryTable();
-            
-
-            ElapseTimer.Stop();
-
-            _jobHelper.Close();
-
-            if (workDoneCallback != null)
+            try
             {
-                workDoneCallback();
+                await _jobHelper.UpdateCountryTable();
             }
-      
+            catch (Exception Err)
+            {
+                String errorMessage = "Error in BackgroundJobHelper.UpdateCountryTable ";
+                await Application.Current.Dispatcher.BeginInvoke(new Action(() => ShowError.ShowAndLog(Err, errorMessage, 1007)));
+            }
+            finally
+            {
+                ElapseTimer.Stop();
+
+                _jobHelper.Close();
+
+                if (workDoneCallback != null)
+                {
+                    workDoneCallback();
+                }
+            }
         }
         private async Task<Int32> AddSongsForFolder(String folderPath)
         {

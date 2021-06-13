@@ -40,204 +40,244 @@ namespace AllMyMusic.DataService
         #region Public
         public async Task<CountryItem> GetCountry(Int32 countryId)
         {
-            String strSQL = QueryBuilderCountries.Country(countryId);
-            CountryItem country = new CountryItem();
-            MySqlCommand cmd = new MySqlCommand(strSQL, _connection);
-            cmd.CommandType = CommandType.Text;
-
-            System.Data.Common.DbDataReader reader = await cmd.ExecuteReaderAsync();
-            //MySqlDataReader reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
+            try
             {
-                while (reader.Read())
+                String strSQL = QueryBuilderCountries.Country(countryId);
+                CountryItem country = new CountryItem();
+                MySqlCommand cmd = new MySqlCommand(strSQL, _connection);
+                cmd.CommandType = CommandType.Text;
+
+                System.Data.Common.DbDataReader reader = await cmd.ExecuteReaderAsync();
+                //MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
                 {
-                  
-
-                    // Country Name
-                    if (!reader.IsDBNull(0))
+                    while (reader.Read())
                     {
-                        country.Country = reader.GetString(0).TrimEnd();
-                    }
-                    else { country.Country = String.Empty; }
 
-                    // Abbreviation
-                    if (!reader.IsDBNull(1))
-                    {
-                        country.Abbreviation = reader.GetString(1).TrimEnd();
-                    }
-                    else { country.Abbreviation = String.Empty; }
 
-                    // Country ID
-                    if (!reader.IsDBNull(2)) { country.CountryId = (Int32)reader.GetInt32(2); }
-                    else { country.CountryId = 0; }
+                        // Country Name
+                        if (!reader.IsDBNull(0))
+                        {
+                            country.Country = reader.GetString(0).TrimEnd();
+                        }
+                        else { country.Country = String.Empty; }
 
-                    // Flag Path
-                    if (!reader.IsDBNull(3))
-                    {
-                        country.FlagPath = reader.GetString(3).TrimEnd();
+                        // Abbreviation
+                        if (!reader.IsDBNull(1))
+                        {
+                            country.Abbreviation = reader.GetString(1).TrimEnd();
+                        }
+                        else { country.Abbreviation = String.Empty; }
+
+                        // Country ID
+                        if (!reader.IsDBNull(2)) { country.CountryId = (Int32)reader.GetInt32(2); }
+                        else { country.CountryId = 0; }
+
+                        // Flag Path
+                        if (!reader.IsDBNull(3))
+                        {
+                            country.FlagPath = reader.GetString(3).TrimEnd();
+                        }
+                        else { country.FlagPath = String.Empty; }
                     }
-                    else { country.FlagPath = String.Empty; }
                 }
-            }
-            reader.Close();
+                reader.Close();
 
-            return country;
+                return country;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceCountries_MYSQL, Error in GetCountry";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<CountryItem> GetCountry(String countryName)
         {
-            String strSQL = QueryBuilderCountries.Country(countryName);
-            CountryItem country = new CountryItem();
-            MySqlCommand cmd = new MySqlCommand(strSQL, _connection);
-            cmd.CommandType = CommandType.Text;
-
-            System.Data.Common.DbDataReader reader = await cmd.ExecuteReaderAsync();
-            //MySqlDataReader reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
+            try
             {
-                while (reader.Read())
+                String strSQL = QueryBuilderCountries.Country(countryName);
+                CountryItem country = new CountryItem();
+                MySqlCommand cmd = new MySqlCommand(strSQL, _connection);
+                cmd.CommandType = CommandType.Text;
+
+                System.Data.Common.DbDataReader reader = await cmd.ExecuteReaderAsync();
+                //MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
                 {
-                    // Country Name
-                    if (!reader.IsDBNull(0))
+                    while (reader.Read())
                     {
-                        country.Country = reader.GetString(0).TrimEnd();
-                    }
-                    else { country.Country = String.Empty; }
+                        // Country Name
+                        if (!reader.IsDBNull(0))
+                        {
+                            country.Country = reader.GetString(0).TrimEnd();
+                        }
+                        else { country.Country = String.Empty; }
 
-                    // Abbreviation
-                    if (!reader.IsDBNull(1))
-                    {
-                        country.Abbreviation = reader.GetString(1).TrimEnd();
-                    }
-                    else { country.Abbreviation = String.Empty; }
+                        // Abbreviation
+                        if (!reader.IsDBNull(1))
+                        {
+                            country.Abbreviation = reader.GetString(1).TrimEnd();
+                        }
+                        else { country.Abbreviation = String.Empty; }
 
-                    // Country ID
-                    if (!reader.IsDBNull(2)) { country.CountryId = (Int32)reader.GetInt32(2); }
-                    else { country.CountryId = 0; }
+                        // Country ID
+                        if (!reader.IsDBNull(2)) { country.CountryId = (Int32)reader.GetInt32(2); }
+                        else { country.CountryId = 0; }
 
-                    // Flag Path
-                    if (!reader.IsDBNull(3))
-                    {
-                        country.FlagPath = reader.GetString(3).TrimEnd();
+                        // Flag Path
+                        if (!reader.IsDBNull(3))
+                        {
+                            country.FlagPath = reader.GetString(3).TrimEnd();
+                        }
+                        else { country.FlagPath = String.Empty; }
                     }
-                    else { country.FlagPath = String.Empty; }
                 }
-            }
-            reader.Close();
+                reader.Close();
 
-            return country;
+                return country;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceCountries_MYSQL, Error in GetCountry";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<CountryItem>> GetCountries()
         {
-            ObservableCollection<CountryItem> countryList = new ObservableCollection<CountryItem>();
-            String strSQL = null;
-
-            strSQL = QueryBuilderCountries.AllCountries();
-
-            MySqlCommand cmd = new MySqlCommand(strSQL, _connection);
-            cmd.CommandType = CommandType.Text;
-
-            System.Data.Common.DbDataReader reader = await cmd.ExecuteReaderAsync();
-            //MySqlDataReader reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
+            try
             {
-                while (reader.Read())
+                ObservableCollection<CountryItem> countryList = new ObservableCollection<CountryItem>();
+                String strSQL = null;
+
+                strSQL = QueryBuilderCountries.AllCountries();
+
+                MySqlCommand cmd = new MySqlCommand(strSQL, _connection);
+                cmd.CommandType = CommandType.Text;
+
+                System.Data.Common.DbDataReader reader = await cmd.ExecuteReaderAsync();
+                //MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
                 {
-                    CountryItem Country = new CountryItem();
-
-                    // Country Name
-                    if (!reader.IsDBNull(0))
+                    while (reader.Read())
                     {
-                        Country.Country = reader.GetString(0).TrimEnd();
+                        CountryItem Country = new CountryItem();
+
+                        // Country Name
+                        if (!reader.IsDBNull(0))
+                        {
+                            Country.Country = reader.GetString(0).TrimEnd();
+                        }
+                        else { Country.Country = String.Empty; }
+
+                        // Abbreviation
+                        if (!reader.IsDBNull(1))
+                        {
+                            Country.Abbreviation = reader.GetString(1).TrimEnd();
+                        }
+                        else { Country.Abbreviation = String.Empty; }
+
+                        // Country ID
+                        if (!reader.IsDBNull(2)) { Country.CountryId = (Int32)reader.GetInt32(2); }
+                        else { Country.CountryId = 0; }
+
+
+                        // Flag Path
+                        if (!reader.IsDBNull(3))
+                        {
+                            Country.FlagPath = reader.GetString(3).TrimEnd();
+                        }
+                        else { Country.FlagPath = String.Empty; }
+
+                        countryList.Add(Country);
                     }
-                    else { Country.Country = String.Empty; }
-
-                    // Abbreviation
-                    if (!reader.IsDBNull(1))
-                    {
-                        Country.Abbreviation = reader.GetString(1).TrimEnd();
-                    }
-                    else { Country.Abbreviation = String.Empty; }
-
-                    // Country ID
-                    if (!reader.IsDBNull(2)) { Country.CountryId = (Int32)reader.GetInt32(2); }
-                    else { Country.CountryId = 0; }
-
-
-                    // Flag Path
-                    if (!reader.IsDBNull(3))
-                    {
-                        Country.FlagPath = reader.GetString(3).TrimEnd();
-                    }
-                    else { Country.FlagPath = String.Empty; }
-
-                    countryList.Add(Country);
                 }
-            }
-            reader.Close();
+                reader.Close();
 
-            return countryList;
+                return countryList;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceCountries_MYSQL, Error in GetCountries";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<Int32> AddCountry(CountryItem country)
         {
-            MySqlParameter param = null;
+            try
+            {
+                MySqlParameter param = null;
 
-            MySqlCommand cmd = new MySqlCommand("AddCountry", _connection);
-            cmd.CommandType = CommandType.StoredProcedure;
+                MySqlCommand cmd = new MySqlCommand("AddCountry", _connection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            param = cmd.Parameters.Add("var_Country", MySqlDbType.VarString, 50);
-            param.Value = country.Country;
+                param = cmd.Parameters.Add("var_Country", MySqlDbType.VarString, 50);
+                param.Value = country.Country;
 
-            param = cmd.Parameters.Add("var_Abbreviation", MySqlDbType.VarString, 10);
-            param.Value = country.Abbreviation;
+                param = cmd.Parameters.Add("var_Abbreviation", MySqlDbType.VarString, 10);
+                param.Value = country.Abbreviation;
 
-            param = cmd.Parameters.Add("var_FlagPath", MySqlDbType.VarString, 200);
-            param.Value = country.FlagPath;
+                param = cmd.Parameters.Add("var_FlagPath", MySqlDbType.VarString, 200);
+                param.Value = country.FlagPath;
 
 
-            param = cmd.Parameters.Add("var_ID", MySqlDbType.Int32);
-            param.Direction = ParameterDirection.Output;
+                param = cmd.Parameters.Add("var_ID", MySqlDbType.Int32);
+                param.Direction = ParameterDirection.Output;
 
-            await cmd.ExecuteNonQueryAsync();
+                await cmd.ExecuteNonQueryAsync();
 
-            country.CountryId = (int)param.Value;
+                country.CountryId = (int)param.Value;
 
-            return country.CountryId;
+                return country.CountryId;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceCountries_MYSQL, Error in AddCountry";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task UpdateCountries(ObservableCollection<CountryItem> countries)
         {
-            listCountriesDatabase = countries;
-            listWorldCountriesXML = new CountryCollection(Global.WorldCountriesFile);
-
-            DirectoryInfo di = new DirectoryInfo(Global.FlagsPath);
-            FileInfo[] files = di.GetFiles("*.gif");
-            if (files.Length > 0)
+            try
             {
-                for (int i = 0; i < listCountriesDatabase.Count; i++)
+                listCountriesDatabase = countries;
+                listWorldCountriesXML = new CountryCollection(Global.WorldCountriesFile);
+
+                DirectoryInfo di = new DirectoryInfo(Global.FlagsPath);
+                FileInfo[] files = di.GetFiles("*.gif");
+                if (files.Length > 0)
                 {
-                    CountryItem country = (CountryItem)listCountriesDatabase[i];
-
-                    if (String.IsNullOrEmpty(country.Abbreviation) == true)
+                    for (int i = 0; i < listCountriesDatabase.Count; i++)
                     {
-                        // Get abbreviation from world.xml file
-                        country.Abbreviation = listWorldCountriesXML.GetAbbreviation(country.Country);
+                        CountryItem country = (CountryItem)listCountriesDatabase[i];
 
-                        String flagFilename = Global.FlagsPath + "\\" + country.Abbreviation + ".gif";
-
-                        foreach (FileInfo file in files)
+                        if (String.IsNullOrEmpty(country.Abbreviation) == true)
                         {
-                            if (String.Compare(file.FullName, flagFilename, StringComparison.InvariantCultureIgnoreCase) == 0)
+                            // Get abbreviation from world.xml file
+                            country.Abbreviation = listWorldCountriesXML.GetAbbreviation(country.Country);
+
+                            String flagFilename = Global.FlagsPath + "\\" + country.Abbreviation + ".gif";
+
+                            foreach (FileInfo file in files)
                             {
-                                country.FlagPath = flagFilename;
+                                if (String.Compare(file.FullName, flagFilename, StringComparison.InvariantCultureIgnoreCase) == 0)
+                                {
+                                    country.FlagPath = flagFilename;
+                                }
                             }
+
+                            await AddCountry(country);
                         }
 
-                        await AddCountry(country);
                     }
-
                 }
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceCountries_MYSQL, Error in UpdateCountries";
+                throw new DatabaseLayerException(errorMessage, Err);
             }
         }
         public void ChangeDatabase(ConnectionInfo conInfo)

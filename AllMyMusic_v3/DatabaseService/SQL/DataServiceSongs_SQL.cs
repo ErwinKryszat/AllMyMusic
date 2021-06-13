@@ -49,300 +49,405 @@ namespace AllMyMusic.DataService
         #region Public
         public async Task<int> AddSong(SongItem song)
         {
-            Int32 SongId = -1;
-
-            SqlCommand cmd = new SqlCommand("AddSong", _connection);
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlParameter param;
-
-            // When adding songs to the database, add 5s so other tasks can complete writing the file and we not think its new the next time we find it
-            song.DateAdded = DateTime.Now.AddSeconds(5);
-
-            // Add the Song ********************************************
-            param = cmd.Parameters.Add("@IDSong", SqlDbType.Int);
-            param.Value = song.SongId;
-
-            param = cmd.Parameters.Add("@IDBand", SqlDbType.Int);
-            param.Value = song.BandId;
-
-            param = cmd.Parameters.Add("@IDAlbum", SqlDbType.Int);
-            param.Value = song.AlbumId;
-
-            param = cmd.Parameters.Add("@IDGenre", SqlDbType.Int);
-            param.Value = song.GenreId;
-
-            param = cmd.Parameters.Add("@IDLanguage", SqlDbType.Int);
-            param.Value = song.LanguageId;
-
-            param = cmd.Parameters.Add("@IDCountry", SqlDbType.Int);
-            param.Value = song.CountryId;
-
-            param = cmd.Parameters.Add("@IDComposer", SqlDbType.Int);
-            param.Value = song.ComposerId;
-
-            param = cmd.Parameters.Add("@IDConductor", SqlDbType.Int);
-            param.Value = song.ConductorId;
-
-            param = cmd.Parameters.Add("@IDLeadPerformer", SqlDbType.Int);
-            param.Value = song.LeadPerformerId;
-
-            param = cmd.Parameters.Add("@SongTitle", SqlDbType.NVarChar, 100);
-            param.Value = song.SongTitle.Substring(0, Math.Min(song.SongTitle.Length, 100));
-
-            param = cmd.Parameters.Add("@Path", SqlDbType.NVarChar, 250);
-            param.Value = song.SongPath;
-
-            param = cmd.Parameters.Add("@Filename", SqlDbType.NVarChar, 250);
-            param.Value = song.SongFilename;
-
-            param = cmd.Parameters.Add("@Language", SqlDbType.NVarChar, 50);
-            param.Value = song.Language;
-
-            param = cmd.Parameters.Add("@Country", SqlDbType.NVarChar, 50);
-            param.Value = song.Country;
-
-            param = cmd.Parameters.Add("@Track", SqlDbType.Int);
-            if (String.IsNullOrEmpty(song.Track) == true)
+            try
             {
-                param.Value = -1;
+                Int32 SongId = -1;
+
+                SqlCommand cmd = new SqlCommand("AddSong", _connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter param;
+
+                // When adding songs to the database, add 5s so other tasks can complete writing the file and we not think its new the next time we find it
+                song.DateAdded = DateTime.Now.AddSeconds(5);
+
+                // Add the Song ********************************************
+                param = cmd.Parameters.Add("@IDSong", SqlDbType.Int);
+                param.Value = song.SongId;
+
+                param = cmd.Parameters.Add("@IDBand", SqlDbType.Int);
+                param.Value = song.BandId;
+
+                param = cmd.Parameters.Add("@IDAlbum", SqlDbType.Int);
+                param.Value = song.AlbumId;
+
+                param = cmd.Parameters.Add("@IDGenre", SqlDbType.Int);
+                param.Value = song.GenreId;
+
+                param = cmd.Parameters.Add("@IDLanguage", SqlDbType.Int);
+                param.Value = song.LanguageId;
+
+                param = cmd.Parameters.Add("@IDCountry", SqlDbType.Int);
+                param.Value = song.CountryId;
+
+                param = cmd.Parameters.Add("@IDComposer", SqlDbType.Int);
+                param.Value = song.ComposerId;
+
+                param = cmd.Parameters.Add("@IDConductor", SqlDbType.Int);
+                param.Value = song.ConductorId;
+
+                param = cmd.Parameters.Add("@IDLeadPerformer", SqlDbType.Int);
+                param.Value = song.LeadPerformerId;
+
+                param = cmd.Parameters.Add("@SongTitle", SqlDbType.NVarChar, 100);
+                param.Value = song.SongTitle.Substring(0, Math.Min(song.SongTitle.Length, 100));
+
+                param = cmd.Parameters.Add("@Path", SqlDbType.NVarChar, 250);
+                param.Value = song.SongPath;
+
+                param = cmd.Parameters.Add("@Filename", SqlDbType.NVarChar, 250);
+                param.Value = song.SongFilename;
+
+                param = cmd.Parameters.Add("@Language", SqlDbType.NVarChar, 50);
+                param.Value = song.Language;
+
+                param = cmd.Parameters.Add("@Country", SqlDbType.NVarChar, 50);
+                param.Value = song.Country;
+
+                param = cmd.Parameters.Add("@Track", SqlDbType.Int);
+                if (String.IsNullOrEmpty(song.Track) == true)
+                {
+                    param.Value = -1;
+                }
+                else
+                {
+                    param.Value = Convert.ToInt32(song.Track);
+                }
+
+
+                param = cmd.Parameters.Add("@Rating", SqlDbType.Int);
+                param.Value = song.Rating;
+
+                param = cmd.Parameters.Add("@Genre", SqlDbType.NVarChar, 50);
+                param.Value = song.Genre.Substring(0, Math.Min(song.Genre.Length, 50));
+
+                param = cmd.Parameters.Add("@LengthInteger", SqlDbType.Int);
+                param.Value = song.Seconds;
+
+                param = cmd.Parameters.Add("@LengthString", SqlDbType.NVarChar, 8);
+                param.Value = song.Duration;
+
+                param = cmd.Parameters.Add("@BitRate", SqlDbType.Int);
+                param.Value = song.Bitrate;
+
+                param = cmd.Parameters.Add("@SampleRate", SqlDbType.Int);
+                param.Value = song.SampleRate;
+
+                param = cmd.Parameters.Add("@CBR_VBR", SqlDbType.Int);
+                param.Value = (Int32)song.BitrateType;
+
+                param = cmd.Parameters.Add("@ComposerName", SqlDbType.NVarChar, 100);
+                param.Value = song.ComposerName.Substring(0, Math.Min(song.ComposerName.Length, 100));
+
+                param = cmd.Parameters.Add("@ConductorName", SqlDbType.NVarChar, 100);
+                param.Value = song.ConductorName.Substring(0, Math.Min(song.ConductorName.Length, 100));
+
+                param = cmd.Parameters.Add("@LeadPerformerName", SqlDbType.NVarChar, 100);
+                param.Value = song.LeadPerformer.Substring(0, Math.Min(song.LeadPerformer.Length, 100));
+
+                param = cmd.Parameters.Add("@VA_Flag", SqlDbType.Int);
+                param.Value = (Int32)song.ArtistType;
+
+                param = cmd.Parameters.Add("@DateAdded", SqlDbType.DateTime);
+                if (song.DateAdded != DateTime.MinValue)
+                {
+                    param.Value = (DateTime)song.DateAdded;
+                }
+                else
+                {
+                    param.Value = new DateTime(1900, 1, 1);
+                }
+
+                param = cmd.Parameters.Add("@DatePlayed", SqlDbType.DateTime);
+                if (song.DatePlayed != DateTime.MinValue)
+                {
+                    param.Value = (DateTime)song.DatePlayed;
+                }
+                else
+                {
+                    param.Value = new DateTime(1900, 1, 1);
+                }
+
+
+                param = cmd.Parameters.Add("@Comment", SqlDbType.NVarChar, 250);
+                param.Value = song.Comment.Substring(0, Math.Min(song.Comment.Length, 250));
+
+                param = cmd.Parameters.Add("@WebsiteUser", SqlDbType.NVarChar, 250);
+                param.Value = song.WebsiteUser.Substring(0, Math.Min(song.WebsiteUser.Length, 250));
+
+                param = cmd.Parameters.Add("@WebsiteArtist", SqlDbType.NVarChar, 250);
+                param.Value = song.WebsiteArtist.Substring(0, Math.Min(song.WebsiteArtist.Length, 100));
+
+
+                param = cmd.Parameters.Add("@ID", SqlDbType.Int);
+                param.Direction = ParameterDirection.Output;
+
+                await cmd.ExecuteNonQueryAsync();
+
+                SongId = (Int32)param.Value;
+
+                return SongId;
             }
-            else
+            catch (Exception Err)
             {
-                param.Value = Convert.ToInt32(song.Track);
+                String errorMessage = "DataServiceSongs_SQL, Error in AddSong";
+                throw new DatabaseLayerException(errorMessage, Err);
             }
-
-
-            param = cmd.Parameters.Add("@Rating", SqlDbType.Int);
-            param.Value = song.Rating;
-
-            param = cmd.Parameters.Add("@Genre", SqlDbType.NVarChar, 50);
-            param.Value = song.Genre.Substring(0, Math.Min(song.Genre.Length, 50));
-
-            param = cmd.Parameters.Add("@LengthInteger", SqlDbType.Int);
-            param.Value = song.Seconds;
-
-            param = cmd.Parameters.Add("@LengthString", SqlDbType.NVarChar, 8);
-            param.Value = song.Duration;
-
-            param = cmd.Parameters.Add("@BitRate", SqlDbType.Int);
-            param.Value = song.Bitrate;
-
-            param = cmd.Parameters.Add("@SampleRate", SqlDbType.Int);
-            param.Value = song.SampleRate;
-
-            param = cmd.Parameters.Add("@CBR_VBR", SqlDbType.Int);
-            param.Value = (Int32)song.BitrateType;
-
-            param = cmd.Parameters.Add("@ComposerName", SqlDbType.NVarChar, 100);
-            param.Value = song.ComposerName.Substring(0, Math.Min(song.ComposerName.Length, 100));
-
-            param = cmd.Parameters.Add("@ConductorName", SqlDbType.NVarChar, 100);
-            param.Value = song.ConductorName.Substring(0, Math.Min(song.ConductorName.Length, 100));
-
-            param = cmd.Parameters.Add("@LeadPerformerName", SqlDbType.NVarChar, 100);
-            param.Value = song.LeadPerformer.Substring(0, Math.Min(song.LeadPerformer.Length, 100));
-
-            param = cmd.Parameters.Add("@VA_Flag", SqlDbType.Int);
-            param.Value = (Int32)song.ArtistType;
-
-            param = cmd.Parameters.Add("@DateAdded", SqlDbType.DateTime);
-            if (song.DateAdded != DateTime.MinValue)
-            {
-                param.Value = (DateTime)song.DateAdded;
-            }
-            else
-            {
-                param.Value = new DateTime(1900, 1, 1);
-            }
-
-            param = cmd.Parameters.Add("@DatePlayed", SqlDbType.DateTime);
-            if (song.DatePlayed != DateTime.MinValue)
-            {
-                param.Value = (DateTime)song.DatePlayed;
-            }
-            else
-            {
-                param.Value = new DateTime(1900, 1, 1);
-            }
-
-
-            param = cmd.Parameters.Add("@Comment", SqlDbType.NVarChar, 250);
-            param.Value = song.Comment.Substring(0, Math.Min(song.Comment.Length, 250));
-
-            param = cmd.Parameters.Add("@WebsiteUser", SqlDbType.NVarChar, 250);
-            param.Value = song.WebsiteUser.Substring(0, Math.Min(song.WebsiteUser.Length, 250));
-
-            param = cmd.Parameters.Add("@WebsiteArtist", SqlDbType.NVarChar, 250);
-            param.Value = song.WebsiteArtist.Substring(0, Math.Min(song.WebsiteArtist.Length, 100));
-
-
-            param = cmd.Parameters.Add("@ID", SqlDbType.Int);
-            param.Direction = ParameterDirection.Output;
-
-            await cmd.ExecuteNonQueryAsync();
-
-            SongId = (Int32)param.Value;
-
-            return SongId;
         }
         public async Task<SongItem> GetSong(Int32 songID)
         {
-            SongItem song = new SongItem();
-            String strSQL = "SELECT * FROM viewSongs WHERE IDSong = " + songID.ToString(); ;
-            SqlCommand cmd = new SqlCommand(strSQL, _connection);
-            cmd.CommandType = CommandType.Text;
-            SqlDataReader reader = await cmd.ExecuteReaderAsync();
-
-            reader.Read();
-            if (reader.HasRows)
+            try
             {
-                song = ReadSongDB(reader);
-            }
-            reader.Close();
+                SongItem song = new SongItem();
+                String strSQL = "SELECT * FROM viewSongs WHERE IDSong = " + songID.ToString(); ;
+                SqlCommand cmd = new SqlCommand(strSQL, _connection);
+                cmd.CommandType = CommandType.Text;
+                SqlDataReader reader = await cmd.ExecuteReaderAsync();
 
-            return song;
+                reader.Read();
+                if (reader.HasRows)
+                {
+                    song = ReadSongDB(reader);
+                }
+                reader.Close();
+
+                return song;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceSongs_SQL, Error in GetSong";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<SongItem> GetSongByPath(String songPath)
         {
-            SongItem song = new SongItem();
-            SqlParameter sqlParam = new SqlParameter("@FullPath", SqlDbType.NVarChar);
-            sqlParam.Value = songPath;
-
-            String strSQL = QueryBuilderSongs.FullPath();
-
-            SqlCommand cmd = new SqlCommand(strSQL, _connection);
-            cmd.Parameters.Add(sqlParam);
-            cmd.CommandType = CommandType.Text;
-
-            SqlDataReader reader = await cmd.ExecuteReaderAsync();
-            reader.Read();
-            if (reader.HasRows)
+            try
             {
-                song = ReadSongDB(reader);
-            }
-            
-            reader.Close();
+                SongItem song = new SongItem();
+                SqlParameter sqlParam = new SqlParameter("@FullPath", SqlDbType.NVarChar);
+                sqlParam.Value = songPath;
 
-            return song;
+                String strSQL = QueryBuilderSongs.FullPath();
+
+                SqlCommand cmd = new SqlCommand(strSQL, _connection);
+                cmd.Parameters.Add(sqlParam);
+                cmd.CommandType = CommandType.Text;
+
+                SqlDataReader reader = await cmd.ExecuteReaderAsync();
+                reader.Read();
+                if (reader.HasRows)
+                {
+                    song = ReadSongDB(reader);
+                }
+
+                reader.Close();
+
+                return song;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceSongs_SQL, Error in GetSongByPath";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<SongItem>> GetSongs(BandItem band)
         {
-            String strSQL = QueryBuilderSongs.SongsByBand(band.BandId);
-            ObservableCollection<SongItem> songs = await GetSongs(strSQL, null);
-            
-            return songs;
+            try
+            {
+                String strSQL = QueryBuilderSongs.SongsByBand(band.BandId);
+                ObservableCollection<SongItem> songs = await GetSongs(strSQL, null);
+
+                return songs;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceSongs_SQL, Error in GetSongs";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<SongItem>> GetSongs(AlbumItem album)
         {
-            String strSQL = QueryBuilderSongs.SongsByAlbum(album.AlbumId);
-            ObservableCollection<SongItem> songs = await GetSongs(strSQL, null);
-            return songs;
+            try
+            {
+                String strSQL = QueryBuilderSongs.SongsByAlbum(album.AlbumId);
+                ObservableCollection<SongItem> songs = await GetSongs(strSQL, null);
+                return songs;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceSongs_SQL, Error in GetSongs";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<SongItem>> GetSongs(AlbumGenreItem albumGenre)
         {
-            String strSQL = QueryBuilderSongs.AlbumGenreVA(albumGenre.AlbumGenreId);
-            ObservableCollection<SongItem> songs = await GetSongs(strSQL, null);
-            return songs;
+            try
+            {
+                String strSQL = QueryBuilderSongs.AlbumGenreVA(albumGenre.AlbumGenreId);
+                ObservableCollection<SongItem> songs = await GetSongs(strSQL, null);
+                return songs;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceSongs_SQL, Error in GetSongs";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<SongItem>> GetSongs(ObservableCollection<String> playList)
         {
-            ObservableCollection<SongItem> songs = new ObservableCollection<SongItem>();
-
-            for (int i = 0; i < playList.Count; i++)
+            try
             {
-                String strSQL = QueryBuilderSongs.FullPath();
-                SqlParameter searchParam = new SqlParameter("@FullPath", SqlDbType.NVarChar);
-                searchParam.Value = playList[i];
-                SongItem song = await GetSongDB(strSQL, searchParam);
-                if (song != null)
+                ObservableCollection<SongItem> songs = new ObservableCollection<SongItem>();
+
+                for (int i = 0; i < playList.Count; i++)
                 {
-                    songs.Add(song);
+                    String strSQL = QueryBuilderSongs.FullPath();
+                    SqlParameter searchParam = new SqlParameter("@FullPath", SqlDbType.NVarChar);
+                    searchParam.Value = playList[i];
+                    SongItem song = await GetSongDB(strSQL, searchParam);
+                    if (song != null)
+                    {
+                        songs.Add(song);
+                    }
                 }
+                return songs;
             }
-            return songs;
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceSongs_SQL, Error in GetSongs";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<SongItem>> GetSongs(String strSQL)
         {
-            ObservableCollection<SongItem> songs = await GetSongs(strSQL, null);
-            return songs;
+            try
+            {
+
+                ObservableCollection<SongItem> songs = await GetSongs(strSQL, null);
+                return songs;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceSongs_SQL, Error in GetSongs";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<SongItem>> GetSongsByPathPart(String albumPath)
         {
-            SqlParameter sqlParam = new SqlParameter("@PathPart", SqlDbType.NVarChar);
-            sqlParam.Value = albumPath;
+            try
+            {
+                SqlParameter sqlParam = new SqlParameter("@PathPart", SqlDbType.NVarChar);
+                sqlParam.Value = albumPath;
 
-            String strSQL = QueryBuilderSongs.Folder();
+                String strSQL = QueryBuilderSongs.Folder();
 
-            ObservableCollection<SongItem> songs = await GetSongs(strSQL, sqlParam);
-            return songs;
+                ObservableCollection<SongItem> songs = await GetSongs(strSQL, sqlParam);
+                return songs;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceSongs_SQL, Error in GetSongsByPathPart";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
 
         private async Task<ObservableCollection<SongItem>> GetSongs(String strSQL, SqlParameter sqlParam)
         {
-            ObservableCollection<SongItem> songs = new ObservableCollection<SongItem>();
-
-            SqlCommand cmd = new SqlCommand(strSQL, _connection);
-
-            if (sqlParam != null)
+            try
             {
-                cmd.Parameters.Add(sqlParam);
-            }
+                ObservableCollection<SongItem> songs = new ObservableCollection<SongItem>();
 
-            cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand(strSQL, _connection);
 
-            SqlDataReader reader = await cmd.ExecuteReaderAsync();
-            if (reader.HasRows)
-            {
-                while (reader.Read())
+                if (sqlParam != null)
                 {
-                    SongItem song = ReadSongDB(reader);
-                    songs.Add(song);
+                    cmd.Parameters.Add(sqlParam);
                 }
-            }
-            reader.Close();
 
-            return songs;
+                cmd.CommandType = CommandType.Text;
+
+                SqlDataReader reader = await cmd.ExecuteReaderAsync();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        SongItem song = ReadSongDB(reader);
+                        songs.Add(song);
+                    }
+                }
+                reader.Close();
+
+                return songs;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceSongs_SQL, Error in GetSongs";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         private async Task<ObservableCollection<SongItem>> GetSongs(String strSQL, SqlParameter sqlParam, ObservableCollection<SongItem> songs)
         {
-            SqlCommand cmd = new SqlCommand(strSQL, _connection);
-
-            if (sqlParam != null)
+            try
             {
-                cmd.Parameters.Add(sqlParam);
-            }
+                SqlCommand cmd = new SqlCommand(strSQL, _connection);
 
-            cmd.CommandType = CommandType.Text;
-
-            SqlDataReader reader = await cmd.ExecuteReaderAsync();
-            if (reader.HasRows)
-            {
-                while (reader.Read())
+                if (sqlParam != null)
                 {
-                    SongItem song = ReadSongDB(reader);
-                    songs.Add(song);
+                    cmd.Parameters.Add(sqlParam);
                 }
-            }
-            reader.Close();
 
-            return songs;
+                cmd.CommandType = CommandType.Text;
+
+                SqlDataReader reader = await cmd.ExecuteReaderAsync();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        SongItem song = ReadSongDB(reader);
+                        songs.Add(song);
+                    }
+                }
+                reader.Close();
+
+                return songs;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceSongs_SQL, Error in GetSongs";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
 
         public async Task<ObservableCollection<SongItem>> SearchSongs(String searchString)
         {
-            String strSQL = QueryBuilderSongs.SearchSongs();
-            SqlParameter searchParam = new SqlParameter("@Name", SqlDbType.NVarChar);
-            searchParam.Value = searchString;
+            try
+            {
+                String strSQL = QueryBuilderSongs.SearchSongs();
+                SqlParameter searchParam = new SqlParameter("@Name", SqlDbType.NVarChar);
+                searchParam.Value = searchString;
 
-            ObservableCollection<SongItem> songs = await GetSongs(strSQL, searchParam);
-            return songs;
+                ObservableCollection<SongItem> songs = await GetSongs(strSQL, searchParam);
+                return songs;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceSongs_SQL, Error in SearchSongs";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
         public async Task<ObservableCollection<SongItem>> GetSongsByCondition(String condition)
         {
-            String strSQL = QueryBuilderSongs.SongsByCondition(condition);
+            try
+            {
+                String strSQL = QueryBuilderSongs.SongsByCondition(condition);
 
-            ObservableCollection<SongItem> songs = await GetSongs(strSQL);
-            return songs;
+                ObservableCollection<SongItem> songs = await GetSongs(strSQL);
+                return songs;
+            }
+            catch (Exception Err)
+            {
+                String errorMessage = "DataServiceSongs_SQL, Error in GetSongsByCondition";
+                throw new DatabaseLayerException(errorMessage, Err);
+            }
         }
 
 

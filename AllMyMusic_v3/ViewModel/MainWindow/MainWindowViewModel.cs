@@ -257,6 +257,7 @@ namespace AllMyMusic.ViewModel
                 _vmDatabases.SelectedServerTypeChanged += new DatabasesViewModel.ServerTypeChangedEventHandler(ServerTypeChanged);
                 _vmDatabases.DatabaseChanged += new DatabasesViewModel.DatabaseChangedEventHandler(DatabaseChanged);
                 _vmDatabases.DatabasePurged += new DatabasesViewModel.DatabaseChangedEventHandler(DatabasePurged);
+                _vmDatabases.GetStatistics();
             }
             catch (Exception Err)
             {
@@ -443,6 +444,7 @@ namespace AllMyMusic.ViewModel
             ClearView();
 
             _conInfo = e.DbConInfo;
+            _vmDatabases.GetStatistics();
             _vmToolbar.ChangeDatabase(e.DbConInfo);
             _vmBands.ChangeDatabase(e.DbConInfo);
             _vmAlbums.ChangeDatabase(e.DbConInfo);
@@ -510,6 +512,7 @@ namespace AllMyMusic.ViewModel
         private void DatabasePurged(object sender, ConnectionInfoEventArgs e)
         {
             _vmToolbar.Initialize();
+            _vmDatabases.GetStatistics();
             ClearView();
         }
 
@@ -534,6 +537,8 @@ namespace AllMyMusic.ViewModel
         }
         private async Task RefreshView()
         {
+            _vmDatabases.GetStatistics();
+
             if (CurrentViewModel is BandListViewModel)
             {
                 try
