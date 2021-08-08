@@ -655,7 +655,8 @@ namespace AllMyMusic.ViewModel
             }
             else
             {
-                return @".\SQLEXPRESS";
+                String suggestedServerName = String.Format(@".\SQLEXPRESS or {0}", Environment.MachineName);
+                return suggestedServerName;
             }
         }
         private void ConnectDatabase(String _databaseName)
@@ -741,7 +742,17 @@ namespace AllMyMusic.ViewModel
         #region Connections ViewModel Properties
         public ConnectionInfo DatabaseConnectionInformation
         {
-            get { return _databasesServerManagement.DatabaseConnectionInformation; }
+            get 
+            {
+                if (_databasesServerManagement != null)
+                {
+                    return _databasesServerManagement.DatabaseConnectionInformation;
+                }
+                else
+                {
+                    return null;
+                }
+            }
             set
             {
                 if (value == _databasesServerManagement.DatabaseConnectionInformation)

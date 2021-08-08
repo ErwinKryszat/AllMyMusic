@@ -174,7 +174,12 @@ namespace AllMyMusic.DataService
             }
             catch (Exception Err)
             {
+                // Check SQL Browser Service is running
+                // Check SQL Server allows remote connections
+
                 String errorMessage = "Could not connect database: " + dbCI.DatabaseName;
+                errorMessage += "\nCheck SQL Browser Service is running";
+                errorMessage += "\nCheck SQL Server allows remote connections";
                 ShowError.ShowAndLog(Err, errorMessage, 1002);
             }
 

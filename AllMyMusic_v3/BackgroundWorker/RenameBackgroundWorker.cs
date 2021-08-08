@@ -216,9 +216,13 @@ namespace AllMyMusic
 
                 for (int i = 0; i < destinationPathArray.Length; i++)
                 {
-                    DestinationPathSB.Append(destinationPathArray[i]);
-                    DestinationPathSB.Append("\\");
-
+                    String dp = DestinationPathSB.ToString();
+                    if (dp.IndexOf(destinationPathArray[i]) == -1)
+                    {
+                        DestinationPathSB.Append(destinationPathArray[i]);
+                        DestinationPathSB.Append("\\");
+                    }
+                    
                     if (Directory.Exists(DestinationPathSB.ToString()) == false)
                     {
                         FileSystemTool.CreateDirectory(DestinationPathSB.ToString());

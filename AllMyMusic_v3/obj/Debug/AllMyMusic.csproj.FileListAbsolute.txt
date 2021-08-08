@@ -163,4 +163,3 @@ D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\AllMyMusic.exe
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\AllMyMusic.pdb
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\View\Database\viewDatabaseStatistics.baml
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\View\Database\viewDatabaseStatistics.g.cs
-D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\AllMyMusic.csprojAssemblyReference.cache
