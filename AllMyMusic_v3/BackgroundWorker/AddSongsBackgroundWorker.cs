@@ -148,6 +148,16 @@ namespace AllMyMusic
                             song = mp3Metaedit.ReadMetadata();
                             if (song != null)
                             {
+                                if (String.IsNullOrEmpty(song.AlbumName) == true)
+                                {
+                                    String[] directoryNames = song.SongPath.Split('\\');
+                                    song.AlbumName = directoryNames[directoryNames.Length - 2];
+
+                                    ChangedPropertiesList changedProperties = new ChangedPropertiesList();
+                                    changedProperties.Add("AlbumName", song.AlbumName);
+                                    mp3Metaedit.UpdateMetadata(changedProperties);
+                                }
+
                                 if ((mp3Metaedit.BitrateType == BitrateType.VBR) && (mp3Metaedit.TLEN_Exists() == false))
                                 {
                                     ChangedPropertiesList changedProperties = new ChangedPropertiesList();

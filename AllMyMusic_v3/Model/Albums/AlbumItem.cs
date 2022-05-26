@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
 using System.Windows.Media.Imaging;
 using System.ComponentModel;
+
+using System.IO;
 
 namespace AllMyMusic
 {

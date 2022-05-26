@@ -154,7 +154,6 @@ D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Release\nl-NL\AllMyMusic.resources.dl
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Release\pl-PL\AllMyMusic.resources.dll
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Release\AllMyMusic.exe
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Release\AllMyMusic.pdb
-D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Release\AllMyMusic.csprojAssemblyReference.cache
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Release\MySql.Data.dll
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Release\Google.Protobuf.dll
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Release\BouncyCastle.Crypto.dll
@@ -162,3 +161,6 @@ D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Release\Renci.SshNet.dll
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Release\MySql.Data.xml
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Release\AllMyMusic.csproj.CoreCompileInputs.cache
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Release\AllMyMusic.csproj.CopyComplete
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Release\AllMyMusic.csproj.AssemblyReference.cache
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Release\View\Database\viewDatabaseStatistics.baml
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Release\View\Database\viewDatabaseStatistics.g.cs
