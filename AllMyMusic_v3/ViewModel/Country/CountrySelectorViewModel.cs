@@ -158,6 +158,7 @@ namespace AllMyMusic.ViewModel
         #region Constructor
         public CountrySelectorViewModel(CountryItem country)
         {
+            _selectedCountry = country;
             LoadInternationalCountryNames(country);
 
             Localize();

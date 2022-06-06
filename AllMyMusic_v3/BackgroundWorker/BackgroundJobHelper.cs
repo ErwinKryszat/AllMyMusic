@@ -171,6 +171,8 @@ namespace AllMyMusic
             ObservableCollection<CountryItem> _countries = await _dataServiceCountries.GetCountries();
             await _dataServiceCountries.UpdateCountries(_countries);
         }
+
+
         public void Close()
         {
             if (_dataServiceSongs != null)

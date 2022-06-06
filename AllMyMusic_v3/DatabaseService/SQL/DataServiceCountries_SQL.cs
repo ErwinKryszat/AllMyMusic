@@ -277,6 +277,21 @@ namespace AllMyMusic.DataService
             }
         }
 
+        private ObservableCollection<CountryItem> CollectCountryFlagImages(ObservableCollection<CountryItem> countries)
+        {
+            for (int i = 0; i < countries.Count; i++)
+            {
+                if (String.IsNullOrEmpty(countries[i].FlagPath) == true)
+                {
+                    String flagPath = Path.Combine(Global.FlagsPath, countries[i].Abbreviation + ".gif");
+                    if (File.Exists(flagPath) == true)
+                    {
+                        countries[i].FlagPath = flagPath;
+                    }
+                }
+            }
+            return countries;
+        }
         public void ChangeDatabase(ConnectionInfo conInfo)
         {
             Close();
