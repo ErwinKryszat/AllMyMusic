@@ -24,7 +24,7 @@
 
     </UserControl.Resources>
 
-    <r:Ribbon  x:Name="mainRibbon" 
+    <r:Ribbon  x:Name="mainRibbon"                
                SelectedIndex="{Binding Path=TabIndex}" 
                DockPanel.Dock="Top" 
                Background="LightSteelBlue">

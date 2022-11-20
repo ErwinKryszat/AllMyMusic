@@ -163,4 +163,14 @@ D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\AllMyMusic.exe
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\AllMyMusic.pdb
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\View\Database\viewDatabaseStatistics.baml
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\View\Database\viewDatabaseStatistics.g.cs
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Debug\Zstandard.Net.dll
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Debug\Ubiety.Dns.Core.dll
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Debug\System.Memory.dll
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Debug\System.Buffers.dll
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Debug\K4os.Compression.LZ4.dll
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Debug\K4os.Hash.xxHash.dll
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Debug\System.Numerics.Vectors.dll
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\AllMyMusic.exe.config
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Debug\AllMyMusic.csproj.AssemblyReference.cache

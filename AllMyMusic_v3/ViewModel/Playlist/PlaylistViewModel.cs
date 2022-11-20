@@ -266,10 +266,9 @@ namespace AllMyMusic.ViewModel
             {
                 _randomize = value;
 
-                RandomizeSongs();
-
                 if (_randomize == true)
                 {
+                    _randomizedSongs = new ObservableCollection<SongItem>(_nonRandomizedSongs.OrderBy(a => a.SongGuid));
                     _allSongItemCollection = _randomizedSongs;
                     _indexCurrentSong = IndexOfSongRandomized(_song);
                 }
@@ -424,9 +423,6 @@ namespace AllMyMusic.ViewModel
                     _randomizedSongs = args.Songs;
                     break;
             }
-            
-            LoadPageOfSongItems();
-
             _playlistChanged = true;
         }
 
@@ -516,16 +512,9 @@ namespace AllMyMusic.ViewModel
             RaisePropertyChanged("Pager");
 
             RaisePropertyChanged("AllAlbumItemCollection");
-
             Load_PageSongItemCollection();
         }
-        private void RandomizeSongs()
-        {
-            if (_randomize == true)
-            {
-                _randomizedSongs = new ObservableCollection<SongItem>(_nonRandomizedSongs.OrderBy(a => a.SongGuid));
-            }
-        }
+
         private async Task ReplaceSongs(ObservableCollection<SongItem> songs)
         {
             await Task.Run(() =>
@@ -553,10 +542,10 @@ namespace AllMyMusic.ViewModel
                     OnTryOverwritedLockedPlaylist(this, args);
                 }
 
-                RandomizeSongs();
 
-                if (_randomize)
+                if (_randomize == true)
                 {
+                    _randomizedSongs = new ObservableCollection<SongItem>(_nonRandomizedSongs.OrderBy(a => a.SongGuid));
                     _allSongItemCollection = _randomizedSongs;
                 }
                 else
@@ -904,7 +893,7 @@ namespace AllMyMusic.ViewModel
         private void Background_LoadPage(CancellationToken ct, ObservableCollection<SongItem> songs)
         {
             LoadPageItems(ct, songs);
-            LoadCoverImages(ct);
+            //LoadCoverImages(ct);
         }
         private void LoadPageItems(CancellationToken ct, ObservableCollection<SongItem> songs)
         {
@@ -921,27 +910,28 @@ namespace AllMyMusic.ViewModel
                 itemList.Add(songs[i]);
                 itemsAddedCounter++;
 
-                if (itemsAddedCounter >= updateFrequency)
-                {
-                    itemsAddedCounter = 0;
-                    PageSongItemCollection = itemList;
-                }
+                //if (itemsAddedCounter >= updateFrequency)
+                //{
+                //    itemsAddedCounter = 0;
+                //    PageSongItemCollection = itemList;
+                //}
             }
+            LoadCoverImages(ct, itemList);
             PageSongItemCollection = itemList;
         }
-        private void LoadCoverImages(CancellationToken ct)
+        private void LoadCoverImages(CancellationToken ct, ObservableCollection<SongItem> itemList)
         {
             Int32 updateFrequency = 50;
             Int32 itemsProcessedCounter = 0;
 
-            for (int i = 0; i < _pageSongItemCollection.Count; i++)
+            for (int i = 0; i < itemList.Count; i++)
             {
                 if (ct.IsCancellationRequested == true)
                 {
                     break;
                 }
 
-                SongItem song = _pageSongItemCollection[i];
+                SongItem song = itemList[i];
                 String imagePath = song.StampImageFullpath;
 
                 if ((File.Exists(imagePath) == true) && (song.StampImage == null))
@@ -989,11 +979,8 @@ namespace AllMyMusic.ViewModel
                 if (itemsProcessedCounter >= updateFrequency)
                 {
                     itemsProcessedCounter = 0;
-                    //RaisePropertyChanged("PageSongItemCollection");
                 }
-                RaisePropertyChanged("PageSongItemCollection");
             }
-            // RaisePropertyChanged("PageSongItemCollection");
         }
 
         #region Events

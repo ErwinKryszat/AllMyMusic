@@ -161,6 +161,16 @@ D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Release\Renci.SshNet.dll
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Release\MySql.Data.xml
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Release\AllMyMusic.csproj.CoreCompileInputs.cache
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Release\AllMyMusic.csproj.CopyComplete
-D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Release\AllMyMusic.csproj.AssemblyReference.cache
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Release\View\Database\viewDatabaseStatistics.baml
 D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Release\View\Database\viewDatabaseStatistics.g.cs
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Release\Zstandard.Net.dll
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Release\K4os.Compression.LZ4.Streams.dll
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Release\Ubiety.Dns.Core.dll
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Release\System.Memory.dll
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Release\System.Buffers.dll
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Release\K4os.Compression.LZ4.dll
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Release\K4os.Hash.xxHash.dll
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Release\System.Numerics.Vectors.dll
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Release\AllMyMusic.exe.config
+D:\GIT_PUBLIC\AllMyMusic\AllMyMusic_v3\obj\Release\AllMyMusic.csproj.AssemblyReference.cache

@@ -10,7 +10,7 @@
         Width="1280"
         Title="AllMyMusic v3.0"
         Loaded="Window_Loaded" Closing="Window_Closing" 
-        Icon="/AllMyMusic;component/Resources/Icons/AllMyMusic.ico">
+        Icon="/AllMyMusic;component/Resources/Icons/AllMyMusic.ico" BorderThickness="2" WindowStyle="ThreeDBorderWindow">
 
     <!--Consider using RibbonWindow to eliminate binding errors shown in output window-->
 
@@ -26,8 +26,8 @@
         </ResourceDictionary>
     </Window.Resources>
 
-    <DockPanel Background="{DynamicResource PanelBackground}">
-        <ContentPresenter Content="{Binding Path=RibbonViewModel}" DockPanel.Dock="Top"/>
+    <DockPanel Background="{DynamicResource PanelBackground}" Margin="2,22,2,2">
+        <ContentPresenter Content="{Binding Path=RibbonViewModel}" DockPanel.Dock="Top" />
         <ContentPresenter Content="{Binding Path=ToolbarViewModel}" DockPanel.Dock="Top"/>
         <ContentPresenter Content="{Binding Path=TaskQueueViewModel}" DockPanel.Dock="Bottom"/>
 

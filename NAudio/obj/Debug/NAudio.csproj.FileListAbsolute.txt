@@ -61,4 +61,3 @@ D:\GIT_PUBLIC\AllMyMusic\NAudio\obj\Debug\NAudio.csproj.GenerateResource.cache
 D:\GIT_PUBLIC\AllMyMusic\NAudio\obj\Debug\NAudio.csproj.CoreCompileInputs.cache
 D:\GIT_PUBLIC\AllMyMusic\NAudio\obj\Debug\NAudio.dll
 D:\GIT_PUBLIC\AllMyMusic\NAudio\obj\Debug\NAudio.pdb
-D:\GIT_PUBLIC\AllMyMusic\NAudio\obj\Debug\NAudio.csprojAssemblyReference.cache
